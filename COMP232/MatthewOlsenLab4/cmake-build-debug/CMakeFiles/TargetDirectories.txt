@@ -1,0 +1,3 @@
+/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab4/cmake-build-debug/CMakeFiles/MatthewOlsen4.dir
+/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab4/cmake-build-debug/CMakeFiles/edit_cache.dir

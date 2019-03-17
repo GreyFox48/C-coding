@@ -1,0 +1,1 @@
+/usr/bin/cc -m64 -g -O0 -D_DEBUG -Wall -g   CMakeFiles/struct.dir/src/struct.c.o CMakeFiles/struct.dir/src/person.c.o  -o struct 

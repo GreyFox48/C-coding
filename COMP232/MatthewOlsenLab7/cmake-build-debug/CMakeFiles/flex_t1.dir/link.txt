@@ -1,0 +1,1 @@
+/usr/bin/cc -m64 -g -O0 -D_DEBUG -Wall -g   CMakeFiles/flex_t1.dir/src/flex_t1.c.o CMakeFiles/flex_t1.dir/parser.c.o CMakeFiles/flex_t1.dir/lexer.c.o  -o flex_t1 

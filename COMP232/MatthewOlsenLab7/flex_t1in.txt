@@ -1,0 +1,7 @@
+while (0.4) do abc_1_2 = agd + 1;
+if (condition) then print hello;
+;;;;;
+(((((((
+)))
+a_1_a_b_hy_s_cd
+1_a

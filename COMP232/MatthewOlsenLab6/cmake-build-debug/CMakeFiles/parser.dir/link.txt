@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/parser.dir/src/main.c.o CMakeFiles/parser.dir/src/parser.c.o CMakeFiles/parser.dir/src/eval.c.o CMakeFiles/parser.dir/src/scanner_ad_hoc.c.o  -o parser 

@@ -1,0 +1,1 @@
+/usr/bin/cc -m64 -g -O0 -D_DEBUG -Wall -g   CMakeFiles/ptr-arg-2.dir/src/ptr-arg-2.c.o  -o ptr-arg-2 

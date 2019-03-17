@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab5/src/main.c
+scanner.h
+/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab5/src/scanner.h
+unistd.h
+-
+
+/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab5/src/scanner.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+stdbool.h
+-
+ctype.h
+-
+
+/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab5/src/scanner_transition_table.c
+scanner.h
+/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab5/src/scanner.h
+

@@ -1,0 +1,1 @@
+/usr/bin/cc -m64 -g -O0 -D_DEBUG -Wall -g   CMakeFiles/ptr-problems.dir/src/ptr-problems.c.o  -o ptr-problems 

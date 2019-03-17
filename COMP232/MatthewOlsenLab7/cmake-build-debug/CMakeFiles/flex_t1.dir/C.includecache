@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab7/src/flex_t1.c
+flex_t1.h
+/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab7/src/flex_t1.h
+
+/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab7/src/flex_t1.h
+stdio.h
+-
+

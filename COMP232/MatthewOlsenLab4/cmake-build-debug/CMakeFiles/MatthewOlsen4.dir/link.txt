@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/MatthewOlsen4.dir/src/main.c.o CMakeFiles/MatthewOlsen4.dir/src/scanner_nested_cases.c.o  -o MatthewOlsen4 

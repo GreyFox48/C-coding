@@ -1,0 +1,1 @@
+/usr/bin/cc -m64 -g -O0 -D_DEBUG -Wall -g   CMakeFiles/personnel.dir/src/main.c.o CMakeFiles/personnel.dir/src/list.c.o CMakeFiles/personnel.dir/src/person.c.o  -o personnel 

@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ptr-arg-2" type="CMakeRunConfiguration" factoryName="Application" singleton="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="c_tut" TARGET_NAME="ptr-arg-2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="c_tut" RUN_TARGET_NAME="ptr-arg-2">
+    <envs />
+    <method />
+  </configuration>
+</component>
