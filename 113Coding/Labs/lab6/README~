@@ -1,0 +1,140 @@
+Matthew Olsen
+Lab 6
+10/20/2015
+
+a) What I learned from this Lab:
+  In short, I learned how to use gdb entirely from this lab.  gdb looks to be
+a usefull tool for the upcoming labs, especially because after I had an issue
+with a single pointer from a previous lab, I know how annoying pointers can be.
+
+b) Issues and how I fixed them (bug report):
+  The insertion sort was the largest problem.  I kept finding cases after where
+the program would sort the array the wrong way.  The only solution was to of 
+course test a variety of arrays in different orders to ensure every single case
+could work.  The ability to print the array at various points became valuable
+here.  
+
+c)  Improvements that can be made
+  I could, in theory, adjust each source code file to comply with the Unix 
+kernal documentation style.  Otherwise, I cannot really adjust much in this
+particular lab.
+
+PART I:
+
+file:
+  loads executable file compilled with the -g command listed after the command
+
+backtrace:
+  lists all the functions of the program on the stack at the current moment the
+command is given.  The fucntion that is labelled 0 is at the top of the stack.
+
+backtrace full:
+  Backtrace full is like backtrace, expect it will also display the variable
+values in the stack as well at the time the command is given.  
+
+run:
+  runs the executable file, and stops when it either recieves an error or 
+encounters a break point.  Typing run a second time will cause the program
+to restart.
+
+list:
+  shows the source code of the executable file.  Just typing list will show
+the first ten lines.  Using list again will show the ten lines after, and so
+on.  To show a specific range, type list ,x to show ten lines before line x,
+list x, to start at line x, list x,y to the lines beteween x and y, and list
+"fucntion name" to shows the lines of a function.
+
+help:
+  Typing help will show you a menu of different command sections one can 
+inspect.  Typing a command name after help will show you the help information
+about that specific function.
+
+break:
+  typing break x will create a breakpoint at line x.  A breakpoint is a 
+line in code in which the gdb stops running.  Note that line x will not
+execute when run reaches line x.  Breakpoints are preserved even after
+the command run is executed again.
+
+info b:
+  Displays all the breakpoints, with their assoiciated number, line
+number, memory location, and whether they are active or not.
+
+disable/enable:
+  disables or enables a given breakpoint via the command disable (or enable) x,
+where x is the number of the breakpoint, not the line number of the breakpoint.
+
+delete:
+  Deletes a breakpoint. 
+
+watch:
+  the command watch x, where x is the name of a variable, will act like a 
+breakpoint whenever x changes value, except it will also print the old and
+new values of x.
+
+Conditional breakpoint:
+   a conditional breakpoint can be created to only stops the program from 
+running when a given condition is met.  This condition can be when a value
+equates to something or two variables equal each other. A conditional 
+breakpoint is created when the command break x if y, where x is the line
+and y is the condition to be met.  
+
+Continue:
+  After the program is stopped by a breakpoint, it can be continued to the 
+next breakpoint or error via the command continue.
+
+step:
+  the command step will execute the next line of code. step x will cause the
+program to execute the next x lines of code.  Note that step will include
+lines of code in subrutines.
+
+frame:
+  displays the current information about a frame.  The command frame x will
+display the information about frame x.
+
+kill:
+  stops the execuation of the current program.
+
+next:
+  acts like step, except will skip over subrutines.  next x will exeucte the 
+following x lines of code.
+
+PART II:
+
+bad.c:
+  The problem I found was that one of the strings was never assigned a value.
+I found the problem via gdb using breakpoints at the function calls in main to
+see which string was causing the problems.  Then I assigned the string value
+because otherwise it was tring to pass NULL.
+
+product.c:
+  This one was a little bit more challenging.  The problem lied in how the 
+recursive function would pass values to another frame of itself, only giving
+redudent values it would have to recalculate over and over.  It was fixed by
+changing what values are passed to the two different calls for the recursive
+function inside itself.  GDB helped me find at what point the program became
+"stuck", but I ultimately had to draw the problem on paper.
+
+pointers.c:
+  The main problem in pointers was that the pointer p was reteadly assigned the
+wrong type of values.  Using GDB and the step command, I was able to see that
+p was first assigned a int value instead of the int variable's address, and
+then the second problem was that an int was given the address of the pointer p.
+The last one was fixed by dereferencing p and incrementing the value by one.
+
+sort_easy.c:
+  Gdb was valualbe here in by printing the variables at each step of the way 
+using the watch command.  The problem here was that the "lowest_index" value
+was assigned the wrong value repeateldy.  A simple change in the if statement
+fixed the problem.
+
+insert_sort.c:
+  There were three problems in this code.  The first and most obvious one is 
+that an if statement was using == instead of =, assinging values when it should
+not have.  Again, using the watch command in GDB was helpful here.  The second
+problem arises in the scoot_over function.  The k value is incremented instead
+of deincrimented as it should be, and creates an infinite loop.  Simply running
+gdb for a while made this obvious.  The last probem was harder to notice.  The
+for loop in the sort fucntion would cause troubles because it would return far
+too early.  This would cause problems because the lack of assignmnet after
+moving the numbers in the array.  Changing the return to a break fixed this.
+

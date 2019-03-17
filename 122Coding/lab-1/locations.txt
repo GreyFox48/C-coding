@@ -1,0 +1,195 @@
+City, State or Country or D.C.
+Latitude (DD MM)
+Longitude (DD MM)
+Albany, NY
+42 40 N
+73 45 W
+Albuquerque, NM
+35 05 N
+106 39 W
+Amarillo, TX
+35 11 N
+101 50 W
+Anchorage, AK
+61 13 N
+149 54 W
+Atlanta, GA
+33 45 N
+84 23 W
+Austin, TX
+30 16 N
+97 44 W
+Baltimore, MD
+39 18 N
+76 38 W
+Barcelona, Spain
+41 23 N
+2 9 E
+Beijing, China
+39 55 N
+116 25 E
+Belem, Brazil
+1 28 S
+48 29 W
+Berlin, Germany
+52 30 N
+13 25 E
+Birmingham, AL
+33 30 N
+86 50 W
+Bismarck, ND
+46 48 N
+100 47 W
+Boise, ID
+43 36 N
+116 13 W
+Boston, MA
+42 21 N
+71 5 W
+Buffalo, NY
+42 55 N
+78 50 W
+Carlsbad, NM
+32 26 N
+104 15 W
+Charleston, SC
+32 47 N
+79 56 W
+Cheyenne, WY
+41 9 N
+104 52 W
+Chicago, IL
+41 50 N
+87 37 W
+Cincinnati, OH
+39 8 N
+84 30 W
+Dallas, TX
+32 46 N
+96 46 W
+Denver, CO
+39 45 N
+105 0 W
+Detroit, MI
+42 20 N
+83 3  W
+Flagstaff, AZ
+35 13 N
+111 41 W
+Helena, MT
+46 35 N
+112 2 W
+Honolulu, HI
+21 18 N
+157 50 W
+Kansas City, MO
+39 6 N
+94 35 W
+Key West, FL
+24 33 N
+81 48 W
+Las Vegas, NV
+36 10 N
+115 12 W
+Los Angeles, CA
+34 3 N
+118 15 W
+Memphis, TN
+35 9 N
+90 3 W
+Adelaide, Australia
+34 55 S
+138 36 E
+Auckland, New Zealand
+36 52 S
+174 45 E
+Bangkok, Thailand
+13 45 N
+100 30 E
+Miami, FL
+25 46 N
+80 12 W
+Milwaukee, WI
+43 2 N
+87 55 W
+Minneapolis, MN
+44 59 N
+93 14 W	
+Mobile, AL
+30 42 N
+88 3 W
+Montgomery, AL
+32 21 N
+86 18 W
+Nashville, TN
+36 10 N
+86 47 W
+New York, NY
+40 47 N
+73 58 W
+Oklahoma City, OK
+35 26 N
+97 28 W
+Philadelphia, PA
+39 57 N
+75 10 W
+Phoenix, AZ
+33 29 N
+112 4 W
+Pittsburgh, PA
+40 27 N
+79 57 W
+Salt Lake City, UT
+40 46 N
+111 54 W
+San Diego, CA
+32 42 N
+117 10 W
+San Francisco, CA
+37 47 N
+122 26 W
+San Juan, Puerto Rico
+18 30 N
+66 10 W
+Santa Fe, NM
+35 41 N
+105 57 W
+Seattle, WA
+47 37 N
+122 20 W
+Springfield, IL
+39 48 N
+89 38 W
+Tampa, FL
+27 57 N
+82 27 W
+Vancouver, Canada
+49 13 N
+123 06 W
+Washington, D.C.
+38 53 N
+77 02 W
+Wichita, KS
+37 43 N
+97 17 W
+Athens, Greece
+37 58 N
+23 43 E
+Bombay, India
+19 0 N
+72 48 E
+Bordeaux, France
+44 50 N
+0 31 W
+Cordoba, Argentina
+31 28 S
+64 10 W
+Darwin, Australia
+12 28 S
+130 51 E
+Djibouti, Djibouti
+11 30 N
+43 3 E
+Durban, South Africa
+29 53 S
+30 53 E

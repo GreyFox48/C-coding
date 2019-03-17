@@ -1,0 +1,9 @@
+sting_error does not print out anything due to segmentation fault
+
+Breakpoint 1, main () at string_error.c:14
+14			if (*p == 'r')
+(gdb) backtrace full
+#0  main () at string_error.c:14
+        s = 0x400624 "c run, run c run"
+        p = 0x400626 "run, run c run"
+

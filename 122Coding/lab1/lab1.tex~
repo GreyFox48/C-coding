@@ -1,0 +1,21 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\begin{document}
+\begin{flushright}
+Matthew Olsen\\
+February 14, 2016\\ 
+CSE: 122 Lab 1\\
+\end{flushright}
+
+\subsection{Problem 1}
+	\textbf{Equation:}\\
+	\begin{equation*}
+		1^2 + 2^2 + ... + n^2 = \frac{n(n + 1)(2n + 1)}{6}, where n\geq1
+	\end{equation*}
+	\textbf{Base Case:} if $n = 1$, then
+	\begin{equation*}
+		1^2 = \frac{1(1 + 1)(2 + 1)}{6} = 1
+	\end{equation*}
+
+\end{document}
+

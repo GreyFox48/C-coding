@@ -1,0 +1,8 @@
+Script started on Thu 01 Oct 2015 06:22:15 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab4matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab4$ gcc -g -Wall lab4_q4[K2.c -o lab4_q 2
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab4matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab4$ ./lab4_q2
+RED is 18, ORANGE is 19, YELLOW is 5, GREEN is 6, BLUE is 7, INDIGO is 14, VOILET is 15.
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab4matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab4$ exit
+exit
+
+Script done on Thu 01 Oct 2015 06:22:56 PM MDT

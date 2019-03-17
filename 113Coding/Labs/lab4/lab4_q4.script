@@ -1,0 +1,30 @@
+Matthew Olsen
+Lab 4
+10/01/2015
+
+Script started on Thu 01 Oct 2015 06:27:12 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab4matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab4$ exit./lab4_q3gcc -g -Wall lab4_q3.c -o lab4_q3
+3 -lm
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.c -o lab4_q3 [1P-lm[A
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab4matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab4$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C4.c -o lab4_q3 -lm[A
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab4matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab4$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+[C[C[C[C[C[K[K[K[K
+[K4
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab4matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab4$ gcc -g -Wall lab4_q4.c -o lab4_q4
+4[A
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab4matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab4$ exit[K
+
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./lab4_q3[K4
+This program finds the Zodiac sign for a given birthday.
+Enter the date in month/day/year format: 01/24/1997
+The Zodiac sign for January 24, 1997 is Aquarius.
+Enter 1 to enter another birthday, or 0 to quit: 1
+Enter the date in month/day/year format: 08/   12/01/1997
+The Zodiac sign for December 1, 1997 is Sagittarius.
+Enter 1 to enter another birthday, or 0 to quit: 0
+Goodbye!
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab4matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab4$ exit
+exit
+
+Script done on Thu 01 Oct 2015 06:28:14 PM MDT

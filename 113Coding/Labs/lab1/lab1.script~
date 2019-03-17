@@ -1,0 +1,19 @@
+Script started on Wed 09 Sep 2015 08:12:55 AM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/lab1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/lab1$ gcc -g -Wall lab1.c -o lab1 -lm
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/lab1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/lab1$ ./lab1
+This program calculates basic propterties of rectangles, circles, triangles, and regular polygons. 
+Please input the width of your rectangle as a integer: 2
+Please input the length of your rectangle as a integer: 3
+The rectangle has a perimeter of 10, an area of 6 and an diagnoal of length 3.605551.
+Please input the radius of your circle: 4.5
+The cicle has a circumferance of 28.274337 and an area of 63.617258.
+Please input the base of your right triangle: 3
+And now its height: 4
+The right triangle has a hypotenuse of 5.000000, an area of 6.000000, and a perimeter of 12.000000.
+Please input the number of sides on your regular polygon (integers only): 8
+And the lengths of the sides (only one side): 3.2
+The regular polygon has an exterior angle of 45.000000 degrees, and interior angle of 135.000000 degrees, and an area of 49.443088.
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/lab1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/lab1$ exit
+exit
+
+Script done on Wed 09 Sep 2015 08:14:06 AM MDT

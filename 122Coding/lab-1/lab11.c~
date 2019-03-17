@@ -1,0 +1,53 @@
+/**
+ * @file
+ * @brief
+ * @details
+ *
+ * @author
+ * @date
+ * @todo
+ * @bug
+ */
+
+#include <stdio.h> 
+#include <string.h>
+#include <stdlib.h>
+#include <errno.h>
+#include "kml.h"
+
+int main(void) {
+	
+        //create the data structure
+	struct data_t *data = create_data();
+
+        //open the files first
+	FILE *in = fopen("locations.txt", "r");
+	if (!in) {
+		puts("Couldn't open locations.txt.  Goodbye!\n");
+		exit(ENOENT);
+	}
+
+	FILE *loc_out = fopen("locations.out", "w");
+	if (!loc_out) {
+		puts("Couldn't open locations.out.  Goodbye!\n");
+		exit(EIO);
+	}
+
+	FILE *loc_kml = fopen("locations.kml", "w");
+	if (!loc_kml) {
+		puts("Couldn't open locations.txt.  Goodbye!\n");
+		exit(ENOENT);
+	}
+        //retrieve the data from the files
+	data = populate_data(data, in);
+        print_text(data, loc_out);	
+        print_kml(data, loc_kml);
+
+        //free the alloced memory
+        free_data(data);
+        free(in);
+        free(loc_out);
+        free(loc_kml);
+
+        return 0;
+}

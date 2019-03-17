@@ -1,0 +1,24 @@
+total 428
+-rw-rw-r-- 1 suspiciousfox suspiciousfox  144430 Jan 26  2017 alice
+-rw-r----- 1 suspiciousfox suspiciousfox 1000001 Feb 25 20:32 fire_in_the_hole
+-rwxr-xr-x 1 suspiciousfox suspiciousfox   17176 Feb 27 19:00 holes
+-rw-r--r-- 1 suspiciousfox suspiciousfox    1607 Feb 27 04:46 holes.c
+-rw-r--r-- 1 suspiciousfox suspiciousfox       0 Feb 27 19:09 input.txt
+-rw-r--r-- 1 suspiciousfox suspiciousfox     643 Feb 27 18:54 Makefile
+-rw-rw-r-- 1 suspiciousfox suspiciousfox     718 Feb 25 19:08 read_all.c
+-rw-r--r-- 1 suspiciousfox suspiciousfox     123 Feb 25 19:13 read_all.h
+-rw-r--r-- 1 suspiciousfox suspiciousfox    4232 Feb 27 19:00 read_all.o
+-rwxr-xr-x 1 suspiciousfox suspiciousfox   27112 Feb 27 19:00 tee
+-rw-r--r-- 1 suspiciousfox suspiciousfox    3391 Feb 27 03:26 tee.c
+-rw-rw-r-- 1 suspiciousfox suspiciousfox    1499 Feb 29  2016 walrus
+-rw-rw-r-- 1 suspiciousfox suspiciousfox    1499 Feb 29  2016 walrus_char
+-rw-rw-r-- 1 suspiciousfox suspiciousfox    1499 Feb 29  2016 walrus_line
+-rw-rw-r-- 1 suspiciousfox suspiciousfox    1499 Feb 29  2016 walrus_line_rev
+-rw-rw-r-- 1 suspiciousfox suspiciousfox    1499 Feb 29  2016 walrus_rev
+-rwxr-xr-x 1 suspiciousfox suspiciousfox   27720 Feb 27 19:00 wc
+-rw-r--r-- 1 suspiciousfox suspiciousfox    4819 Feb 27 06:59 wc.c
+-rwxr-xr-x 1 suspiciousfox suspiciousfox   22776 Feb 27 19:00 zeros
+-rw-r----- 1 suspiciousfox suspiciousfox      10 Feb 27 19:00 zeros10
+-rw-r----- 1 suspiciousfox suspiciousfox    4096 Feb 27 18:57 zeros100
+-rw-r----- 1 suspiciousfox suspiciousfox   10000 Feb 27 19:01 zeros10000
+-rw-r--r-- 1 suspiciousfox suspiciousfox    1801 Feb 27 19:04 zeros.c

@@ -1,0 +1,64 @@
+#!/bin/bash
+#
+# print files with a line number
+# there is an option to print the lines of the file in reverse
+
+
+#these are global variables
+reverse='false'
+file=''
+
+#functions have to be declared before they
+#are used
+
+usage () {
+        printf '%s -f filename [ -r -h  ]\n' $0
+        printf 'print out line numbers for file\n'
+        printf '\nRequired arguments\n'        
+        printf '\055f filename\n'
+        printf '\nOptional arguments\n'
+        printf '\055r, reverse the lines\n'
+        printf '\055h help, print usage information\n'
+}
+
+main () {
+        if [ $reverse == 'true' ]; then
+                awk '{print NR, $0}' < $file | sort -nr
+        else
+                awk '{print NR, $0}' < $file
+        fi
+}
+
+# execution begins here -- process command line options and args
+# The : after an option (single letter) says it needs an arg. 
+
+while getopts "f:rh" opt; do
+
+        case $opt in
+        h) usage 
+           exit     
+           ;;
+        f) file=$OPTARG
+           ;;
+        r) reverse="true"
+           ;;     
+        esac
+
+done
+
+# error processing -- filename is required 
+# check to see it is not 
+# an empty string
+# there is a lot more you could do...
+if [ -z $file ]; then
+        printf '\055f option required\n'
+        usage
+        exit 1 
+fi
+
+# call main
+main
+exit 0
+
+
+

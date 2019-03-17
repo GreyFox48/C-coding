@@ -1,0 +1,14 @@
+Matthew Olsen
+2015-10-09
+Lab 5
+
+Script started on Fri 09 Oct 2015 07:35:38 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ gcc -g -Wall difference.c
+/tmp/cctmGd9m.o: In function `main':
+/home/matt/Dropbox/113Coding/lab5/difference.c:19: undefined reference to `pow'
+/home/matt/Dropbox/113Coding/lab5/difference.c:25: undefined reference to `pow'
+collect2: error: ld returned 1 exit status
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ g[Kexit
+exit
+
+Script done on Fri 09 Oct 2015 07:36:04 PM MDT

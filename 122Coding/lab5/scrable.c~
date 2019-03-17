@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct dict_t {
+        int nval;
+        int max;
+        char *word;
+};
+
+enum {INIT = 1, GROW = 2};
+
+#define LEN 128
+
+int main(void)
+{
+        FILE *fp = fopen("scrabble.txt", "r");
+        int i = 0;
+        char buff[LEN];
+        struct dict_t *dict = malloc(sizeof(struct dict_t));
+        dict->nval = i;
+        dict->max = INIT;
+        dict->word = NULL;
+        while (fgets(buff, LEN, fp)) {
+                if (!dict->word) {
+                        dict->word = malloc(sizeof(char *));
+                        assert(!dict->word);
+                } else if (dict->nval > dict->max) {
+                        dict->word = realloc(dict->word, GROW * dict->max * sizeof(char *));
+                        assert()
+                        dict->max *= GROW;
+                }
+        }
+        return 0;
+}
+
+//make array from user inputed values, zero out for each one successful character, check value of word
+//fail if remaining letters in checked word are all zero but 
+// psuedo code
+        //user input array ==  user input
+        //word = dict->word
+
+        //for i=0 to length of input n-1
+                //for j=0 to length of word -1
+                        //if input[i] == word[j]
+                                //word[j] = '/0'
+
+        //for i=o to length of word
+                //if word[i] > 0
+                        //return 0
+        //return 1

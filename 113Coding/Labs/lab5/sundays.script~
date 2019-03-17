@@ -1,0 +1,8 @@
+Script started on Fri 09 Oct 2015 09:33:54 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ gcc -g -Wall sundays.c -o sunday s
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ ./sundays
+The Number of Sundays between the years 1901 and 2000 inclusive is 171.
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ exit
+exit
+
+Script done on Fri 09 Oct 2015 09:34:25 PM MDT

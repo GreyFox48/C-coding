@@ -1,0 +1,24 @@
+Matthew Olsen
+Prelab 2 Q1
+September 9, 2015
+
+Script started on Wed 09 Sep 2015 07:47:00 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/prelab_2matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/prelab_2$ gcc -g -Wal [Kl prelab2_q1.c -o prelab2_q1.[K
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/prelab_2matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/prelab_2$ ./prelab2_q1 
+Enter an interger: 
+1
+First is the worst.
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/prelab_2matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/prelab_2$ ./prelab2_q1 
+Enter an interger: 
+2
+Second is the best. Because it's the first prime! ]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/prelab_2matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/prelab_2$ ./prelab2_q1 
+Enter an interger: 
+5
+But one could argue for five. As it is the number of fingers on each hand.]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/prelab_2matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/prelab_2$ ./prelab2_q1 
+Enter an interger: 
+7
+I can't sing about 7.
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/prelab_2matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/prelab_2$ exit
+exit
+
+Script done on Wed 09 Sep 2015 07:48:21 PM MDT

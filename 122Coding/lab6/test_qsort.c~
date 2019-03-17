@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <assert.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+#define LEN 4096
+
+/*  convert string to lowercase */
+void tolowercase(char *s)
+{
+        /* todo */
+}
+
+/* trim off whitespace from the right */
+/* see the manpage for isspace */
+void rstrip(char *s)
+{
+        /* todo */
+}
+
+
+int main(int argc, char *argv[])
+{
+        char buf[LEN];
+	char *t = NULL;
+
+	char **list = NULL;
+	int word = 1;
+	int i;
+	FILE *fp;
+
+	fp = fopen(argv[1], "r");
+	assert(fp);
+
+	/* this leaks -- fix */
+	while(fgets(buf, LEN, fp)) {
+		/* remove new line */
+		rstrip(buf); 
+		tolowercase(buf);
+		t = malloc((strlen(buf) + 1) * sizeof(char));
+                assert(t);
+		strncpy(t, buf, strlen(buf) + 1);
+                /* this needs improvement */
+		list = realloc(list, word * sizeof(char *)); 
+		list[word - 1] = t; 
+		word++;
+	}
+        /* overcounted */
+        word--;
+    
+        /* print the list */
+	for(i = 0; i < word; i++) 
+		printf("%s\n", list[i]);
+
+        printf("\n");
+
+	/* todo sort list with qsort()*/
+
+        /* print sorted list */	
+        for(i = 0; i < word; i++) 
+		printf("%s\n", list[i]);
+		
+	/* you make it you clean it */
+
+        return 0;
+}

@@ -1,0 +1,77 @@
+#!/bin/bash
+#
+# tars .c, .h, and makefiles into a specified archieve name
+# there are options to both change the directory and use the makefile's clean
+
+name=''
+dir=''
+clean='false'
+
+# usage function if user has invalid input or lack of input
+usage () {
+        printf '%s -f tarballname\n' $0
+        printf '\nRequired arguments\n'        
+        printf '\055f tarball name\n'
+        printf '\nOptional Arguements\n'
+        printf '\055c use the makefile'"'"'s clean\n'
+        printf '\055d directory to retrieve files from\n'
+        printf '\055h help options\n'
+}
+
+main () {
+        if [ -n "${dir}" ]; then
+                cd ${dir}
+        fi
+
+	if [ ${clean} == 'true' ]; then
+		make clean
+	fi
+
+	tar_files
+}
+
+tar_files () {
+        # --ignore-failed-read is to make script easier and to alert user
+	# if a file type doesn't exist in the directory
+	tar --ignore-failed-read -czvf ${name} *.c *.h Makefile makefile
+}
+
+# execution begins here -- process command line options and args
+while getopts "f:d:ch" opt; do
+
+        case $opt in
+        h) usage 
+           exit     
+           ;;
+        f) name=$OPTARG
+           ;;
+        c) clean="true"
+           ;;     
+	d) dir=$OPTARG
+	   ;;
+        esac
+
+done
+
+# error processing
+# checks to make sure file is valid
+# checks to make sure directory is also valid if specified
+if [ -z ${name} ]; then
+        printf '\055n tarball name required\n'
+        usage
+        exit 1 
+fi
+
+# checks for if user specified a directory and that it is valid
+if [ ! -n ${dir} ] || [ ! -d ${dir} ]; then
+	printf '\055 %s not a valid directory\n' ${dir}
+	usage
+	exit 1
+fi
+ 
+# call main
+main
+exit 0
+
+
+

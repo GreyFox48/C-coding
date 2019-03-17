@@ -1,0 +1,20 @@
+Matthew Olsen
+10/01/2015
+Lab 4
+
+Purpose:  
+  To use structures by themselves and inside arrays in order to perform some calculations.  Also continued working with integer 
+arrays using a custom library, and briefly touched upon enumerated types.
+
+Conclusions:  
+a) What I learned from this lab:
+  I learned how to create an array of structures, and how to access the structures' members both in and out of arrays, along with reinforcing 
+my learning with headers files in C.  Also learned how to use and declare enumerated types, specifically on how to assing enumerated types 
+values.
+b)  Issues and how I fixed them:
+  As I was implementing the user interface in the lab4_q4 (the zodiac calander) assignment, I found an error where after the user inputed their birthdate, the
+program would continiously display messages until it was forced to stop.  I learned that the scanf function also needed the "/" symbols to 
+be included inside the input string to prevent this.  I had previouly thought the buffer would simply have ignored the "/" symbols, but I was wrong.
+c)  Improvements that can be made:
+  The zodiac calander program could use more error checking, as it currently only works utalizing one format.  Also, the array_struct.c file could
+use an user interface in order to input information, to make the program more useful.

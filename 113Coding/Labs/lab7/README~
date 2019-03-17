@@ -1,0 +1,28 @@
+Puropose:
+        The purpose of this lab was to gain experiance in the utilization of
+pointers in single varaibles and in arrays.  The lab also introduced the use
+of allocating memory in the heap, and how it is to be used and how it must
+also be freed.
+
+Conclusions:
+
+a) What I learned from this lab:
+        In short, I learned how to use malloc and to a lesser extend realloc,
+despite realloc not being required for the lab.  I also switched between 
+pointers and pointer arithmetic to go through the arrays, though this
+presented less problems than using malloc and realloc, due to pointer errors.
+The most difficult part of the lab was pointer issues related to malloc and 
+realloc.
+
+b)  Issues and how I fixed them:
+        The largest issue was again pointer issues related to assigning data
+after the malloc was used.  The original program would have issues
+after the 7th element consistently, and that was due to what appeared to be
+data being assigned to the worng address value.  This was fixed via replication
+as gdb was not very helpful in tracking the issue.
+
+c)  Improvements that could be made:
+        The input for the dyanamic array program could be simplified to simply
+take values until the user denotes otherswise, rather than repeatedly asking
+whether to continue.  It also could simply take a specific number of numbers
+decided by the user but I wanted to have practice in using realloc. 

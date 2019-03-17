@@ -1,0 +1,25 @@
+the completed code is as follows
+
+long switch_prob(long x, long n) {
+	long result = x
+	switch(n) {
+		case 0:
+		case 2:
+			result = x * 8;
+			break;
+		case 3:
+			result = x / 3;
+			break;
+		case 4:
+			result = x * 16;
+			result = result - x;
+		case 5:
+			result = result * result;
+		case 1:
+		default:
+			result = result + 75;
+			break;
+			
+	}
+	return result;
+}

@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+double sum_coins(double pennies, double nickles, double dimes, double quarters);
+void print_change(double ans);
+
+int main(void)
+{
+        double pennies;
+        double nickles;
+        double dimes;
+        double quarters;
+        double ans;
+        int cont = 1;        
+
+        printf("This program converts the number of coins to dollar value.\n");
+        
+        while(cont == 1) {
+                printf("Please input the number of pennies: ");
+                scanf("%lf", &pennies);
+                printf("Please input the number of nickles: ");
+                scanf("%lf", &nickles);
+                printf("Please input the number of dimes: ");
+                scanf("%lf", &dimes);
+                printf("Please input the number of quarters: ");
+                scanf("%lf", &quarters);
+                
+                ans = sum_coins(pennies, nickles, dimes, quarters);
+                print_change(ans);
+
+                printf("Would you like to continue?\n1 for yes, 0 for no: ");
+                scanf("%d", &cont);
+        }
+
+
+        return 0;
+}
+
+double sum_coins(double pennies, double nickles, double dimes, double quarters)
+{
+        return (pennies * 0.01) + (nickles * 0.05) + (dimes * 0.1) + (quarters * 0.25); 
+}
+
+void print_change(double ans)
+{
+        printf("The value of the change is $%.2lf.\n", ans);
+}
+

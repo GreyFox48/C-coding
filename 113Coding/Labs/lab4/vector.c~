@@ -1,0 +1,112 @@
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+
+/* Place all of your functions here for your Array Problems */
+/**
+ * Multiplies each element of the array by a given constant
+ * @param a[] the array holding elements to be multiplied
+ * @param size_t the length of a[]
+ * @param n the constant to multiply each element with
+ */
+void multiply_array(int a[], size_t size, int n) {
+        int rep;
+        for(rep = 0; rep < size; rep++){
+                a[rep]=a[rep+1];
+        }
+}
+
+/**
+ * Adds a given constant to each element of an array
+ * @param a[] the array with elements to be added to
+ * @param size_t the length of a[]
+ * @param n the constant to add to each element
+ */
+void add_array(int a[], size_t size, int n) {
+        int rep;
+        for(rep = 0; rep < size; rep++){
+                a[rep] =+ n;
+        }
+}
+
+/**
+ * Copies the elements of one array into another arrray
+ * @param a[] the array containing the elements to be copied
+ * @param b[] the array to be copied to
+ * @param size the size of both arrays
+ */
+void copy_array(int a[], int b[], size_t size) {
+        int rep;
+        for(rep = 0; rep < size; rep++){
+                b[rep] = a[rep];
+        }
+}
+
+/**
+ * Adds the elements of two arrays into a third
+ * @param a[] first of two arrays to be added
+ * @param b[] second of two arrays to be added
+ * @param c[] array to hold sum of the two arrays
+ */
+void add_two_arrays(int a[], int b[], int c[], size_t size) {
+        int rep;
+        for(rep = 0; rep < size; rep++){
+                c[rep] =  a[rep] + b[rep];
+        }
+}
+
+/**
+ * Adds product of two arrays into a third
+ * @param a[] first of two arrays to be multiplied
+ * @param b[] second of two arrays to be multiplied
+ * @param c[] array to hold product of the two arrays
+ */
+void product_two_arrays(int a[], int b[], int c[], size_t size) {
+        int rep;
+        for(rep = 0; rep < size; rep++) {
+                c[rep] =  a[rep] * b[rep];
+        }
+}
+
+/**
+ * Adds the inverted product of two arrays into a third
+ * @param a[] first of two arrays to be multiplied
+ * @param b[] second of two arrays to be multiplied
+ * @param c[] array to hold product of the two arrays
+ */
+void inverted_product(int a[], int b[], int c[], size_t size) {
+        int rep;
+        for(rep = 0; rep < size; rep++) {
+                c[rep] =  a[rep] * b[(size - 1) - rep]; /* -1 hardcoded to prevent out of bounds array */
+        }
+}
+
+/**
+ * Invertes the elements of two arrays
+ * @param a[] the array containing the elements to be inverted
+ * @param size the size of array a[]
+ */
+void invert_array(int a[], size_t size) {
+        int rep;
+        int temp;
+        /* stops at midpoint or element before */
+        for(rep = 0; rep < (size - 1) / 2; rep++) {
+                temp = a[rep];
+                a[rep] =  a[(size - 1) - rep];
+                a[(size - 1) - rep] = temp;
+        }
+}
+
+/**
+ * Creates an array full of random integers, from [0, max)
+ * @param a[] the array to be populated with random integers
+ * @param size the length of array a[]
+ * @param max the maximum integer
+ */
+void random_array(int a[], size_t size, int max) {
+        int rep;        
+        srandom(time(NULL));  
+        for(rep = 0; rep < size; rep++) {
+                a[rep] = random() % max;
+        }
+}

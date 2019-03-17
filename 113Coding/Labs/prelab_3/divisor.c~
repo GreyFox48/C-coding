@@ -1,0 +1,49 @@
+/**
+ * @file divisor.c
+ * @brief Prints out a number along with 0 or 1 on the same line, depending on if the
+ * array element was divisible for divisor.
+ * @details the numbers to be checked and the results are stored on two different 
+ * arrays of the same size. 
+ *
+ * @author Matthew Olsen
+ * @date September 19th 2015  
+ */
+
+#include <stdio.h>
+
+void array_mod(int a[], int div[], size_t size, int divisor);
+
+void print_array(int a[], int div[], size_t size);
+ 
+int main(void)
+{
+        int a[] = {13, 44, 85, 23, 72, 99, 100, 108, 222, 1084};
+        size_t size = sizeof(a) / sizeof(a[0]);
+        int div[size];
+        int divisor = 4;        
+        
+        array_mod(a, div, size, divisor);
+        print_array(a, div, size);
+
+        return 0;
+}
+
+void array_mod(int a[], int div[], size_t size, int divisor)
+{
+        int rep;
+        for (rep = 0; rep < size; rep++) {
+                if ((a[rep] % divisor) == 0) {
+                        div[rep] = 1;
+                } else {
+                        div[rep] = 0;
+                }
+        } 
+}
+
+void print_array(int a[], int div[], size_t size)
+{
+        int rep;        
+        for(rep = 0; rep < size; rep++) {
+                printf("%d\t%d\n", a[rep], div[rep]);
+        }
+}

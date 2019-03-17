@@ -1,0 +1,29 @@
+Matthew Olsen
+02-11-2015
+Lab 8
+
+Purpose: 
+  The lab's goal was to learn simple manipulations of a linked list as well
+as learn how learn how to properly malloc and free allocated memory.
+
+Pseudo-code:
+  See prelab 8.
+
+Conclusion:
+a) What I learned from this lab:
+  I primarily learned from this lab how to step through a linked list when
+it was only possible to transverse the list in one direction.  While for some
+of the questions it presented no difficulty, for other functions, such as the
+insert_middle and the delete_node it presented some difficulties.
+
+b)  Issues and how I fixed them:
+  The functions that could delete or insert nodes into the middle of the list
+where difficult to approach, so I had to draw pictures to ensure I would have
+the proper pointers.  Otherwise, a couple of the while loops would have off by
+one errors that were wasy to fix.
+
+c)  Improvements that can be made:
+  My program has little in the wasy of checking user input.  For instance, a
+character would cause major problems in the program, and inputing a negative
+position for insert_middle would cause unexpected problems.  With a little
+more programing and functions, this could easily be fixed.

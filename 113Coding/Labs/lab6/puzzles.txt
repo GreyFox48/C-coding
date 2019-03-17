@@ -1,0 +1,75 @@
+Puzzle 1:
+  I would expect the puzzle to print x = 2 y = 1 z = 1 because the after 
+evaluating the first statment to be true the or could cause a short circut.
+  The second would be 2 1 1 because after the and, the first statement in the
+or would have to be evaluated.
+  The third statement would be 2 2 2 bacause all statements would have to be
+evaulated because all comparisons are and and statement.
+The fourth would be 0 -1 -1 because after the first condition returns 0 in the 
+and statement the line of code would short circut.
+  THe fifth would be 0 0 -1 because after the first condition returns 0 for the
+or statement the and would be evaluated, and the and evaluates the first 
+condition to be 0 so it then short circuts.
+  The last would be 0 -1 -1 because the line short circuts after the first 
+condition in the and statement returns 0.
+  The output would be
+ 2 1 1
+ 2 2 1
+ 2 2 2 
+ 0-1-1
+ 0 0-1
+ 0-1-1
+
+Puzzle 2:
+  The void fucntion UX_HP-UX-print cannot have the "-" symbol in the function
+ name, as it illegal as far as c is concerned.
+
+Puzzle 3:
+  The program would first print "1" and then terminate, because the while 
+condition is evaualted to be 0, or false.
+
+Puzzle 4:
+  The program would print "f is not 1.0".  This is because the if statement
+evaulates if if is equal to 1.0, when it is actually 1.000000.
+
+Puzzle 5:
+  The mistake in the program is that the int a was assigned two values at once
+when an int can only hold one value.
+
+Puzzle 6:
+  The program will print nothing, because the sizeof operator returns an 
+unsigned long int.  Second, even if the print statement is adjusted
+by replacing %d with %lu, the it would print "size of array is: 8" 
+because sizeof read the byte size of the first address of arr, not the actual
+elements.
+
+Puzzle 7:
+  The puzzle would at first scan normally, and would take and print both inputs
+normally. However, removing the space would then cause the second scanf 
+statement to simply take in nothing and printf would simply print a space.
+This is because scanf took in the \n character.
+
+Puzzle 8:
+  The output would be
+  i : 10
+  sizeof(i++) is : 4
+becasue the size of an int is 4 bytes.
+
+Puzzle 9:
+  The program would print 2-2-2012 because the stored integers do not include the
+zeros. To format properly, in the printf function put .2d to ensure two digits 
+are printed.  The first digit will be a zero if the assinged value is not a 
+double digit number.  The same for the year, but it would be .4d instead.
+
+Puzzle 10:
+  To solve the infinite loop, change the condition ; i < n; to ; -i < n;, which
+would make the expression evaluate as if i was a positve number.
+
+Puzzle 11:
+  The program would print nothing, as it causes an infite loop as cnt-- is always 
+not zero it is never reassinged a value.
+
+Puzzle 12:
+  The output would be 8, because the and statement is evaluted first, short 
+circuts after the first condtion, and then evalutes the second statement in 
+the or.

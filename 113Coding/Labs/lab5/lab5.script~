@@ -1,0 +1,140 @@
+Script started on Fri 09 Oct 2015 10:15:39 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ gcc -g -Wall zombie.o lab5.c -o  lab5
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ ./lab5
+1) Enter new zombie information
+2) Display zombie information
+3) Return to fighting zombies
+1
+Is the zombie dead?
+Y for yes or N for no: n
+Input the day you encountered this zombie.
+1) Sunday
+2) Monday
+3) Tuesday
+4) Wednesday
+5) Thursday
+6) Friday
+7) Saturday
+2
+Input the time you encountered this zombie in hour:min:sec format: 12:31:41
+Input the mL of blood that has oozed from the now dead zombie: 23.21
+1) Enter new zombie information
+2) Display zombie information
+3) Return to fighting zombies
+2
+0) The zombie was encountered alive.
+It was sighted at 12:31:41.
+It was drained of 23.210000 of blood once it was killed.
+1) Enter new zombie information
+2) Display zombie information
+3) Return to fighting zombies
+1
+Is the zombie dead?
+Y for yes or N for no: Y
+Input the day you encountered this zombie.
+1) Sunday
+2) Monday
+3) Tuesday
+4) Wednesday
+5) Thursday
+6) Friday
+7) Saturday
+4
+Input the time you encountered this zombie in hour:min:sec format: 12:12:45
+Input the number of toes the dead zombie has: 12
+1) Enter new zombie information
+2) Display zombie information
+3) Return to fighting zombies
+1
+Is the zombie dead?
+Y for yes or N for no: Y
+Input the day you encountered this zombie.
+1) Sunday
+2) Monday
+3) Tuesday
+4) Wednesday
+5) Thursday
+6) Friday
+7) Saturday
+6
+Input the time you encountered this zombie in hour:min:sec format: 23:12:31
+Input the number of toes the dead zombie has: 14
+1) Enter new zombie information
+2) Display zombie information
+3) Return to fighting zombies
+1
+Is the zombie dead?
+Y for yes or N for no: N
+Input the day you encountered this zombie.
+1) Sunday
+2) Monday
+3) Tuesday
+4) Wednesday
+5) Thursday
+6) Friday
+7) Saturday
+7
+Input the time you encountered this zombie in hour:min:sec format: 12:43:67  10
+Input the mL of blood that has oozed from the now dead zombie: 5.21
+1) Enter new zombie information
+2) Display zombie information
+3) Return to fighting zombies
+1
+Is the zombie dead?
+Y for yes or N for no: Y
+Input the day you encountered this zombie.
+1) Sunday
+2) Monday
+3) Tuesday
+4) Wednesday
+5) Thursday
+6) Friday
+7) Saturday
+1
+Input the time you encountered this zombie in hour:min:sec format: 12:31:14
+Input the number of toes the dead zombie has: 7
+1) Enter new zombie information
+2) Display zombie information
+3) Return to fighting zombies
+2
+0) The zombie was encountered alive.
+It was sighted at 12:31:41.
+It was drained of 23.210000 of blood once it was killed.
+1) The zombie was encountered dead.
+It was sighted at 12:12:45.
+This zombie had 12 toes.
+2) The zombie was encountered dead.
+It was sighted at 23:12:31.
+This zombie had 14 toes.
+3) The zombie was encountered alive.
+It was sighted at 12:43:10.
+It was drained of 5.210000 of blood once it was killed.
+4) The zombie was encountered dead.
+It was sighted at 12:31:14.
+This zombie had 7 toes.
+1) Enter new zombie information
+2) Display zombie information
+3) Return to fighting zombies
+1
+Is the zombie dead?
+Y for yes or N for no: N
+Input the day you encountered this zombie.
+1) Sunday
+2) Monday
+3) Tuesday
+4) Wednesday
+5) Thursday
+6) Friday
+7) Saturday
+3
+Input the time you encountered this zombie in hour:min:sec format: 31  10:23:12
+Input the mL of blood that has oozed from the now dead zombie: 12.41
+1) Enter new zombie information
+2) Display zombie information
+3) Return to fighting zombies
+3
+Goodbye and Good Luck!
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ exit
+exit
+
+Script done on Fri 09 Oct 2015 10:20:10 PM MDT

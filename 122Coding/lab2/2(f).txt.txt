@@ -1,0 +1,11 @@
+Matthew Olsen
+CSE 122
+02/27/2016
+
+For the most part, the curves follow the running time I had calculated
+in step (a).  The foo1 is linear, and foo2 and foo4 have a slight curve, 
+suggesting that it is quadratic.  Foo3 grows faster than foo2 and fo4,
+suggesting that is is indeed cubic.  Foo5 grows the fastest of all functions,
+which is appropriate as is was calculated to be a function with a power of 6.
+Comparing the graphs, foo6 is less than foo5 but greater than foo3 in slope,
+which suggests that it is of power of 4.

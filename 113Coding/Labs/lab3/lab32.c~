@@ -1,0 +1,83 @@
+ /**
+ * @file lab3.c
+ * 
+ * @author Scott Chadde
+ *
+ * @date 1/1/2013
+ *  
+ * Assignment: Lab 3 
+ *
+ * @brief a program that tests the functions in array.c
+ *
+ * @details 
+ *  
+ * @bugs none
+ *
+ * @todo none
+ */
+
+#include <stdio.h>
+#include "array.h"
+
+void print_summary(size_t size, int max, int min, int mid, int mid_less, int mid_greater, int index, int sum, double average, double median, int evens, int odds, int divisible);
+
+int main(void)
+{	
+        int b[] = {9, 7, 5, 3, 2, 77, 8, 12, 4, 5, 11};
+                    
+        int max;
+        int min;
+        int mid;
+        int mid_less;
+        int mid_greater;     
+        int index;  
+        int sum;
+        double average;
+        double median;
+        int evens;
+        int odds;
+        int divisible;       
+        size_t size = sizeof(a) / sizeof(a[0]); 
+
+        max = find_max(a, size);
+        min = find_min(a, size);
+        mid = midpoint(a, size);
+        mid_less = get_count(a, size, L, mid);
+        mid_greater = get_count(a, size, G, mid);
+        index = linear_search(a, size, mid);
+        sum = find_sum(a, size);
+        average = find_average(a, size);
+        median = find_median(a, size);
+        evens = even_count(a, size);
+        odds = odd_count(a, size);
+        divisible = divisible_count(a, size, min);
+        //bubble_sort(a, size);
+        insertion_sort(a, size);
+        reverse(a, size);
+
+	print_array(a, size);
+        print_summary(size, max, min, mid, mid_less, mid_greater, index, sum, average, median, evens, odds, divisible);
+
+	return 0;
+}
+
+void print_summary(size_t size, int max, int min, int mid, int mid_less, int mid_greater, int index, int sum, double average, double median, int evens, int odds, int divisible)
+{
+        /* print the array size, maximum value, minimum, mid, greater than x count, less than x count */
+        printf("size of array: %zu\nthe max of the array: %d\n", size, max);
+        printf("the min of the array: %d\nthe mid: %d\n", min, mid);
+        printf("the less than count: %d\nthe greater than count: %d\n", mid_less, mid_greater);
+        
+        /* print the index of value x */        
+        if(index >= 0) {
+                printf("midpoint found in list @ %d.\n", index);
+        } else {
+                printf("midpoint not found in list.\n");
+        }
+        
+        /* print the array total summation, average, medain, even count, odd count, and divisible by x count */
+        printf("sum of array: %d\naverage of array: %.3lf\n", sum, average);
+        printf("median of array: %.2lf\ncount of evens: %d\n", median, evens);
+        printf("count of odds: %d\ndivisible by min: %d\n ", odds, divisible);
+}
+

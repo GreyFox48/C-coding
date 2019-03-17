@@ -1,0 +1,54 @@
+#include "heapsort.h"
+#include <sys/types.h>
+
+int heapsort(void *base, size_t nel, size_t width, int (*compar)(const void *, const void *))
+{
+        /* todo generic heapsort */
+        /* note you have to do pointer arthimetic with void pointers */
+        /* can't use array notation, base[i] as that makes no sense as base is a void pointer  */
+        /* correct way to get the i-th element is (base + i * width) */
+
+        heapify(base, nel, width, compar);
+
+        return 0;
+}
+
+void heapify(void *base, size_t nel, size_t width, int (*compar)(const void *, const void *))
+{
+        int parent, i;
+
+        for (i = nel; i > 0; i--) {
+        	/* formula calculates parent from 0 based indexed list */
+                parent = (i + (i % 2)) / 2 - 1;
+                check_children(base, nel, width, compar, parent);
+        }
+}
+
+void check_children(void *base, size_t nel, size_t width, int (*compar)(const void *, const void *, int parent)
+{
+        /* default to comparing left child */
+        int child = 2 * parent + 1; 
+
+        /* ensures checks do not exceed array bounds */
+        if (child > nel) {
+                return;
+        /* if left child in bounds but right is not */
+        } else if (child + 1 > nel) {
+                if (compar(&(base + width * parent), &(base + width * child)) < 0) {
+                        swap(&(base + width * parent), &(base + width * child));
+                }
+                return;
+        }
+
+        /* finds index of greater child */
+        if (compar(&(base + width * parent), &(base + width * (child+1))) < 0)  {
+                child = child + 1;
+        }
+
+        /* if true, swap and then check all related children recursively */
+        if (compar(&(base + width * parent), &(base + width * child)) < 0) {
+                swap(&(base + width * parent), &(base + width * child));
+                check_children(base, nel, width, compar, child);
+        }
+}
+

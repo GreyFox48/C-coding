@@ -1,0 +1,8 @@
+Matthew Olsen
+Prelab 2 Q3
+September 9, 2015
+
+The two programs above are equivalent in terms of use.  They both do execute an unique block of code depending
+on what specific integer was inputed.  While I can see the if statement being more useful for ranges of numbers,
+the switch statement would be better for a series of individual cases.  In this lab, the switch statement is 
+easier to understand due to being more sparse.

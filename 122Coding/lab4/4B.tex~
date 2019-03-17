@@ -1,0 +1,69 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath}
+\begin{document}
+\begin{flushright}
+Matthew Olsen\\
+March 23, 2016\\ 
+CSE: 122 Homework 4B\\
+\end{flushright}
+
+\section{Homework 4B}
+	\subsection{Problem 1}
+	\textbf{Equation:}\\
+	\begin{equation*}
+		b_k = \frac{b_{k-1}}{1+b_{k-1}}
+	\end{equation*}
+	\textbf{Work for Explicit Formula}\\
+	\begin{gather*}
+		b_{k-1} = \frac{b_{k-2}}{1+b_{k-2}}\\
+		b_k = \frac{\frac{b_{k-2}}{1+b_{k-2}}}{1 + \frac{b_{k-2}}{1+b_{k-2}}} = \frac{\frac{b_{k-2}}{1+b_{k-2}}}{\frac{1+2b_{k-2}}{1+b_{k-2}}}\\
+		b_k = \frac{b_{k-2}}{1+2b_{k-1}}\\
+		b_{k-2} = \frac{b_{k-3}}{1+b_{k-3}}\\
+		b_k = \frac{\frac{b_{k-3}}{1+b_{k-3}}}{1 + \frac{2b_{k-3}}{1+b_{k-3}}} = \frac{\frac{b_{k-3}}{1+b_{k-3}}}{\frac{1+3b_{k-3}}{1+b_{k-3}}}\\
+		b_k = \frac{b_{k-3}}{1+3b_{k-3}}\\
+		b_k = \frac{b_{k-n}}{1+nb_{k-n}}\\
+		b_{k-n}=b_{0} \Rightarrow k-n=0 \Rightarrow k=n\\
+		b_k = \frac{b_{k-k}}{1+kb_{k-k}} = \frac{b_0}{1+k(b_0)}\\
+		\mathbf{b_k=\frac{1}{1+k}}
+	\end{gather*}
+	\textbf{Proof by Induction}\\
+	\textbf{Equation}\\
+	\begin{equation*}
+		b_n=\frac{b_{n-1}}{1+b_{n-1}}=\frac{1}{1+n}, \text{where $b_0 = 1$}
+	\end{equation*}
+	\textbf{Base Case:} If n = 0\\
+	\begin{equation*}
+		b_0=\frac{1}{1+0}=1
+	\end{equation*}
+	\textbf{Assumtpion:} If n = k, then\\
+	\begin{equation*}
+		b_{k}=\frac{b_{k-1}}{1+b_{k-1}}=\frac{1}{1+k}
+	\end{equation*}
+	\textbf{Prove:} If n = k + 1, then\\
+	\begin{equation*}
+		b_{k+1}=\frac{b_k}{1+b_k}=\frac{1}{2+k}
+	\end{equation*}
+	\textbf{Proof:}\\
+	\begin{equation*}
+		b_{k+1}=\frac{b_k}{1+b_k}=\frac{\frac{1}{1+k}}{1+\frac{1}{1+k}}=\frac{b_k}{1+b_k}=\frac{\frac{1}{1+k}}{\frac{2+k}{1+k}}=\frac{1}{2+k}
+	\end{equation*}
+	
+        \subsection{Problem 2}
+	\textbf{Equation:}\\
+	\begin{equation*}
+		T(n)=T(\frac{n}{2})+b
+	\end{equation*}
+	\textbf{Work for Explicit Formula}\\
+	\begin{gather*}
+		b_{k-1} = \frac{b_{k-2}}{1+b_{k-2}}\\
+		b_k = \frac{\frac{b_{k-2}}{1+b_{k-2}}}{1 + \frac{b_{k-2}}{1+b_{k-2}}} = \frac{\frac{b_{k-2}}{1+b_{k-2}}}{\frac{1+2b_{k-2}}{1+b_{k-2}}}\\
+		b_k = \frac{b_{k-2}}{1+2b_{k-1}}\\
+		b_{k-2} = \frac{b_{k-3}}{1+b_{k-3}}\\
+		b_k = \frac{\frac{b_{k-3}}{1+b_{k-3}}}{1 + \frac{2b_{k-3}}{1+b_{k-3}}} = \frac{\frac{b_{k-3}}{1+b_{k-3}}}{\frac{1+3b_{k-3}}{1+b_{k-3}}}\\
+		b_k = \frac{b_{k-3}}{1+3b_{k-3}}\\
+		b_k = \frac{b_{k-n}}{1+nb_{k-n}}\\
+		b_{k-n}=b_{0} \Rightarrow k-n=0 \Rightarrow k=n\\
+		b_k = \frac{b_{k-k}}{1+kb_{k-k}} = \frac{b_0}{1+k(b_0)}\\
+		\mathbf{b_k=\frac{1}{1+k}}
+	\end{gather*}
+\end{document}

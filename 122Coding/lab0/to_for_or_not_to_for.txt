@@ -1,0 +1,9 @@
+Matthew Olsen
+02-08-2016
+Lab 0
+  
+  The largest number k that can be used before overflow occurs is the number
+3,506,826,112.  Both of the functions will yeild exactly the sum result even after
+overflow occurs.  However, the version without the for loop is obviously the
+one to use.  Why use the for loop when the other is just as accurate and is
+literally thousands of times faster?  No good reason, thats why.

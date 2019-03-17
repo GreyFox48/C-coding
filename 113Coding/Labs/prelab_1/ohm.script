@@ -1,0 +1,33 @@
+Matthew Olsen
+Prelab 1
+September 3rd, 2015
+
+Script started on Thu 03 Sep 2015 10:07:43 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ exit./exchgcc -g -Wall exch.c -o exch[K[K[K[Kohm[1P[1P[1P[1P[1@o[1@h[1@m
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ ./ohm
+This program finds the missing value in Ohm's Law (V = I x R ).
+Input the value of each known variable when prompted.  If unknown, input -1.
+Input V: 120
+Input I: 15
+Input R: -1
+The answer is 8.000000 ohms.
+Would you like to continue?
+1 for yes, 0 for no: 1
+Input the value of each known variable when prompted.  If unknown, input -1.
+Input V: -1
+Input I: 1
+Input R: 4000
+The answer is 4000.000000 volts.
+Would you like to continue?
+1 for yes, 0 for no: 1
+Input the value of each known variable when prompted.  If unknown, input -1.
+Input V: 15
+Input I: -1
+Input R: 1000
+The answer is 0.015000 amps.
+Would you like to continue?
+1 for yes, 0 for no: 0
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ exit
+exit
+
+Script done on Thu 03 Sep 2015 10:08:57 PM MDT

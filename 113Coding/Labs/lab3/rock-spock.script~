@@ -1,0 +1,136 @@
+Script started on Fri 25 Sep 2015 03:18:51 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab3matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab3$ exit./creditgcc -g -Wall credit.c -o creditexit[K./lab3_structuregcc -g -Wall lab3_structure.c array.o -o lab3_structure[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./lab3_structure[Kexit[Kgcc -g -Wall credit.c -o credit./credit[K[4Pexit[Kgcc -g -Wall rock-spock.c -o rock-spock
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab3matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab3$ ./rock-spock
+Enter a move:
+0 for ROCK
+1 for PAPER
+2 for SCISSORS
+3 for LIZARD
+4 for SPOCK
+5 to have SPOCK eat a ROCK while chasing a LIZARD and quit
+Move: 0
+Player's play is ROCK
+Computer's play is SCISSORS
+The player wins!
+Rock crushes scissors!
+Enter a move:
+0 for ROCK
+1 for PAPER
+2 for SCISSORS
+3 for LIZARD
+4 for SPOCK
+5 to have SPOCK eat a ROCK while chasing a LIZARD and quit
+Move: 1
+Player's play is PAPER
+Computer's play is LIZARD
+The computer wins!
+Lizard eats paper!
+Enter a move:
+0 for ROCK
+1 for PAPER
+2 for SCISSORS
+3 for LIZARD
+4 for SPOCK
+5 to have SPOCK eat a ROCK while chasing a LIZARD and quit
+Move: 2
+Player's play is SCISSORS
+Computer's play is ROCK
+The computer wins!
+Rock crushes scissors!
+Enter a move:
+0 for ROCK
+1 for PAPER
+2 for SCISSORS
+3 for LIZARD
+4 for SPOCK
+5 to have SPOCK eat a ROCK while chasing a LIZARD and quit
+Move: 3
+Player's play is LIZARD
+Computer's play is PAPER
+The player wins!
+Lizard eats paper!
+Enter a move:
+0 for ROCK
+1 for PAPER
+2 for SCISSORS
+3 for LIZARD
+4 for SPOCK
+5 to have SPOCK eat a ROCK while chasing a LIZARD and quit
+Move: 4
+Player's play is SPOCK
+Computer's play is LIZARD
+The computer wins!
+Lizard poisons Spock!
+Enter a move:
+0 for ROCK
+1 for PAPER
+2 for SCISSORS
+3 for LIZARD
+4 for SPOCK
+5 to have SPOCK eat a ROCK while chasing a LIZARD and quit
+Move: 0
+Player's play is ROCK
+Computer's play is SPOCK
+The computer wins!
+Spock vaporizes rock!
+Enter a move:
+0 for ROCK
+1 for PAPER
+2 for SCISSORS
+3 for LIZARD
+4 for SPOCK
+5 to have SPOCK eat a ROCK while chasing a LIZARD and quit
+Move: 1
+Player's play is PAPER
+Computer's play is LIZARD
+The computer wins!
+Lizard eats paper!
+Enter a move:
+0 for ROCK
+1 for PAPER
+2 for SCISSORS
+3 for LIZARD
+4 for SPOCK
+5 to have SPOCK eat a ROCK while chasing a LIZARD and quit
+Move: 2
+Player's play is SCISSORS
+Computer's play is ROCK
+The computer wins!
+Rock crushes scissors!
+Enter a move:
+0 for ROCK
+1 for PAPER
+2 for SCISSORS
+3 for LIZARD
+4 for SPOCK
+5 to have SPOCK eat a ROCK while chasing a LIZARD and quit
+Move: 3
+Player's play is LIZARD
+Computer's play is SCISSORS
+The computer wins!
+Scissors decapitates lizard!
+Enter a move:
+0 for ROCK
+1 for PAPER
+2 for SCISSORS
+3 for LIZARD
+4 for SPOCK
+5 to have SPOCK eat a ROCK while chasing a LIZARD and quit
+Move: 4
+Player's play is SPOCK
+Computer's play is SCISSORS
+The player wins!
+Spock smashes scissors!
+Enter a move:
+0 for ROCK
+1 for PAPER
+2 for SCISSORS
+3 for LIZARD
+4 for SPOCK
+5 to have SPOCK eat a ROCK while chasing a LIZARD and quit
+Move: 5
+Goodbye!
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab3matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab3$ exit
+exit
+
+Script done on Fri 25 Sep 2015 03:20:18 PM MDT

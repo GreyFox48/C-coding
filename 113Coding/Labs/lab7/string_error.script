@@ -1,0 +1,23 @@
+Matthew Olsen
+2015-10-28
+Lab 7
+
+Script started on Wed 28 Oct 2015 03:40:19 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab7matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab7$ make string_error
+make: `string_error' is up to date.
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab7matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab7$ ./string_error
+the original string:
+c run, run c run
+Segmentation fault (core dumped)
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab7matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab7$ exit
+exit
+
+Script done on Wed 28 Oct 2015 03:40:38 PM MDT
+
+
+Backtrace:
+
+(gdb) backtrace full
+#0  main () at string_error.c:14
+        s = 0x400624 "c run, run c run"
+        p = 0x400626 "run, run c run"

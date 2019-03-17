@@ -1,0 +1,26 @@
+Matthew Olsen
+Prelab 1
+September 3rd, 2015
+
+Script started on Thu 03 Sep 2015 09:52:55 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ g[Kexit./evalgcc -Wall -g eval.c -o eval./eval[K[2Pexit[Kexit./evalgcc -Wall -g eval.c -o evalexit[K./eval[2Pexitgcc -Wall -g eval.c -o eval./eval[K[2Pexit[Kgcc -g -Wall coin.c -o coin
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ ./coin
+This program converts the number of coins to total value.
+Please input the number of pennies: 1
+Please input the number of nickles: 2
+Please input the number of dimes: 3
+Please input the number of quarters: 4
+The value of the change is $1.41.
+Would you like to continue?
+1 for yes, 0 for no: 1
+Please input the number of pennies: 13
+Please input the number of nickles: 7
+Please input the number of dimes: 18
+Please input the number of quarters: 27
+The value of the change is $9.03.
+Would you like to continue?
+1 for yes, 0 for no: 0
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ exit
+exit
+
+Script done on Thu 03 Sep 2015 09:54:12 PM MDT

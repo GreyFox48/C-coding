@@ -1,0 +1,11 @@
+Using Structure versus array
+
+  Arrays are best for when there is a list of data that is all the same type.  The elements could just be a series of 
+points or numbers to be averaged, and are not necassarily inportant in their order but what number they are.  If you had a
+series of weights, and you wanted to learn the average weight of all of the objets, an array with a function can easily find 
+average.
+
+A structure would be best for when a specific unit has several unique properties that are specific to it.  The properties do not
+even have to be of the same type of data.  For instance, if I wanted a structure for a dog, I could create a string variable name
+inside the structre, and a variable for the weight, height, breed, etc.  The best part is that each property of the dog would
+not just be a number, but instead assoicated with its name.  For instance, to get the dog's weight, I would call dog.weight.

@@ -1,0 +1,52 @@
+Matthew Olsen
+Lab9
+17-11-2015
+
+Purpose:  To understand how a CPU functions at a high level and also to gain
+experience in working with doubly linked lists.
+
+Conclusions:
+a) What I learned from this lab:
+  Despite the CPU and the doubly linked lists being the focus of this lab, I
+feel I learned more about practices in manipulating strings.  I had already 
+done a lower level version of a CPU from the CSE 101 class, and doubly linked
+lists in this lab where easier than the singly linked lists.  More specifically
+I learned how to use strncpy and strncat, and the general process of checking
+strings for errors.
+
+b) Issues and how I fixed them:
+  The largest problem in this lab was string processing.  The soluiton was to 
+check for and remove certain characters at certain points. I also had an issue
+where the CPU calculations would not always be accurate after a second 
+computation.  This was from the CPU carrry flag remaining positive after the 
+computation, but this was easy to fix.
+
+  One issue was trying to seperate the linked list fucntions to a seperate
+.c file than the rest of the functions, as I wanted to make a personal library.
+Eventaully, I settled for doing double pointers to help solve this problem.
+
+  My largest issue however was my program seemingly randomly segfaulting at 
+seeming random times it was run.  Sometimes you could run the program twice 
+with the exact same input in the same order only to have it sometimes segfault.
+The issue turned out to be a timing error.  One of my char arrays was created too
+soon, as it relied on user input to specify its size.  It was however declared 
+before user input and thus only had a size of 1 due to how it was coded.  What 
+would end up happening is that the array would have its assigned zeros overlow
+into nearby variables, and overwrite thier addresses and contents with the 
+ascii zero value thus causing segfaults.  This would happen randomly because
+the issue depended on how close the computer stored those values in ram.
+
+c) Improvements that can be made:
+  How the main file passes around the operator is a bit clumsy, as it just passes
+a character to differnt functions.  This could be fixed somehow to be more
+elagent.  Also, the overflow flag, while accurate under the specifications of
+the lab is not entirley accurate, so it should be adjusted.
+
+
+Differece between singly and doubly linked lists:
+  A singly linked list can only point to the following node, because it only 
+posses one pointer. A doubly linked list has two pointers, one to point to the 
+nodes both before and another to the previous node in the list.  Both lists 
+point to null when there is not a node to point to.  Personally, I cannot 
+see the advantage of a singly linked list beyond it saving about 8 bytes at
+each node, as doubly linked lists are much easier to work with.

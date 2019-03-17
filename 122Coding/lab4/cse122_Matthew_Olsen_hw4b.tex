@@ -1,0 +1,115 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath}
+\begin{document}
+\begin{flushright}
+Matthew Olsen\\
+March 23, 2016\\ 
+CSE: 122 Homework 4B\\
+\end{flushright}
+
+\section{Homework 4B}
+	\subsection{Problem 1}
+	\textbf{Equation:}\\
+	\begin{equation*}
+		b_k = \frac{b_{k-1}}{1+b_{k-1}}
+	\end{equation*}
+	\textbf{Work for Explicit Formula}\\
+	\begin{gather*}
+		b_{k-1} = \frac{b_{k-2}}{1+b_{k-2}}\\
+		b_k = \frac{\frac{b_{k-2}}{1+b_{k-2}}}{1 + \frac{b_{k-2}}{1+b_{k-2}}} = \frac{\frac{b_{k-2}}{1+b_{k-2}}}{\frac{1+2b_{k-2}}{1+b_{k-2}}}\\
+		b_k = \frac{b_{k-2}}{1+2b_{k-1}}\\
+		b_{k-2} = \frac{b_{k-3}}{1+b_{k-3}}\\
+		b_k = \frac{\frac{b_{k-3}}{1+b_{k-3}}}{1 + \frac{2b_{k-3}}{1+b_{k-3}}} = \frac{\frac{b_{k-3}}{1+b_{k-3}}}{\frac{1+3b_{k-3}}{1+b_{k-3}}}\\
+		b_k = \frac{b_{k-3}}{1+3b_{k-3}}\\
+		b_k = \frac{b_{k-n}}{1+nb_{k-n}}\\
+		b_{k-n}=b_{0} \Rightarrow k-n=0 \Rightarrow k=n\\
+		b_k = \frac{b_{k-k}}{1+kb_{k-k}} = \frac{b_0}{1+k(b_0)}\\
+		\mathbf{b_k=\frac{1}{1+k}}
+	\end{gather*}
+	\textbf{Proof by Induction}\\
+	\textbf{Equation}\\
+	\begin{equation*}
+		b_n=\frac{b_{n-1}}{1+b_{n-1}}=\frac{1}{1+n}, \text{where $b_0 = 1$}
+	\end{equation*}
+	\textbf{Base Case:} If n = 0\\
+	\begin{equation*}
+		b_0=\frac{1}{1+0}=1
+	\end{equation*}
+	\textbf{Assumtpion:} If n = k, then\\
+	\begin{equation*}
+		b_{k}=\frac{b_{k-1}}{1+b_{k-1}}=\frac{1}{1+k}
+	\end{equation*}
+	\textbf{Prove:} If n = k + 1, then\\
+	\begin{equation*}
+		b_{k+1}=\frac{b_k}{1+b_k}=\frac{1}{2+k}
+	\end{equation*}
+	\textbf{Proof:}\\
+	\begin{equation*}
+		b_{k+1}=\frac{b_k}{1+b_k}=\frac{\frac{1}{1+k}}{1+\frac{1}{1+k}}=\frac{b_k}{1+b_k}=\frac{\frac{1}{1+k}}{\frac{2+k}{1+k}}=\frac{1}{2+k}
+	\end{equation*}
+	
+    \subsection{Problem 2}
+	\textbf{Equation:}\\
+	\begin{equation*}
+		T(n)=T(\frac{n}{2})+b,T(1)=a
+	\end{equation*}
+	\textbf{Work for Explicit Formula:}\\
+	\begin{gather*}
+		T(\frac{n}{2}) = T(\frac{n}{4})+b\\
+		T(n)=T(\frac{n}{4})+2b\\
+		T(\frac{n}{4}) = T(\frac{n}{8})+b\\
+		T(n)=T(\frac{n}{8})+3b\\
+		\mathbf{T(n)=T(\frac{n}{2^k})+kb}\\
+		T(\frac{n}{2^k})=T(1) \Rightarrow \frac{n}{2^k}=1 \Rightarrow n = 2^k \Rightarrow log_2(n)=k\\
+		T(n)=T(\frac{2^k}{2^k})+log_2(n)b\\
+		\textbf{Explicit Equation: }T(n)=a+log_2(n)b\\
+		\textbf{Big-O: }O(log(n))
+	\end{gather*}
+
+	\subsection{Problem 3}
+	\textbf{Equation:}\\
+	\begin{equation*}
+		T(n)=2T(\frac{n}{2})+b,T(1)=a
+	\end{equation*}
+	\textbf{Work for Explicit Formula:}\\
+	\begin{gather*}
+		T(\frac{n}{2}) = 2T(\frac{n}{4})+b\\
+		T(n)=2*(T(\frac{n}{4})+b)+b=2T(\frac{n}{4})+2b+b\\
+		T(\frac{n}{4}) = 2T(\frac{n}{8})+b\\
+		T(n)=8T(\frac{n}{8})+4b+2b+b\\
+		\mathbf{T(n)=2^kT(\frac{n}{2^k})+2^{k-1}b}\\
+		T(\frac{n}{2^k})=T(1) \Rightarrow \frac{n}{2^k}=1 \Rightarrow n = 2^k \Rightarrow log_2(n)=k\\
+		T(n)=2^{log_2(n)}T(\frac{2^k}{2^k})+2^{log_2(n)-1}b\\
+		\textbf{Explicit Equation: }T(n)=na+\frac{n}{2}b\\
+		\textbf{Big-O: }O(n)
+	\end{gather*}
+
+	\subsection{Problem 4}
+	\textbf{Equation:}\\
+	\begin{equation*}
+		T(n)=T(n-1)+n^k,T(1)=a
+	\end{equation*}
+	\textbf{Work for Explicit Formula:}\\
+	\begin{gather*}
+		T(n-1) = T((n-1)-1)+(n-1)^k\\
+		T(n)=T(n-2)+(n-1)^k+n^k\\
+		T(n-2) = T(n-3)+(n-2)^k\\
+		T(n)=T(n-3)+(n-2)^k+(n-1)^k+n^k\\
+		T(n-3) = T(n-4)+(n-3)^k\\
+		T(n)=T(n-4)+(n-3)^k+(n-2)^k+(n-1)^k+n^k\\
+		\mathbf{T(n)=T(n-j)+\sum^{j-1}_{i=0}(n-i)^k}\\
+		T(n-j)=T(1)\Rightarrow n-j=1\Rightarrow j=n-1\\
+		T(n)=T(n-n+1)+\sum^{(n-1)-1}_{i=0}(n-i)^k\\
+		\textbf{Explicit Equation: }T(n)=a+\sum^{n-2}_{i=0}(n-i)^k\\
+	\end{gather*}
+	\textbf{Prove $\mathbf{T(n)=a+\sum^{n-2}_{i=0}(n-i)^k}$ is $\mathbf{O(n^{k+1})}$}
+	\begin{gather*}
+		a+\sum^{n-2}_{i=0}(n-i)^k=a+n^k+(n-1)^k+...+2^k\\
+		< an^k+n^k+n^k+...+n^k \text{ ($n-1$ times)} = an^k + n*n^k -n^k\\
+		= (a-1)n^k + n^{k+1} < a*n^{k+1}+n^{k+1}=a*n^{k+1}\\
+		\mathbf{a+\sum^{n-2}_{i=0}(n-i)^k \leq a*n^{k+1}}\\
+		n_0 = 1\\
+		c = a\\
+		\textbf{Big-O: }O(n^{k+1})\\
+	\end{gather*}
+\end{document}

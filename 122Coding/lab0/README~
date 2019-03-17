@@ -1,0 +1,23 @@
+Matthew Olsen
+02-08-2016
+Lab 0
+
+Purpose:
+  The purpose of the lab was to demonstrate the power of a more optimized
+program, as well as show how to make estimates for time taken for some
+functions.
+
+Conclusions:
+a)  What I had learned:
+  I learned mostly how to use newton's method for finding a square root as well
+as how to do a binary search.  While I had know how to use both for a while, I 
+never had the reason to implement them before.
+
+b)  Issues and how I had fixed them:
+  The main issue was that the newton's method cube program would not terminate
+properly.  How I had ultimatley fixed it was running the program in GDB to 
+learnt that I had implemented the calculation run.  The bug was fixed by fixing
+the equation.
+
+c) Improvements that could be made:
+  

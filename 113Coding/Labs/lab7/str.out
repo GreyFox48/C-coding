@@ -1,0 +1,36 @@
+Matthew Olsen
+2015-10-28
+Lab 7
+
+the length of "c run, c run unix, run unix run" is 31
+s1 = c run, c run unix, run unix run
+s1 = c run, c run unix, run unix run
+s1 = c run, c run unix, run unix run, go c, go!
+comparing:
+c run, c run unix, run unix run
+and
+look c, look c
+strings differ in the first 14 chars; cmp = 18
+
+comparing:
+look c, look c
+and
+look c, go c!
+strings are the same for 8 chars; cmp = 0
+
+comparing:
+look c, look c
+and
+look c, go c!
+strings differ in the first 9 chars; cmp = 5
+c run, c run unix, run unix run
+searching for x in "c run, c run unix, run unix run"
+x is located at address 0x7ffd5ed8cd00
+which is 16 bytes from the base address 0x7ffd5ed8ccf0
+searching for a in "c run, c run unix, run unix run"
+char a not found in "c run, c run unix, run unix run"
+c run, c run unix, run unix run
+c un, c un unix, un unix un
+c run, c run unix, run unix run
+reversed is
+nur xinu nur ,xinu nur c ,nur c

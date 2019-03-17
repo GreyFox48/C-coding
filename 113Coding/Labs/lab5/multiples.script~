@@ -1,0 +1,8 @@
+Script started on Fri 09 Oct 2015 09:28:32 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ gcc -g -Wall multiples.c -o mult iples
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ ./multiples
+The sum of all multiples of 3 or 5 below 1000 is 233168.
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ exit
+exit
+
+Script done on Fri 09 Oct 2015 09:29:02 PM MDT

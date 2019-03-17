@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define SIZE 20
+int main(void)
+{
+        int start;
+        int stop;
+        int product = 1;
+        char s[SIZE];
+
+        printf("Please enter the start: ");
+        fgets(s, SIZE - 1, stdin);
+        start = atoi(s);
+
+        printf("And now the stop: ");
+        fgets(s, SIZE - 1, stdin);
+        stop = atoi(s);
+
+        do {
+                product = product * start;
+                start++;
+        } while (start <= stop);
+
+        printf("The product is %d.\n", product);
+
+        return 0;
+}

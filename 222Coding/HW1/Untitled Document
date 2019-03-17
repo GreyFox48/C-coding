@@ -1,0 +1,76 @@
+#!/bin/bash
+#
+# print files with a line number
+# there is an option to print the lines of the file in reverse
+
+
+#these are global variables
+name=''
+directory=''
+clean='false'
+
+#functions have to be declared before they
+#are used
+
+usage () {
+        printf '%s -n tarballname -d directory -c makefile clean\n' $0
+        printf '\nRequired arguments\n'        
+        printf '\055n tarball name\n'
+        printf '\nOptional Arguements\n'
+        printf '\055c use the makefile clean\n'
+        printf '\055d directory to retrieve files from\n'
+        printf '\055h help options\n'
+}
+
+main () {
+        if [ -n $directory ]; then
+                cd $directory
+        fi
+
+	if [ $clean == 'true' ]; then
+		make clean
+	fi
+
+	tar -cvzf $name *.h *.c makefile Makefile
+}
+
+# execution begins here -- process command line options and args
+# The : after an option (single letter) says it needs an arg. 
+
+while getopts "n:d:ch" opt; do
+
+        case $opt in
+        h) usage 
+           exit     
+           ;;
+        n) name=$OPTARG
+           ;;
+        c) clean="true"
+           ;;     
+	d) directory=$OPTARG
+        esac
+
+done
+
+# error processing -- filename is required 
+# check to see it is not 
+# an empty string
+# there is a lot more you could do...
+if [ -z $name ]; then
+        printf '\055n tarball name required\n'
+        usage
+        exit 1 
+fi
+
+if [ -z $directory ]; then
+        printf '\055d directory name required\n'
+        usage
+        exit 1 
+fi
+
+# call main
+main
+exit 0
+
+
+

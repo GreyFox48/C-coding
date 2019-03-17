@@ -1,0 +1,24 @@
+Script started on Thu 03 Sep 2015 09:49:03 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ exit./evalgcc -Wall -g eval.c -o eval
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ ./eval
+The function is (n / 3) + (2 / 3)
+Please input n: 0
+The answer in fraction form is 2.000000 / 3, and the decimal form is 0.666667. 
+Would you like to continue?
+1 for yes, 0 for no: 1
+Please input n: 1
+The answer in fraction form is 3.000000 / 3, and the decimal form is 1.000000. 
+Would you like to continue?
+1 for yes, 0 for no: 1
+Please input n: 5
+The answer in fraction form is 7.000000 / 3, and the decimal form is 2.333333. 
+Would you like to continue?
+1 for yes, 0 for no: 1
+Please input n: 10
+The answer in fraction form is 12.000000 / 3, and the decimal form is 4.000000. 
+Would you like to continue?
+1 for yes, 0 for no: 0
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ exit
+exit
+
+Script done on Thu 03 Sep 2015 09:49:58 PM MDT

@@ -1,0 +1,42 @@
+Matthew Olsen
+Prelab 1
+September 3rd, 2015
+
+Script started on Thu 03 Sep 2015 10:02:41 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ exit./exchgcc -g -Wall exch.c -o exch
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ ./exch
+This program converts euros to dollars, or vise versa.
+Enter 1 to convert US Dollars to Euros, or 0 to convert Euros to Dollars: 1
+Input the number of US Dollars to convert: 1
+1.00 US Dollars is worth 0.75 Euros.
+Would you like to continue?
+1 for yes, 0 for no: 1
+Enter 1 to convert US Dollars to Euros, or 0 to convert Euros to Dollars: 1
+Input the number of US Dollars to convert: 10
+10.00 US Dollars is worth 7.50 Euros.
+Would you like to continue?
+1 for yes, 0 for no: 1
+Enter 1 to convert US Dollars to Euros, or 0 to convert Euros to Dollars: 1
+Input the number of US Dollars to convert: 100.25
+100.25 US Dollars is worth 75.19 Euros.
+Would you like to continue?
+1 for yes, 0 for no: 1
+Enter 1 to convert US Dollars to Euros, or 0 to convert Euros to Dollars: 0
+Input the number of Euros to convert: 0.75
+1.00 US Dollars is worth 0.75 Euros.
+Would you like to continue?
+1 for yes, 0 for no: 1
+Enter 1 to convert US Dollars to Euros, or 0 to convert Euros to Dollars: 0
+Input the number of Euros to convert: 10
+13.33 US Dollars is worth 10.00 Euros.
+Would you like to continue?
+1 for yes, 0 for no: 1
+Enter 1 to convert US Dollars to Euros, or 0 to convert Euros to Dollars: 0
+Input the number of Euros to convert: 100.25
+133.67 US Dollars is worth 100.25 Euros.
+Would you like to continue?
+1 for yes, 0 for no: 0
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ exit
+exit
+
+Script done on Thu 03 Sep 2015 10:04:41 PM MDT

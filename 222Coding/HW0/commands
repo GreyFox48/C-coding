@@ -1,0 +1,31 @@
+Matthew Olsen
+
+#1
+tr '[:space:]' '\012' < alice |  egrep -o "[^[:punct:][:space:]]?([[:alpha:]]+[']?)+" | sort | uniq -ci
+
+#2
+tr '[:space:]' '\012' < alice |  egrep -o "[^[:punct:][:space:]]?([[:alpha:]]+[']?)+" | sort | uniq -i | egrep -c "[[:alpha:]]+"
+
+#3
+sed "s/$(tr '[:space:]' '\012' < walrus |  egrep -o "[^[:punct:][:space:]]?([[:alpha:]]+[']?)+" | sort | uniq -ic | sort -nr | grep -o -m 1 "[[:alpha:]]*") /GIRO D’ITALIA /gI" < walrus
+
+#4
+grep -io '^[^aeiou][^aeiou][aeiou][aeiou][^aeiou][^aeiou]$' < web2
+
+#5
+egrep -io '^[^aeiou]{2}[aeiou]{2}[^aeiou]{2}$' < web2
+
+#6
+egrep -io "^([[:alpha:]])([[:alpha:]])[[:alpha:]]\2\1$" < web2
+
+#7
+egrep -i '[aeiou]{5}' < web2
+
+#8
+egrep -i "^[^aeiouy]{2,}$" < web2
+
+#9
+sed -r 's/(.*):.*:(.*):.*:.*:.*:(.*)$/user: \1\tuid: \2\tshell: \3/g' < /etc/passwd
+
+#10
+awk '{printf "%d %s\n" , NR, $0}' < alice

@@ -1,0 +1,24 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{amsmath}
+\begin{document}
+\begin{flushright}
+Matthew Olsen\\
+March 23, 2016\\ 
+CSE: 122 Homework 4B\\
+\end{flushright}
+
+\section{Homework 4B}
+	\subsection{Problem 1}
+	\textbf{Equation:}\\
+	\begin{equation*}
+		b_k = \frac{b_{k-1}}{1+b_{k-1}}
+	\end{equation*}
+	\textbf{Work for Explicit Formula}\\
+	\begin{gather*}
+		b_{k-1} = \frac{b_{k-2}}{1+b_{k-2}}\\
+		b_k = \frac{\frac{b_{k-2}}{1+b_{k-2}}}{1 + \frac{b_{k-2}}{1+b_{k-2}}}
+		= \frac{\frac{b_{k-2}}{1+b_{k-2}}}{\frac{1+2b_{k-2}}{1+b_{k-2}}}\\
+
+	\end{gather*}
+
+\end{document}

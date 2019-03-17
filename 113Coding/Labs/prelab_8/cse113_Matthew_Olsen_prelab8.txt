@@ -1,0 +1,211 @@
+Matthew Olsen
+30-10-2015
+Prelab 8
+
+Question 1:
+Pseudocode:
+
+List before the addition of H:
+
+head -> D
+D-> next = C
+C-> next = B
+B-> next = G
+G-> next = null
+tail -> null
+
+//To add H to end of list, three step process:
+
+//create and initialize node H:
+malloc H
+H-> next = NULL
+
+//set G-> next = H
+G-> next = H
+
+//set tail-> H
+tail -> H
+
+List after the addition of H:
+
+head -> D
+D-> next = C
+C-> next = B
+B-> next = G
+G-> next = H
+H-> next = NULL
+tail -> H
+
+Question 2:
+Pseudocode:
+
+List before the addition of E:
+
+head -> A
+A-> next = B
+B-> next = C
+C-> next = D
+D -> next = NULL
+tail-> D
+
+//To add E to the beginning of the list, three step process
+
+//create and intialize node H:
+malloc E
+E-> next = NULL
+
+//set E to point to A
+E-> next = A
+
+//reassign head
+head-> E
+
+List after the addition of E:
+
+head -> E
+E-> next = A
+A-> next = B
+B-> next = C
+C-> next = D
+D -> next = NULL
+tail-> D
+
+Question 3:
+Pseudocode:
+
+List before the addition of Z:
+
+head-> A
+A-> next = D
+D-> next = C
+C-> next = H
+H-> next = E
+E-> next = F
+F-> next = NULL
+tail-> F
+
+
+//To add Z before D, two step process
+
+//create and intialize node Z:
+malloc Z
+Z-> next = A-> next
+
+//set A to point to Z
+head-> next = Z
+
+List after the addition of Z:
+
+head-> A
+A-> next = Z
+Z-> next = D
+D-> next = C
+C-> next = H
+H-> next = E
+E-> next = F
+F-> next = NULL
+tail-> F
+
+Question 4:
+Pseudocode:
+
+List before the deletion of G:
+
+head-> D
+D-> next = E
+E-> next = F
+F-> next = G
+G-> next = H
+H-> next = I
+I-> next = J
+J-> next = K
+K-> next = NULL
+tail-> K
+
+//To delete G from the list, four step process
+
+//find element whose next = G:
+F-> next == G
+
+//set pointer variable to G
+delete = G
+
+//set F-> next to H
+F-> next = delete-> next
+
+//free G
+free(delete)
+
+List after the deletion of G:
+
+head-> D
+D-> next = E
+E-> next = F
+F-> next = H
+H-> next = I
+I-> next = J
+J-> next = K
+K-> next = NULL
+tail-> K
+
+Question 5:
+Pseudocode:
+
+List before the deletion of A:
+
+head-> A
+A-> next = B
+B-> next = C
+C-> next = D
+D-> next = NULL
+tail-> D
+
+//To delete A from the list, three step process
+
+//set pointer variable to equal A's address
+delete = A
+
+//set head to equal B
+head = head-> next
+
+//free A
+free(delete)
+
+List after the deletion of A:
+
+head-> B
+B-> next = C
+C-> next = D
+D-> next = NULL
+tail-> D
+
+Question 6:
+Pseudocode:
+
+List before the deletion of D:
+
+head-> A
+A-> next = B
+B-> next = C
+C-> next = D
+D-> next = NULL
+tail-> D
+
+//To delete D from the list, two step process
+
+//find structure whose next == tail and set to variable
+newtail = C
+
+//free tail
+free(tail)
+
+//set C next to null
+newtail-> next = NULL
+
+List after the deletion of D:
+
+head-> A
+A-> next = B
+B-> next = C
+C-> next = NULL
+tail-> C

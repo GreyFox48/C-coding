@@ -1,0 +1,24 @@
+Script started on Fri 25 Sep 2015 03:28:49 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab3matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab3$ exit./rock-spockgcc -g -Wall rock-spock.c -o rock-spock./rock-spock[K[8Pexit[Kgcc -g -Wall credit.c -o credit
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab3matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab3$ ./credit
+card[0] = 8
+card[1] = 0
+card[2] = 2
+card[3] = 2
+card[4] = 16
+card[5] = 8
+card[6] = 16
+card[7] = 8
+card[8] = 16
+card[9] = 8
+card[10] = 16
+card[11] = 8
+card[12] = 2
+card[13] = 8
+card[14] = 16
+card[15] = 2
+The card is invalid.
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab3matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab3$ exit
+exit
+
+Script done on Fri 25 Sep 2015 03:29:12 PM MDT

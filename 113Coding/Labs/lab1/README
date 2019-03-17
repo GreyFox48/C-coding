@@ -1,0 +1,16 @@
+Matthew Olsen
+2015-09-05
+Lab 1
+
+Purpose:  To calculate certain properties of a rectangle, right triangle, circle, and regular polygon given some specific
+values entered by the user.
+
+Conclusion(s):
+
+(a) The basic construction order of a program
+  The order in which the program is coded is major, as it can possilby create more work than needed.  I found that out
+when I coded user input for the rectangle first, and then had to go back and redo when I created the output.  Doing output
+first in the other sections prevented this.
+
+(b)  Compile often
+  It is best to compile often, even if one expects certain errors, and to fix the unexpected errors.  I didn't do so until about half of the code was written, and it was very frustrating.  The last half I compiled often, fixing the issues.  

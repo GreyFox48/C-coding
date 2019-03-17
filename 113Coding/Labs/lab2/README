@@ -1,0 +1,23 @@
+NAME
+DATE
+LAB
+
+Purpose:
+        The lab was to learn about how to use flow control, by creating a calculator that performed
+selected geometric calcualatoins based upon input and decisions from the user.
+
+Conclusions:
+
+a)  What I learned from this lab:
+        From this lab I learned when it is best to best to use switch statements versus if statements.  In general
+switch statements I have learned are better for select cases or at least for relatively small ranges that will
+otherwise have a default outcome.  If statements are better for assesing conditions along certain points in the program.
+
+b)  Issues and how I fixed them (bug report):
+        In trying to error check for certain cases, I ran into a few problems.  While the switch statements would often
+be able to simply use the default case when faulty input was detected, the atoi fuction would often have bizzare input
+when certain things were inputed into the function, like when the user could input letters instead of numbers.  I created
+a function to ensure no letters where detected in the character array created by fgets before the \n token.  This function, called is_pos_integerm or is_pos_float, also had the use of ensuring no negative numbers where inputed because it would detect the - symbol the user would input before a negative interger.
+
+C)  Improvements that could be made:
+        The functions that I created to detect faulty user input can be considered both overzealous in error detection depending on the case.  For example, while input such as "24 inches" could simply use the 24, the fuctions I created would simply just flag an error.  It is also likely full of bugs, despite me testing it, due to possible oversights on my part.

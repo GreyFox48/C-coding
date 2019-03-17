@@ -1,0 +1,182 @@
+f[0] = 0
+f[1] = 1
+f[2] = 1
+f[3] = 2
+f[4] = 3
+f[5] = 5
+f[6] = 8
+f[7] = 13
+f[8] = 21
+f[9] = 34
+f[10] = 55
+f[11] = 89
+f[12] = 144
+f[13] = 233
+f[14] = 377
+f[15] = 610
+f[16] = 987
+f[17] = 1597
+f[18] = 2584
+f[19] = 4181
+f[20] = 6765
+f[21] = 10946
+f[22] = 17711
+f[23] = 28657
+f[24] = 46368
+f[25] = 75025
+f[26] = 121393
+f[27] = 196418
+f[28] = 317811
+f[29] = 514229
+f[30] = 832040
+f[31] = 1346269
+f[32] = 2178309
+f[33] = 3524578
+f[34] = 5702887
+f[35] = 9227465
+f[36] = 14930352
+f[37] = 24157817
+f[38] = 39088169
+f[39] = 63245986
+f[40] = 102334155
+f[41] = 165580141
+f[42] = 267914296
+f[43] = 433494437
+f[44] = 701408733
+f[45] = 1134903170
+f[46] = 1836311903
+f[47] = 2971215073
+f[48] = 4807526976
+f[49] = 7778742049
+f[50] = 12586269025
+f[51] = 20365011074
+f[52] = 32951280099
+f[53] = 53316291173
+f[54] = 86267571272
+f[55] = 139583862445
+f[56] = 225851433717
+f[57] = 365435296162
+f[58] = 591286729879
+f[59] = 956722026041
+f[60] = 1548008755920
+f[61] = 2504730781961
+f[62] = 4052739537881
+f[63] = 6557470319842
+f[64] = 10610209857723
+f[65] = 17167680177565
+f[66] = 27777890035288
+f[67] = 44945570212853
+f[68] = 72723460248141
+f[69] = 117669030460994
+f[70] = 190392490709135
+f[71] = 308061521170129
+f[72] = 498454011879264
+f[73] = 806515533049393
+f[74] = 1304969544928657
+f[75] = 2111485077978050
+f[76] = 3416454622906707
+f[77] = 5527939700884757
+f[78] = 8944394323791464
+f[79] = 14472334024676221
+f[80] = 23416728348467685
+f[81] = 37889062373143906
+f[82] = 61305790721611591
+f[83] = 99194853094755497
+f[84] = 160500643816367088
+f[85] = 259695496911122585
+f[86] = 420196140727489673
+f[87] = 679891637638612258
+f[88] = 1100087778366101931
+f[89] = 1779979416004714189
+f[90] = 2880067194370816120
+f[91] = 4660046610375530309
+f[92] = 7540113804746346429
+f[93] = 12200160415121876738
+
+error in 72 term of forumula Fibonacci
+terms differ by 1
+percentage error 0.000000000000200620% 
+
+error in 73 term of forumula Fibonacci
+terms differ by 2
+percentage error 0.000000000000247980% 
+
+error in 74 term of forumula Fibonacci
+terms differ by 3
+percentage error 0.000000000000229890% 
+
+error in 75 term of forumula Fibonacci
+terms differ by 5
+percentage error 0.000000000000236800% 
+
+error in 76 term of forumula Fibonacci
+terms differ by 8
+percentage error 0.000000000000234161% 
+
+error in 77 term of forumula Fibonacci
+terms differ by 14
+percentage error 0.000000000000253259% 
+
+error in 78 term of forumula Fibonacci
+terms differ by 24
+percentage error 0.000000000000268324% 
+
+error in 79 term of forumula Fibonacci
+terms differ by 39
+percentage error 0.000000000000269480% 
+
+error in 80 term of forumula Fibonacci
+terms differ by 59
+percentage error 0.000000000000251957% 
+
+error in 81 term of forumula Fibonacci
+terms differ by 102
+percentage error 0.000000000000269207% 
+
+error in 82 term of forumula Fibonacci
+terms differ by 169
+percentage error 0.000000000000275667% 
+
+error in 83 term of forumula Fibonacci
+terms differ by 279
+percentage error 0.000000000000281265% 
+
+error in 84 term of forumula Fibonacci
+terms differ by 464
+percentage error 0.000000000000289095% 
+
+error in 85 term of forumula Fibonacci
+terms differ by 743
+percentage error 0.000000000000286104% 
+
+error in 86 term of forumula Fibonacci
+terms differ by 1207
+percentage error 0.000000000000287247% 
+
+error in 87 term of forumula Fibonacci
+terms differ by 2014
+percentage error 0.000000000000296224% 
+
+error in 88 term of forumula Fibonacci
+terms differ by 3157
+percentage error 0.000000000000286977% 
+
+error in 89 term of forumula Fibonacci
+terms differ by 5171
+percentage error 0.000000000000290509% 
+
+error in 90 term of forumula Fibonacci
+terms differ by 9096
+percentage error 0.000000000000315826% 
+
+error in 91 term of forumula Fibonacci
+terms differ by 14523
+percentage error 0.000000000000311649% 
+
+error in 92 term of forumula Fibonacci
+terms differ by 22595
+percentage error 0.000000000000299664% 
+
+error in 93 term of forumula Fibonacci
+terms differ by 37118
+percentage error 0.000000000000304242% 

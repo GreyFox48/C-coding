@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(void)
+{
+ int i;
+ int loop = 100;
+
+ for (i = 0; i < loop; i++) { 
+  printf("Hello world!\n");
+ }
+
+ return 0;
+}

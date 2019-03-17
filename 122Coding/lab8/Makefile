@@ -1,0 +1,16 @@
+CC=gcc
+CFLAGS=-g -Wall
+CFLAGS_OBJ=-g -Wall -c
+AVL_OBJ=avl.o
+BST_OBJ=bst.o
+
+all: test 
+
+avl: avl.c avl.h
+	$(CC) $(CFLAGS_OBJ) avl.c -lm
+
+test: avl test.c
+	$(CC) $(CFLAGS) avl.o $@.c -o $@
+
+clean: 
+	rm *.o test

@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main(void)
+{
+        int a;
+        int b;
+        int c;
+        int d;
+        int small1;
+        int small2;
+        int large1;
+        int large2;
+
+        printf("Please input four intergers: ");
+        scanf("%d%d%d%d", &a, &b, &c, &d);
+        
+        if (a <= b) {
+                small1 = a;
+                large1 = b;  
+        } else {
+                small1 = b;
+                large1 = a; 
+        }
+
+        if (c <= d) {
+                small2 = c;
+                large2 = d;
+        } else {
+                small2 = d;
+                large2 = c;
+        }
+        
+        if (small1 <= small2) {
+                printf("The smallest number is %d.\n", small1);
+        } else {
+                printf("The smallest number is %d.\n", small2);
+        }
+
+        if (large1 >= large2) {
+                printf("The largest number is %d.\n", large1);
+        } else {
+                printf("The largest number is %d.\n", large2);
+        }
+
+        return 0;
+}

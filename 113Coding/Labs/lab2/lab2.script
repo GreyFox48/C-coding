@@ -1,0 +1,69 @@
+Matthew Olsen
+Lab 2
+September 14th, 2015
+
+Script started on Mon 14 Sep 2015 03:36:17 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab2matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab2$ 
+[K]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab2matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab2$ gcc -g -Wall lab2.c -o lab2 -lm
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab2matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab2$ gcc -g -Wall lab2.c -o lab2 -lm./lab2-2[K[K[K
+This program calculates basic propterties of rectangles, circles, triangles, or regular polygons.
+Enter what what shape you would like to calculate.
+A : Rectangles
+B : Circles
+C : Triangles
+D : Regular Polygon
+a
+A : Calculate the perimeter of a rectangle
+B : Calculate the area of a rectangle
+C : Calculate the diagnol of a rectangle
+B
+Please input the width of your rectangle as a integer: 12
+Please input the length of your rectangle as a integer: 56
+The area of the rectangle is 672.
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab2matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab2$ ./lab2
+This program calculates basic propterties of rectangles, circles, triangles, or regular polygons.
+Enter what what shape you would like to calculate.
+A : Rectangles
+B : Circles
+C : Triangles
+D : Regular Polygon
+q
+You inputed q, which is not a valid input.
+Goodbye.
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab2matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab2$ ./lab2
+This program calculates basic propterties of rectangles, circles, triangles, or regular polygons.
+Enter what what shape you would like to calculate.
+A : Rectangles
+B : Circles
+C : Triangles
+D : Regular Polygon
+C
+A : Calculate the perimeter of a triangle
+B : Calculate the hypotenuse of a triangle
+C : Calculate the area of a triangle
+f potato
+You inputed o, which is not a valid input.
+Goodbye.
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab2matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab2$ ./lab2gcc -g -Wall lab2.c -o lab2 -lm./lab2[K
+This program calculates basic propterties of rectangles, circles, triangles, or regular polygons.
+Enter what what shape you would like to calculate.
+A : Rectangles
+B : Circles
+C : Triangles
+D : Regular Polygon
+a
+A : Calculate the perimeter of a rectangle
+B : Calculate the area of a rectangle
+C : Calculate the diagnol of a rectangle
+c
+Please input the width of your rectangle as a integer: 2
+Please input the length of your rectangle as a integer: apples
+Whoa, whoa, whoa...
+What is this: apples?
+I'll tell you what it is!
+Not valid input!  Pay attention to the prompts!
+That's it.  I'm done.  Goodbye!
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab2matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab2$ exit
+exit
+
+Script done on Mon 14 Sep 2015 03:38:38 PM MDT

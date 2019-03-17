@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <string.h>
+#include <ctype.h>
+
+#define LEN 128
+
+struct node_t {
+        char *word; /* dictionary word */
+        struct node_t *next; 
+};
+
+struct list_t {
+        int nnodes; /* number of nodes list contains */
+        struct node_t *head; /*head of the list */
+};
+
+
+/*  convert string to lowercase */
+void tolowercase(char *s)
+{
+
+}
+
+/* trim off whitespace from the right */
+void rstrip(char *s)
+{
+}
+
+
+int main(int argc, char *argv[]) 
+{
+	char buf[LEN];
+	int i;
+        //this fails if argv[1] is not provided
+        //prrovide an error check and exit gracefully
+        //with a usage statement
+        size_t tbl_size = strtol(argv[1], NULL, 10);
+        struct list_t **dict = malloc(sizeof(struct list_t *) * tbl_size);
+        assert(dict);
+        
+        //load dictionary into hash table
+        for (i = 0; i < tbl_size; i++) {
+                
+        }
+        //debug print hash table (see scrabble50000)
+        //debug print load factor
+        //menu to lookup a word only -- should be able to turn off for debug printing
+        //free memory
+
+	return 0;
+}
+

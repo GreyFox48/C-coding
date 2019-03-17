@@ -1,0 +1,37 @@
+Matthew Olsen
+2015-10-28
+Lab 7
+
+Lacks prompt inputs due to them being inputed into terminal, and thus were not
+captured.
+
+This program can find the min, max, median, and mean of an inputed array of integers.
+0: Calculate array statistics and exit program
+1: Input new number
+Input an integer for the array: 0: Calculate array statistics and exit program
+1: Input new number
+Input an integer for the array: 0: Calculate array statistics and exit program
+1: Input new number
+Input an integer for the array: 0: Calculate array statistics and exit program
+1: Input new number
+Input an integer for the array: 0: Calculate array statistics and exit program
+1: Input new number
+Input an integer for the array: 0: Calculate array statistics and exit program
+1: Input new number
+Input an integer for the array: 0: Calculate array statistics and exit program
+1: Input new number
+Input an integer for the array: 0: Calculate array statistics and exit program
+1: Input new number
+Input an integer for the array: 0: Calculate array statistics and exit program
+1: Input new number
+Input an integer for the array: 0: Calculate array statistics and exit program
+1: Input new number
+Input an integer for the array: 0: Calculate array statistics and exit program
+1: Input new number
+Input an integer for the array: 0: Calculate array statistics and exit program
+1: Input new number
+The array elements are: 4	6	2	4	9	11	14	16	1	15	3
+The min of the array is 1
+The max of the array is 16
+The mean of the array is 7.73
+The median of the array is 6.0

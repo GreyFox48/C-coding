@@ -1,0 +1,32 @@
+#Matthew Olsen
+#02-08-2016
+#Lab 0
+
+CC=gcc
+CFLAGS=-g -Wall
+
+all: sum fizzbuzz sum_no_for cube_binary newton_sqrt newton_cube
+
+# $@ is the name of the target
+# target: dependencies
+
+fizzbuzz: fizzbuzz.c
+	$(CC) $(CFLAGS) $@.c -o $@
+
+sum: sum.c
+	$(CC) $(CFLAGS) $@.c -o $@ -lm
+
+sum_no_for: sum_no_for.c
+	$(CC) $(CFLAGS) $@.c -o $@ -lm
+
+cube_binary: cube_binary.c
+	$(CC) $(CFLAGS) $@.c -o $@ -lm
+	
+newton_sqrt: newton_sqrt.c
+	$(CC) $(CFLAGS) $@.c -o $@ -lm
+	
+newton_cube: newton_cube.c
+	$(CC) $(CFLAGS) $@.c -o $@ -lm
+
+clean:
+	rm sum sqrt sum_no_for

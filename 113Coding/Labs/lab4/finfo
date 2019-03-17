@@ -1,0 +1,183 @@
+#!/bin/bash
+#
+# print the the file name, file type, file permissions in human readable and
+# octal.  Prints the setuid, setgid, and sticky bit if persent.  Compares the
+# file group and user with the id uid and gid.  Prints the inode, file size,
+# block size, number of blocks, number of links, and latest access, modify,
+# and change
+# Block info can be printed in human readable or standard format
+                   
+human='false'
+file=''
+
+# usage statement for user
+usage () {
+        printf '%s -f filename [ -H -h  ]\n' $0
+        printf 'prints out specific infromation about file\n'
+        printf '\nRequired arguments\n'        
+        printf '\055f filename\n'
+        printf '\nOptional arguments\n'
+        printf '\055H, print byte size in human readable format\n'
+        printf '\055h help, print usage information\n'
+}
+
+main () {
+	local bsize= # block size
+	local bnum= # number of blocks       
+
+	printf 'File: %s\n' $(stat --format "%n" ${file}) # print filename
+	# print filetype
+        printf 'File Type: %s\n' "$(stat --format "%F" ${file})" 
+	printf '\n'
+
+	# print permisions in octal
+	printf 'Permissions: %s\n' $(stat --format "%a" ${file}) 
+	# print user permissions
+	printf 'user: %s\n' $(stat --format "%A" ${file} \
+		| sed -r "s/.(.{3}).*$/\1/g") 
+	# print group permissions
+	printf 'group: %s\n' $(stat --format "%A" ${file} \
+		| sed -r "s/.{4}(.{3}).*$/\1/g") 
+	# print other permissions
+	printf 'other: %s\n' $(stat --format "%A" ${file} \
+		| sed -r "s/.{7}(.{3}).*$/\1/g") 
+	printf '\n'
+
+	check_set_id # prints the setuid, setgid, and sticky bits if present
+	printf '\n'
+
+	# print and compare uid and gid with file permissions
+	check_effective_user 
+	printf '\n'
+
+	printf 'Inode: %s\n' $(stat --format "%i" ${file}) # print inode
+	printf '\n'
+
+	bsize=$(stat --format "%B" ${file})
+	bnum=$(stat --format "%b" ${file})
+
+	byte_size # print byte size
+	# print the block size, number of blocks, and the multiple of the two
+	printf '%s Blocks: %s (%s)\n' ${bsize} ${bnum} $(($bsize * $bnum)) 
+	printf '\n'
+
+	# print the number of links
+	printf 'Links: %s\n' $(stat --format "%h" ${file}) 
+	printf '\n'
+	
+	# print the access info
+	stat --format "%x" ${file} | awk '{printf "Access: %s %s\n", $1, $2}' 
+	# print the modify info
+	stat --format "%y" ${file} | awk '{printf "Modify: %s %s\n", $1, $2}'
+	# print the change info
+	stat --format "%z" ${file} | awk '{printf "Change: %s %s\n", $1, $2}' 
+}
+
+# checks to see if the uid, gid, and sbit are set
+check_set_id () {
+	local uid
+	local gid
+	local sbit
+
+	uid=$(stat --format "%A" ${file} \
+		| sed -r "s/.(.{3}).*$/\1/g" \
+		| grep -io "s")
+	gid=$(stat --format "%A" ${file} \
+		| sed -r "s/.{4}(.{3}).*$/\1/g" \
+		| grep -io "s")
+	sbit=$(stat --format "%A" ${file} | grep -io "t") # sticky bit
+
+	if [ -n "${uid}" ]; then # uid
+		printf 'Setuid: %s\n' ${uid}
+	else
+		printf 'Setuid: no\n'
+	fi
+
+	if [ -n "${gid}" ]; then # gid
+		printf 'Setgid: %s\n' ${uid}
+	else
+		printf 'Setgid: no\n'
+	fi
+
+	if [ -n "${sbit}" ]; then # sticky bit
+		printf 'Sticky Bit Set: %s\n' ${uid}
+	else
+		printf 'Sticky Bit Set: no\n'
+	fi
+}
+
+# compares the user uid and gid with the uid and gid returned by stat
+# return yes if both are the same, no otherewise
+# uid returned by id is always returned inside ()
+check_effective_user () {
+	local id_uid
+	local id_gid
+	local file_uid
+	local file_gid	
+
+	id_uid=$(id -u)
+	id_gid=$(id -g)
+
+	file_uid=$(stat --format "%u" ${file})
+	file_gid=$(stat --format "%g" ${file})
+
+	if [ "${id_uid}" == "${file_uid}" ]; then # effective user id
+		printf 'Owned by Effective User-ID: yes (%s)\n' $id_uid
+	else
+		printf 'Owned by Effective User-ID: no (%s)\n' $id_uid
+	fi
+
+	if [ "${id_gid}" == "${file_gid}" ]; then # effective group id
+		printf 'Owned by Effective Group-ID: yes (%s)\n' $id_uid
+	else
+		printf 'Owned by Effective Group-ID: no (%s)\n' $id_uid
+	fi
+	
+}
+
+# prints the bite size, either in standard or human readable format based on 
+# command line aruement -H
+byte_size () {
+	if [ $human == 'true' ]; then
+		# print in human readable format
+		ls -lh ${file} | awk '{printf "Size bytes: %s\n", $5}' 
+	else
+		# print in standard format
+		ls -l ${file} | awk '{printf "Size bytes: %s\n", $5}' 
+	fi
+}
+
+# execution begins here -- process command line options and args
+while getopts "f:hH" opt; do
+
+        case $opt in
+        h) usage 
+           exit     
+           ;;
+        f) file=$OPTARG
+           ;;
+        H) human="true"
+           ;;     
+        esac
+
+done
+
+# checks to ensure file is not empty or an invalid file
+if [ -z ${file} ]; then
+        printf '\055f option required\n'
+        usage
+        exit 1 
+fi
+
+if [ ! -e ${file} ]; then
+	printf "file ${file} does not exist.\n"
+	usage
+	exit 1
+fi
+
+# call main
+main
+exit 0
+
+
+

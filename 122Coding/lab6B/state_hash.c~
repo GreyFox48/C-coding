@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
+
+#define LEN 4096
+
+struct postal_t {
+        char *abrv; /*two digit abbreviation, capitalized */
+        char *name; /*name in start case */
+};
+
+
+/*  convert string to lowercase */
+void tolowercase(char *s)
+{
+        //todo
+}
+
+/**
+ * Trims off whitespace from the right of a string
+ * @param s the string to be trimmed
+ */
+void rstrip(char *s)
+{
+         
+        char *endpoint = strlen(s) + s;
+        while (isspace(endpoint)) {
+                endpoint--;
+        }
+        *endpoint = '\0';        
+}
+
+int main(int argc, char *argv[])
+{
+        char buf[LEN];
+        struct postal_t *postal = malloc(200 * sizeof(struct postal_t));
+
+	FILE *fp = fopen("postal", "r");
+	assert(fp);
+
+	while(fgets(buf, LEN, fp)) {
+	        printf("%s\n", buf);
+        }
+
+        fclose(fp);
+        return 0;
+}
+

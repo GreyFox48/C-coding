@@ -1,0 +1,9 @@
+Dasher,101,101
+Dancer,98,130
+Prancer,99,122
+Vixen,90,103
+Comit,79,118
+Cupid,90,111
+Donner,73,121
+Blitzen,104,99
+Rudolph,15,102

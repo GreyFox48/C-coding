@@ -1,0 +1,13 @@
+Matthew Olsen
+10/20/2015
+Lab 6 
+
+(gdb) backtrace full
+#0  product (a=10, b=10) at product.c:8
+        mid = 8
+#1  0x0000000000400580 in product (a=8, b=10) at product.c:12
+        mid = 9
+#2  0x0000000000400580 in product (a=5, b=10) at product.c:12
+        mid = 7
+#3  0x00000000004005a1 in main () at product.c:20
+        p = 0

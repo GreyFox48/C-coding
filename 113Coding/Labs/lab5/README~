@@ -1,0 +1,22 @@
+Matthew Olsen
+October 8th, 2015
+Lab5
+
+Purpose:
+  To create a basic database that does basic looping overwriting, along with various basic coding challenges
+that came from Project Euler
+
+a)  What I learned from this lab:
+I learned in this lab how to create a small database using a structure array and how to overwrite previous entries
+once a certain size was surpassed.  I also learned new ways to pass an array to a function
+
+b)  Issues and how I fixed them:
+The database print function was originally designed to print five elements no matter what.  The problem that resulted
+was it printing various junk data if less than five entries had been inputed.  I fixed this by creating another
+conditional in the for loop for the printing fuction that prevents the print fucntion to print more data entries
+that had been inputed.
+
+I also learned when to look out for stack overflow.  One of the questions makes the computer compute a large number,
+far too large for an integer, and it at first caused a bizzare number.  It was then fixed using a long instead of an int.
+
+c)

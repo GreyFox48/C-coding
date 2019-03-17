@@ -1,0 +1,21 @@
+Matthew Olsen
+Prelab 1
+September 3rd, 2015
+
+Script started on Thu 03 Sep 2015 09:44:11 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ exitgcc -Wall -g triangle.c -o triangle
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ ./triangle
+Input the first angle of the triangle: 45
+Input the second angle of the triangle: 45
+The missing angle is 90.00.
+Would you like to continue?
+1 for yes, 0 for no: 1
+Input the first angle of the triangle: 30
+Input the second angle of the triangle: 60
+The missing angle is 90.00.
+Would you like to continue?
+1 for yes, 0 for no: 0
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/safe/Prelab_1matt@matt-XPS-15-9530:~/Dropbox/113Coding/safe/Prelab_1$ exit
+exit
+
+Script done on Thu 03 Sep 2015 09:44:57 PM MDT

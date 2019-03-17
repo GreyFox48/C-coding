@@ -1,0 +1,208 @@
+to find the size of a homogenous array
+
+sizeof(a) / sizeof(a[0])
+ * the size of the list in total, devided by the size of a single element, finds number of elements in array 
+
+size of(a) / sizeof(int)
+ *does the same thing as above, though only works for int arrays, not pliable*
+
+trying to take the size of an array when it has been passed to a function, like in foo(int a[]), taking size of 
+a[] like sizeof(a) in foo will yield the size of the address instead. Need to pass foo the size of the array 
+from the beginning.
+foo(int a[], size_t size), where size_t is a unsigned primitive type.
+
+Sep 21
+
+Data Types
+
+declaration:  statement introduce a name into a program
+typeL  defines a set of possible values and set of operatoins
+object memory that holds a value of some type
+value set of bits interpreted according to a type
+variable is a named object
+
+varialbes in c must be declared before used
+what is the name, what is type, where in memory is it stored, value of m
+there is no automatic initializatoin in c
+4 basic integer types
+        char c;
+        char is 1 byte;
+        intel archetecture uses little endian (most significant bit is stored in in largest address)
+        chars are represented by single quotes
+        printf token - %c or as an integer as %hhd
+        strings have one more character than an array of characters, the null character '\0'
+
+        int m;
+        int's in C are typicall 4 bytes
+        %d or %i
+        in c int m; assumes that th einteger sotred in memory is either negative, positive, or zero.  These numbers are called signed
+        if want only zro or positive ints, call unsigned integers
+        unsigned int m;
+
+        short m; typically represent a size of 2 bytes
+        pintf toek %hd
+        also has unsigned type
+        printed token %hu
+
+        long m; typically represents a size of 8 bytes
+        print -%ld
+        for signed types, min is 2^(n-1), max is 2^(n-1) -1 (first bit is for signed)
+        unsigned 2^n -1
+        n is the amount of bits
+        
+        long long
+        printf token -%lld
+
+        Integer arithmetic can lead to errors
+
+typedef allows you to make synonyms for data types
+typedef short s16; creates a short that is 16 bits long, 
+can the write s16 variable to create a variable
+
+floating point is not very accurate (.6 is infinite)
+A * 2^n, A is the mantisa
+mantisa in IEEE 754 is normalized
+for single percision
+31 bit is sign bit
+23-30 is the exponent value
+0-22 is used for fraction
+
+in double percisoin
+15 bit wide exponent
+63 bits for fraction
+leading is used for sign still
+for single percision
+-1^(sign) * 2^(exponent-excess) * 1.mantissa base2
+
+09/30/15
+
+pointer: a variable that holds a memory address
+* points the the content the addess points to (dereference)
+now: foo(int a[]) becomes foo(int *a)
+int *a; (holds a address)
+int b; (holds an intager)
+*a = b; (assigns value of b to where a points to)
+b = *a; (assigns value of where a points to b)
+  
+10/02/2015
+
+strings declared with "" are called string literals and are not mutable (individual elements cannot be changed)
+strings declared with {'c','h'...} are mutable
+
+When typing variable++ when variable is a pointer, it will increment the address equal to the byte size of type of valuable.  Thus increments like array
+while (*s++) => *s (points to contents and then will do comparion to zero; then s++ (increments address); Does same of above NOT (*s)++ That increments content of pointer 
+above loop with characters will stop at /0, as value of \0 is zero
+
+&a[i] = (a + i)
+means base address + (i * sizeofa[0])
+
+getting element in a
+a[] = *(a + i) != *a + i
+pointers can point to same memory or different parts of same array
+
+pointers should be intitialized to NULL
+char *a = NULL;
+
+(c+i) = baseaddress + i * sizeof(c[0])
+
+if a is an array and p is an address...
+p = a is fine
+a = p is not
+
+L-Values
+  something that can appear on the left side of an equal sign (a = p, a is a L-value)
+  variables can be used on right and left hand side
+  cannot used &c on the left hand side
+
+can return an address from a function
+
+a substring is a section of a string
+
+malloc:
+        use malloc in pairs, need to have garbage collection
+        malloc returns the address of the first byte of the first element
+        malloc memory gets pushed onto the heap
+        automatic memory goes onto the stack
+        to check is malloc failed, check if(variable malloced == null)
+        sizeof does not work with malloced variables
+        use "free(variable)" where variable is the base address
+        to create a substring, do (end - start + 2) (1 to ensure the right amount of character spaces, and another 1 to create room for \0)
+        be carefull to keep track of the base address, so you can free it later 
+        what you allocate last is what you want to free first
+
+in the ram:
+        there is the stack, heap, global data, and instructions
+        stack area and heap area can overlap
+
+strlen exludes \0 in length, so only as long as all other characters
+
+structures:
+        a user defined type
+        to use structures with pointers... as an example
+        struct complex z;
+        struct complex *c = &z;
+        reference element using ... (*c).a or c->a;
+        -> left side is a pointer to a structre and the right side is a member fo the structure
+        (*c).a is not equivalnet to  *c->a
+        *c->a is equivalent to *(c->a)
+        structres within pointed to structures can be pointed to by . or by -> depending on if pointers or not
+                for example, if the structure inside the struture is refrenced by an address, will need to use ->
+realloc(allocated memory, size in bytes to add):
+        copies the contents of the old alloc, then adds more specified space
+        frees the old alloc space as well
+
+use the string functions with the "n" inside because they are safer
+
+preplace the \n character with \0 to prevent inferferance with reading strings from buffer
+
+self-referential structures
+        each structure called a node
+        one structure points to the next
+        cannot simply store one structure in another because cannot define same structure type until brackets end in structure declaration
+        instead, use a pointer
+        each pointer in each structure should first point to NULL
+        use head pointer to keep track of the head of the list
+        two parts:  The data (or payload) and the pointer to the next file
+        a head address pointer keeps track of the first structure and should not be reassigned unless very carefull
+        How:
+                allocate using malloc, initialize data, set next to NULL and return a pointer
+                add it to a list (Where:  Head, tail, or middle)  Keep track of head as it may change
+        Transverse the list:
+                Stop at the end pointer
+        Deleting the list:
+                Free the nodes or else creates memory leak    
+        Search the list:
+                Data may or may not be found            
+
+Queue:
+        all insertions are made at one end of the list; all deleetions are made at the other
+                first in first out
+                last in last out
+
+Stack:
+        all insertions and deletions are made at one end of the list
+                First in last out
+                last in first out
+
+2 dimensional arrays in c
+in main have **array, pass to functions 
+use *i in functions to create an array of pointers
+*i will point to a row of j elements 
+
+Command Line Arguments
+in main
+        int argc will count the arguements sperated by space
+        char *argv[] ragged array of strings for all the arguments sperated by spaces
+                note that argv[0] will always be the program name / command
+
+unistd.h (unified standard library (to help with the command lines)
+        getopt
+                int the string parameter, after the first colon you list the command line arguments.  If a command line takes options put a colon after.
+                first colon to help debugging input
+                        in switch statement use a : case to tell user to give option
+                ? is the return when a not specified character is used in the command line arguments
+                use switch statement inide a while loop to use
+                optarg is a global variable used by getopt to store the command line options 
+
+errno
+        variable that should be initialzed to zero for 

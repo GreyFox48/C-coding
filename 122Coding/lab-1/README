@@ -1,0 +1,25 @@
+Matthew Olsen
+Febuary 02, 2016
+Lab 11
+
+Purpose:
+  To practice file input and output, by reading in locations from a file
+organized in a standard format to be saved into an array of structures.  The
+data was later printed out in two different formats, one for google Earth
+
+Conclusions
+a) What I learned in this lab
+  I learned from this lab how to use fprintf, how to use getchar, and how to   
+write to a file.  Otherwise, I got more practice with file input and output. 
+
+b) Issues and how I fixed them
+  The largest issue I had was reading in the city and location line, because
+of slighly miscalculating the amount of characters in the city or location 
+string.  This was fixed by implementing the remove /n function and being more
+carefull.
+  Otherwise the largest issue was a missing '<' in the kml file.
+
+c)  Improvements that could be made
+  The ability skip over the first three lines in the kml.c is rather jury-rigged.
+The proper way would be to detect lines of the proper format and to read in the
+line after.

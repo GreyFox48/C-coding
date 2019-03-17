@@ -1,0 +1,15 @@
+A.  x is held in %rdi, n is held in %esi and then %ecx, result is held in %rax, and mask in held in %rdx
+B.  The intial value of result is 0 and the intial value of max is 1
+C.  The test condition for mask is whether or not it is equal to zero, meaning it will jne will jump if not zero
+D.  Mask is updated by left shifting the value 8 times
+E.  Result is updated by anding the value of result with mask and oring the result with the previous result
+F.  the finished c code is
+long loop(loop x, long n)
+{
+	long result = 0;
+	long mask;
+	for (mask = 1; mask != 0; mask <= 8) {
+		result |= x & mask;
+	}
+	return result;
+}

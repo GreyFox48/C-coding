@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+enum color
+{
+        RED = 18, Orange, Yellow = 5, GREEN, BLUE, INDIGO = 14, VIOLET
+};
+
+int main(void) 
+{
+        printf("RED is %d, ORANGE is %d, YELLOW is %d, GREEN is %d, BLUE is %d, INDIGO is %d, VOILET is %d.\n", RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET);
+        return 0;       
+}

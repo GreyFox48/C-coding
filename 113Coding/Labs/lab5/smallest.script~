@@ -1,0 +1,8 @@
+Script started on Fri 09 Oct 2015 09:32:32 PM MDT
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ gcc -g -Wall smallest.c - [Ko small est -lm
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ ./smallest
+The lcm of 20 factorial is 232792560.
+]0;matt@matt-XPS-15-9530: ~/Dropbox/113Coding/lab5matt@matt-XPS-15-9530:~/Dropbox/113Coding/lab5$ exit
+exit
+
+Script done on Fri 09 Oct 2015 09:33:13 PM MDT
