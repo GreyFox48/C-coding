@@ -76,6 +76,9 @@ double calc(char *func, double op1, double op2) {
             break;
         case LOG:
             if (op2 != 0) {
+                if (op2 == 1) {
+                    return NAN; /* result of any log of 1 is 0.  Avoiding div by 0 error */
+                }
                 result = log(op1) / log(op2);
             } else {
                 result = log(op1);
