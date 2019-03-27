@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab8/src/calc.c
+calc.h
+/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab8/src/calc.h
+math.h
+-
+
+/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab8/src/calc.h
+stdio.h
+-
+stdlib.h
+-
+stdarg.h
+-
+string.h
+-
+math.h
+-
+calcParser.h
+/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab8/src/calcParser.h
+
+calcParser.h
+

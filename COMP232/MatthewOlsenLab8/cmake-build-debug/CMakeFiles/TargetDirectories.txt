@@ -1,0 +1,3 @@
+/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab8/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab8/cmake-build-debug/CMakeFiles/calc.dir
+/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab8/cmake-build-debug/CMakeFiles/edit_cache.dir
