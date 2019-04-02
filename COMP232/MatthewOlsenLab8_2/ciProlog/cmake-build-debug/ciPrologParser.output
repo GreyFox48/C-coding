@@ -1,13 +1,6 @@
-Terminals which are not used
-
-   PROPOSITION
-   ASSERT
-   RETRACT
-   NOT
-   AND
-   OR
-   LPAREN
-   RPAREN
+State 11 conflicts: 2 shift/reduce
+State 20 conflicts: 2 shift/reduce
+State 21 conflicts: 2 shift/reduce
 
 
 Grammar
@@ -17,20 +10,27 @@ Grammar
     1 program: logexpr EOL
 
     2 logexpr: HALT
+    3        | PROPOSITION
+    4        | ASSERT LPAREN PROPOSITION RPAREN
+    5        | RETRACT LPAREN PROPOSITION RPAREN
+    6        | LPAREN logexpr RPAREN
+    7        | NOT logexpr
+    8        | logexpr AND logexpr
+    9        | logexpr OR logexpr
 
 
 Terminals, with rules where they appear
 
 $end (0) 0
 error (256)
-PROPOSITION (258)
-ASSERT (259)
-RETRACT (260)
-NOT (261)
-AND (262)
-OR (263)
-LPAREN (264)
-RPAREN (265)
+PROPOSITION (258) 3 4 5
+ASSERT (259) 4
+RETRACT (260) 5
+NOT (261) 7
+AND (262) 8
+OR (263) 9
+LPAREN (264) 4 5 6
+RPAREN (265) 4 5 6
 EOL (266) 1
 HALT (267) 2
 
@@ -42,49 +42,237 @@ $accept (13)
 program (14)
     on left: 1, on right: 0
 logexpr (15)
-    on left: 2, on right: 1
+    on left: 2 3 4 5 6 7 8 9, on right: 1 6 7 8 9
 
 
-state 0
+State 0
 
     0 $accept: . program $end
 
-    HALT  shift, and go to state 1
+    PROPOSITION  shift, and go to state 1
+    ASSERT       shift, and go to state 2
+    RETRACT      shift, and go to state 3
+    NOT          shift, and go to state 4
+    LPAREN       shift, and go to state 5
+    HALT         shift, and go to state 6
 
-    program  go to state 2
-    logexpr  go to state 3
+    program  go to state 7
+    logexpr  go to state 8
 
 
-state 1
+State 1
+
+    3 logexpr: PROPOSITION .
+
+    $default  reduce using rule 3 (logexpr)
+
+
+State 2
+
+    4 logexpr: ASSERT . LPAREN PROPOSITION RPAREN
+
+    LPAREN  shift, and go to state 9
+
+
+State 3
+
+    5 logexpr: RETRACT . LPAREN PROPOSITION RPAREN
+
+    LPAREN  shift, and go to state 10
+
+
+State 4
+
+    7 logexpr: NOT . logexpr
+
+    PROPOSITION  shift, and go to state 1
+    ASSERT       shift, and go to state 2
+    RETRACT      shift, and go to state 3
+    NOT          shift, and go to state 4
+    LPAREN       shift, and go to state 5
+    HALT         shift, and go to state 6
+
+    logexpr  go to state 11
+
+
+State 5
+
+    6 logexpr: LPAREN . logexpr RPAREN
+
+    PROPOSITION  shift, and go to state 1
+    ASSERT       shift, and go to state 2
+    RETRACT      shift, and go to state 3
+    NOT          shift, and go to state 4
+    LPAREN       shift, and go to state 5
+    HALT         shift, and go to state 6
+
+    logexpr  go to state 12
+
+
+State 6
 
     2 logexpr: HALT .
 
     $default  reduce using rule 2 (logexpr)
 
 
-state 2
+State 7
 
     0 $accept: program . $end
 
-    $end  shift, and go to state 4
+    $end  shift, and go to state 13
 
 
-state 3
+State 8
 
     1 program: logexpr . EOL
+    8 logexpr: logexpr . AND logexpr
+    9        | logexpr . OR logexpr
 
-    EOL  shift, and go to state 5
+    AND  shift, and go to state 14
+    OR   shift, and go to state 15
+    EOL  shift, and go to state 16
 
 
-state 4
+State 9
+
+    4 logexpr: ASSERT LPAREN . PROPOSITION RPAREN
+
+    PROPOSITION  shift, and go to state 17
+
+
+State 10
+
+    5 logexpr: RETRACT LPAREN . PROPOSITION RPAREN
+
+    PROPOSITION  shift, and go to state 18
+
+
+State 11
+
+    7 logexpr: NOT logexpr .
+    8        | logexpr . AND logexpr
+    9        | logexpr . OR logexpr
+
+    AND  shift, and go to state 14
+    OR   shift, and go to state 15
+
+    AND       [reduce using rule 7 (logexpr)]
+    OR        [reduce using rule 7 (logexpr)]
+    $default  reduce using rule 7 (logexpr)
+
+
+State 12
+
+    6 logexpr: LPAREN logexpr . RPAREN
+    8        | logexpr . AND logexpr
+    9        | logexpr . OR logexpr
+
+    AND     shift, and go to state 14
+    OR      shift, and go to state 15
+    RPAREN  shift, and go to state 19
+
+
+State 13
 
     0 $accept: program $end .
 
     $default  accept
 
 
-state 5
+State 14
+
+    8 logexpr: logexpr AND . logexpr
+
+    PROPOSITION  shift, and go to state 1
+    ASSERT       shift, and go to state 2
+    RETRACT      shift, and go to state 3
+    NOT          shift, and go to state 4
+    LPAREN       shift, and go to state 5
+    HALT         shift, and go to state 6
+
+    logexpr  go to state 20
+
+
+State 15
+
+    9 logexpr: logexpr OR . logexpr
+
+    PROPOSITION  shift, and go to state 1
+    ASSERT       shift, and go to state 2
+    RETRACT      shift, and go to state 3
+    NOT          shift, and go to state 4
+    LPAREN       shift, and go to state 5
+    HALT         shift, and go to state 6
+
+    logexpr  go to state 21
+
+
+State 16
 
     1 program: logexpr EOL .
 
     $default  reduce using rule 1 (program)
+
+
+State 17
+
+    4 logexpr: ASSERT LPAREN PROPOSITION . RPAREN
+
+    RPAREN  shift, and go to state 22
+
+
+State 18
+
+    5 logexpr: RETRACT LPAREN PROPOSITION . RPAREN
+
+    RPAREN  shift, and go to state 23
+
+
+State 19
+
+    6 logexpr: LPAREN logexpr RPAREN .
+
+    $default  reduce using rule 6 (logexpr)
+
+
+State 20
+
+    8 logexpr: logexpr . AND logexpr
+    8        | logexpr AND logexpr .
+    9        | logexpr . OR logexpr
+
+    AND  shift, and go to state 14
+    OR   shift, and go to state 15
+
+    AND       [reduce using rule 8 (logexpr)]
+    OR        [reduce using rule 8 (logexpr)]
+    $default  reduce using rule 8 (logexpr)
+
+
+State 21
+
+    8 logexpr: logexpr . AND logexpr
+    9        | logexpr . OR logexpr
+    9        | logexpr OR logexpr .
+
+    AND  shift, and go to state 14
+    OR   shift, and go to state 15
+
+    AND       [reduce using rule 9 (logexpr)]
+    OR        [reduce using rule 9 (logexpr)]
+    $default  reduce using rule 9 (logexpr)
+
+
+State 22
+
+    4 logexpr: ASSERT LPAREN PROPOSITION RPAREN .
+
+    $default  reduce using rule 4 (logexpr)
+
+
+State 23
+
+    5 logexpr: RETRACT LPAREN PROPOSITION RPAREN .
+
+    $default  reduce using rule 5 (logexpr)

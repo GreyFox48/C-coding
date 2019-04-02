@@ -27,5 +27,6 @@ bool eval(char*);
 bool not(bool);
 bool and(bool, bool);
 bool or(bool, bool);
+void deleteKnowledgeBase();
 
 #endif

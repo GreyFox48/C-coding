@@ -13,6 +13,20 @@
   <component name="ChangeListManager">
     <list default="true" id="34637f39-3de3-4617-8cdd-1405b50e558d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8/src/calc.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8/src/calc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/ciPrologParser.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/ciPrologParser.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/ciPrologScanner.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/ciPrologScanner.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/src/ciProlog.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/src/ciProlog.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ciProlog/cmake-build-debug/ciPrologParser.c" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/cmake-build-debug/ciPrologParser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ciProlog/cmake-build-debug/ciPrologParser.h" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/cmake-build-debug/ciPrologParser.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ciProlog/cmake-build-debug/ciPrologParser.output" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/cmake-build-debug/ciPrologParser.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ciProlog/cmake-build-debug/ciPrologScanner.c" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/cmake-build-debug/ciPrologScanner.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ciProlog/cmake-build-debug/ciprolog" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/cmake-build-debug/ciprolog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ciProlog/src/ciProlog.c" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/src/ciProlog.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ciProlog/src/ciProlog.h" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/src/ciProlog.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ciProlog/src/ciProlog.l" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/src/ciProlog.l" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/ciProlog/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,14 +39,37 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+                <state relative-caret-position="990">
+                  <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
                 </state>
               </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ciProlog/cmake-build-debug/ciPrologParser.c">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-3350">
+                  <caret line="1143" selection-start-line="1143" selection-end-line="1143" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog-in.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="18" selection-end-line="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog-transcript.txt">
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
@@ -43,12 +80,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+                <state relative-caret-position="135">
+                  <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
                 </state>
               </provider>
             </entry>
@@ -62,20 +99,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.y">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="265">
-                  <caret line="59" column="15" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+                <state relative-caret-position="135">
+                  <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.l">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="265">
-                  <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+                <state relative-caret-position="205">
+                  <caret line="19" column="78" selection-start-line="19" selection-start-column="78" selection-end-line="19" selection-end-column="78" />
                 </state>
               </provider>
             </entry>
@@ -90,9 +127,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/ciProlog/src/ciProlog.y" />
         <option value="$PROJECT_DIR$/ciProlog/src/ciProlog.h" />
         <option value="$PROJECT_DIR$/ciProlog/src/ciProlog.l" />
-        <option value="$PROJECT_DIR$/ciProlog/src/ciProlog.y" />
         <option value="$PROJECT_DIR$/ciProlog/src/ciProlog.c" />
       </list>
     </option>
@@ -109,6 +146,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,12 +175,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MatthewOlsenLab8" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
@@ -178,25 +215,26 @@
       <updated>1530232966541</updated>
       <workItem from="1530232967892" duration="35000" />
       <workItem from="1553729168934" duration="4790000" />
+      <workItem from="1554240078434" duration="7191000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4825000" />
+    <option name="totallyTimeSpent" value="12016000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1853" height="923" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25290537" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2556724" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="CMake" order="0" weight="0.3299748" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Messages" order="2" visible="true" weight="0.3299748" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.3299748" />
       <window_info anchor="bottom" id="Find" order="3" />
-      <window_info anchor="bottom" id="Run" order="4" />
-      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.3299748" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.39924434" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" />
@@ -214,6 +252,9 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ciProlog/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/ciProlog/cmake-build-debug/cmake_install.cmake">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -221,34 +262,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ciProlog/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog-transcript.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.l">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+        <state relative-caret-position="135">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.y">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="59" column="15" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+        <state relative-caret-position="135">
+          <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ciProlog/cmake-build-debug/ciPrologParser.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3350">
+          <caret line="1143" selection-start-line="1143" selection-end-line="1143" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog-in.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="18" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.l">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="19" column="78" selection-start-line="19" selection-start-column="78" selection-end-line="19" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+        <state relative-caret-position="990">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
         </state>
       </provider>
     </entry>

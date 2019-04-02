@@ -17,8 +17,9 @@ prop '{l}({l}|\ )*'
 "TODO"      { /* add the necessary definitions and action routines */}
 
 {prop}      {
-                yylval.sval = (char *) malloc(strlen(yytext) * sizeof(char));
-                strcpy(yylval.sval, yytext);
+                //originally made no space for null terminators, nor added one
+                yylval.sval = (char *) malloc(strlen(yytext) * sizeof(char) + 1);
+                strncpy(yylval.sval, yytext, strlen(yytext) + 1);
                 fprintf(stderr, "lex: PROPOSITION sval = %s\n", yylval.sval);
                 return PROPOSITION;
             }
@@ -92,4 +93,6 @@ int main(void)
         yyparse();
         yy_delete_buffer(buffer);
     }
+
+    deleteKnowledgeBase();
 }
