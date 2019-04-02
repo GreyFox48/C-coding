@@ -2,6 +2,8 @@
  * Matthew Olsen
  * April 2, 2019
  * Comp 232L Lab 8 Introduction to Bison
+ * Bugs: Provied code at ciProlog.l line 20 lacked a null terminator and the
+ * space for one.  I edited it.  Hopefully, valgrind is now happy.
  */
 
 #include "ciProlog.h"
@@ -121,6 +123,7 @@ bool eval(char *proposition) {
     return false;
 };
 
+// exit and ensure header node and remaining nodes are gone
 void deleteKnowledgeBase() {
     PROP_TYPE *kb_current = kb_head;
     PROP_TYPE *kb_next = kb_head->next;

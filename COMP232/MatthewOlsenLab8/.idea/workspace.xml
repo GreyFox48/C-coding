@@ -12,21 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb8f8ea7-5801-4f53-a09b-51dd3bad0b0d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/calc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/calc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/ciPrologParser.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/ciPrologParser.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/ciPrologScanner.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/ciPrologScanner.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/src/ciProlog.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/CMakeFiles/ciprolog.dir/src/ciProlog.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/ciPrologParser.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/ciPrologParser.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/ciPrologParser.h" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/ciPrologParser.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/ciPrologParser.output" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/ciPrologParser.output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/ciPrologScanner.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/ciPrologScanner.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/ciprolog" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/cmake-build-debug/ciprolog" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/src/ciProlog.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/src/ciProlog.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/src/ciProlog.h" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/src/ciProlog.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/src/ciProlog.l" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/src/ciProlog.l" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,7 +38,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/calc.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
+                <state relative-caret-position="-808">
                   <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
                 </state>
               </provider>
@@ -65,7 +51,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/calc.y">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="251">
+                <state relative-caret-position="645">
                   <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
                 </state>
               </provider>
@@ -227,16 +213,15 @@
       <workItem from="1553724684196" duration="3444000" />
       <workItem from="1553728156670" duration="2692000" />
       <workItem from="1554239973407" duration="103000" />
-      <workItem from="1554247282790" duration="8000" />
+      <workItem from="1554247282790" duration="577000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30801000" />
+    <option name="totallyTimeSpent" value="31370000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1853" height="923" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13669065" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -282,7 +267,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/calc.y">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
+        <state relative-caret-position="645">
           <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
         </state>
       </provider>
@@ -306,7 +291,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/calc.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
+        <state relative-caret-position="-808">
           <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
