@@ -11,9 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34637f39-3de3-4617-8cdd-1405b50e558d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ciProlog/src/ciProlog.c" beforeDir="false" afterPath="$PROJECT_DIR$/ciProlog/src/ciProlog.c" afterDir="false" />
-    </list>
+    <list default="true" id="34637f39-3de3-4617-8cdd-1405b50e558d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/ciProlog/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +27,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+                <state relative-caret-position="405">
+                  <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -89,7 +87,7 @@
             <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.y">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="135">
-                  <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+                  <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -201,15 +199,16 @@
       <updated>1530232966541</updated>
       <workItem from="1530232967892" duration="35000" />
       <workItem from="1553729168934" duration="4790000" />
-      <workItem from="1554240078434" duration="7760000" />
+      <workItem from="1554240078434" duration="7964000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12585000" />
+    <option name="totallyTimeSpent" value="12789000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1853" height="923" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2556724" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -218,7 +217,7 @@
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Messages" order="2" weight="0.3299748" />
       <window_info anchor="bottom" id="Find" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.3299748" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.3299748" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.39924434" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
@@ -260,7 +259,7 @@
     <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.y">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -287,8 +286,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ciProlog/src/ciProlog.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="405">
+          <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
         </state>
       </provider>
     </entry>

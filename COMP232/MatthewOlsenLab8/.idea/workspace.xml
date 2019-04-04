@@ -12,7 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb8f8ea7-5801-4f53-a09b-51dd3bad0b0d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/src/ciProlog.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/ciProlog/src/ciProlog.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenLab8_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenLab8_2/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +41,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/calc.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-808">
-                  <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+                <state relative-caret-position="15">
+                  <caret line="23" selection-start-line="23" selection-end-line="23" />
                 </state>
               </provider>
             </entry>
@@ -51,7 +54,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/calc.y">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="645">
+                <state relative-caret-position="478">
                   <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
                 </state>
               </provider>
@@ -149,7 +152,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MatthewOlsenProjectciLisp" />
     <property name="options.lastSelected" value="appearance" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -213,17 +216,18 @@
       <workItem from="1553724684196" duration="3444000" />
       <workItem from="1553728156670" duration="2692000" />
       <workItem from="1554239973407" duration="103000" />
-      <workItem from="1554247282790" duration="577000" />
+      <workItem from="1554247282790" duration="606000" />
+      <workItem from="1554328758202" duration="563000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31370000" />
+    <option name="totallyTimeSpent" value="31962000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1853" height="923" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13669065" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13835086" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -265,9 +269,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/calc.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/calc.y">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
+        <state relative-caret-position="478">
           <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
         </state>
       </provider>
@@ -286,13 +297,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/calc.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-808">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
