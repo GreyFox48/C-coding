@@ -81,4 +81,12 @@ void freeNode(AST_NODE *p);
 
 double eval(AST_NODE *ast);
 
+AST_NODE *setSymbolTable(SYMBOL_TABLE_NODE *symbol_table_node, AST_NODE *s_expr);
+AST_NODE *symbol (char *name);
+SYMBOL_TABLE_NODE *createSymbol(char *name, AST_NODE *value);
+SYMBOL_TABLE_NODE *addSymbolToList(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE *newSymbol);
+SYMBOL_TABLE_NODE *findSymbol(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE *symbol);
+SYMBOL_TABLE_NODE *resolveSymbol(char *name, AST_NODE *node);
+
+
 #endif

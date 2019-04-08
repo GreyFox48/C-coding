@@ -7,7 +7,7 @@
     char *sval;
     struct ast_node *astNode;
     struct symbol_table_node *symbolNode;
-};
+}
 
 %token <sval> FUNC
 %token <dval> NUMBER
