@@ -41,6 +41,8 @@ AST_NODE *number(double value)
 
     p->type = NUM_TYPE;
     p->data.number.value = value;
+    p->parent = NULL;
+
 
     return p;
 }
@@ -59,6 +61,7 @@ AST_NODE *function(char *funcName, AST_NODE *op1, AST_NODE *op2)
         yyerror("out of memory");
 
     p->type = FUNC_TYPE;
+    p->parent = NULL;
     p->data.function.name = funcName;
     p->data.function.op1 = op1;
     p->data.function.op2 = op2;
@@ -71,8 +74,43 @@ AST_NODE *function(char *funcName, AST_NODE *op1, AST_NODE *op2)
 //
 void freeNode(AST_NODE *p)
 {
+    SYMBOL_TABLE_NODE *stn = NULL;
     if (!p)
         return;
+
+
+    // debugging
+    if (p->parent == NULL) {
+        printf("My name is ");
+        switch (p->type) {
+            case FUNC_TYPE:
+                printf("function of type %s.  I have no parent!\n", p->data.function.name);
+                break;
+            case SYMB_TYPE:
+                printf("%s.  I have no parent!\n", p->data.symbol.name);
+                break;
+            case NUM_TYPE:
+                printf("%lf.  I have no parent!\n", p->data.number.value);
+                break;
+        }
+    }
+
+    // debugging
+    if (p->parent != NULL) {
+        printf("My name is ");
+        switch (p->type) {
+            case FUNC_TYPE:
+                printf("function of type %s.  I have a parent!\n", p->data.function.name);
+                break;
+            case SYMB_TYPE:
+                printf("%s.  I have a parent!\n", p->data.symbol.name);
+                break;
+            case NUM_TYPE:
+                printf("%lf.  I have a parent!\n", p->data.number.value);
+                break;
+        }
+    }
+
 
     if (p->type == FUNC_TYPE)
     {
@@ -81,6 +119,17 @@ void freeNode(AST_NODE *p)
         freeNode(p->data.function.op2);
     }
 
+    if(p->type == SYMB_TYPE ) {
+        free(p->data.symbol.name);
+    }
+
+    if(p->symbolTable != NULL) {
+        stn = p->symbolTable;
+        for(; stn != NULL; stn = stn->next) {
+            free(stn->ident);
+            freeNode(stn->val);
+        }
+    }
     free(p);
 }
 
@@ -91,6 +140,7 @@ void freeNode(AST_NODE *p)
 //
 double eval(AST_NODE *p)
 {
+    SYMBOL_TABLE_NODE *stn = NULL;
     if (!p)
         return NAN;
 
@@ -135,14 +185,15 @@ double eval(AST_NODE *p)
                     return hypot(eval(p->data.function.op1), eval(p->data.function.op2));
                 default:
                     return NAN;
-
-
-
-
-
             }
                 case SYMB_TYPE:
-                    // TODO
+                    stn = resolveSymbol(p->data.symbol.name, p);
+                    if (stn != NULL) {
+                        return eval(stn->val);
+                    } else {
+                        return NAN;
+                    }
+                    //return eval(resolveSymbol(p->data.symbol.name, p)->val);
                 default:
                     printf("WAT");
     }
@@ -154,13 +205,13 @@ AST_NODE *setSymbolTable(SYMBOL_TABLE_NODE *symbol_table_node, AST_NODE *s_expr)
 {
     SYMBOL_TABLE_NODE *node = symbol_table_node;
     // if s-expr is Null, return NULL (there is not parent node)
-    if(!s_expr) {
+    if(NULL == s_expr) {
         return NULL;
     }
     // set s_expr's sybmbolTalbe to one input
     s_expr->symbolTable = symbol_table_node;
     // go through SymbolTable, assigning each symbol's value's parent to the input s_expr
-    for ( ; !node; node->next) {
+    for ( ; NULL != node; node = node->next) {
         node->val->parent = s_expr;
     }
     // return the input s-expr
@@ -172,10 +223,11 @@ AST_NODE *setSymbolTable(SYMBOL_TABLE_NODE *symbol_table_node, AST_NODE *s_expr)
 AST_NODE *symbol(char *name)
 {
     // allocate memory for an AST_NODE storing a SYMBOL_AST_NODE
-    AST_NODE *node = malloc(sizeof(AST_NODE));
+    AST_NODE *node = malloc(sizeof(AST_NODE) + sizeof(SYMBOL_AST_NODE)) ;
     if (NULL == node) {
         //check if out of memory I guess
         yyerror("Out of memory.");
+        return NULL;
     }
 
     // set the AST_NODE*'s type(symbol)
@@ -184,7 +236,7 @@ AST_NODE *symbol(char *name)
     node->symbolTable = NULL;
     node->parent = NULL;
     // set the AST_NODE*'s name (in the SYBMOL_AST_NODE portion of
-    node->data.symbol.name = sizeof((strlen(name) + 1) * sizeof(char));
+    node->data.symbol.name = malloc(sizeof(char) * (strlen(name) + 1));
     if (NULL == node->data.symbol.name) {
         //check if out of memory I guess
         yyerror("Out of memory.");
@@ -205,20 +257,31 @@ SYMBOL_TABLE_NODE *createSymbol(char *name, AST_NODE *value)
     }
     // allocate memory for a SYMBOL_TABLE_NODE
     node = malloc(sizeof(SYMBOL_TABLE_NODE));
-    if(!node) {
+    if(NULL  == node) {
         //out of memory?
         yyerror("Out of memory.");
+        return NULL;
     }
     // set the SYMBOL_TABLE_NODE*'s ident string to input name
         //malloc and strcpy...
-    node->ident = sizeof((strlen(name) + 1 )* sizeof(char));
+    node->ident = malloc(sizeof(char) * (strlen(name) + 1));
     if (NULL == node->ident) {
         //check if out of memory I guess
         yyerror("Out of memory.");
     }
     strncpy(node->ident, name, sizeof(name) + 1);
     // set the SYMBOL_TABLE_NODE's val to the input value
-    node->val = value;
+    /* node->val = value; */
+    node->val = malloc(sizeof(AST_NODE));
+    if(!node->val) {
+        printf("Symbol %s with no value.\n", name);
+        return NULL;
+    }
+    /* evaluate node now instead of later. */
+    node->val->type = NUM_TYPE;
+    node->val->parent = NULL;
+    node->val->symbolTable = NULL;
+    node->val->data.number.value = eval(value);
     // set the SYMBOL_TABLE_NODE*'s next pointer to NULL
     node->next = NULL;
     // return the SYMBOL_TABLE_NODE*
@@ -246,10 +309,10 @@ SYMBOL_TABLE_NODE *addSymbolToList(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_
         // overwrite the val field of the returned SYJBOL_TABLE NODE with the val from newSymbo
         node->val = newSymbol->val;
         // overwrite data in returned SYMBOL_TABLE_NODE's val AST_NODE with data from newSymbol's ASTN_NODE
-        node->val->type = newSymbol->val->type;
-        PROBLEM
         //free newSymbol
+        free(newSymbol);
         //retunr the AST_NODE*
+        return symbolTable;
     }
 
 }
@@ -274,17 +337,23 @@ SYMBOL_TABLE_NODE *findSymbol(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE 
 }
 
 // TODO
+/*
+ * Description of the fucntion
+ * @paremeters char *name, AST_NNODE node
+ *
+ * @return some english explanation of expected returns
+ */
 SYMBOL_TABLE_NODE *resolveSymbol(char *name, AST_NODE *node)
 {
     // set "parent" to node
     AST_NODE *parent = node;
     SYMBOL_TABLE_NODE *symbol = NULL;
     // while parent is not NULL
-    for( ;!parent; parent->parent) {
+    for( ;parent != NULL; parent = parent->parent) {
         // set "symbol" to parent's symbolTable
         symbol = parent->symbolTable;
         // while symbol is not NULL
-        for(;!symbol; symbol->next) {
+        for(;symbol != NULL; symbol = symbol->next) {
             // if symbol's ident is the same as input name, return symbol
             if(!strcmp(symbol->ident, name))
                 return symbol;
@@ -295,3 +364,7 @@ SYMBOL_TABLE_NODE *resolveSymbol(char *name, AST_NODE *node)
     return NULL;
 }
 //how is parent resolved to previous AST!?
+void setParent(AST_NODE *parent, AST_NODE *child)
+{
+    child->parent = parent;
+}

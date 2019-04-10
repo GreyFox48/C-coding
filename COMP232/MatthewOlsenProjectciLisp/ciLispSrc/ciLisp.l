@@ -21,10 +21,12 @@ symbol {letter}+
     }
 
 "quit" {
+    fprintf(stderr, "lex: quit\n");
     return QUIT;
     }
 
 "let" {
+    fprintf(stderr, "lex: let\n");
     return LET;
     }
 

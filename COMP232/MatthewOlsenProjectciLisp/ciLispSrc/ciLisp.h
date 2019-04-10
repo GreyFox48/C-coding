@@ -87,6 +87,7 @@ SYMBOL_TABLE_NODE *createSymbol(char *name, AST_NODE *value);
 SYMBOL_TABLE_NODE *addSymbolToList(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE *newSymbol);
 SYMBOL_TABLE_NODE *findSymbol(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE *symbol);
 SYMBOL_TABLE_NODE *resolveSymbol(char *name, AST_NODE *node);
+void setParent(AST_NODE *parent, AST_NODE *child);
 
 
 #endif
