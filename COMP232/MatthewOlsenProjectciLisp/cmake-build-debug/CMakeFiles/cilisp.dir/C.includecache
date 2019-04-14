@@ -6,11 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.c
-ciLisp.h
-/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.h
-
-/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.h
+../ciLispSrc/ciLisp.h
 stdio.h
 -
 stdlib.h
@@ -24,7 +20,23 @@ math.h
 stdbool.h
 -
 ciLispParser.h
-/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/ciLispSrc/ciLispParser.h
+../ciLispSrc/ciLispParser.h
+
+/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispScanner.c
+stdio.h
+-
+string.h
+-
+errno.h
+-
+stdlib.h
+-
+inttypes.h
+-
+ciLisp.h
+/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLisp.h
+unistd.h
+-
 
 ciLispParser.h
 

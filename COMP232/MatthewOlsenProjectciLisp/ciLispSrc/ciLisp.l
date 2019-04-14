@@ -7,17 +7,25 @@
 %}
 
 digit [0-9]
-number [+-]?{digit}+(\.{digit}+)?
 func "neg"|"abs"|"exp"|"sqrt"|"add"|"sub"|"mult"|"div"|"remainder"|"log"|"pow"|"max"|"min"
 letter [a-zA-Z]
 symbol {letter}+
-
+integer_number [+|-]?{digit}+
+real_number [+|-]?{digit}+\.{digit}+
+type "integer"|"real"
 %%
 
-{number} {
+{integer_number} {
+    char **p = NULL;
+    yylval.dval = strtol(yytext, p, 10);
+    fprintf(stderr, "lex: integer_number dval = %lf\n", yylval.dval);
+    return INTEGER_NUMBER;
+    }
+
+{real_number} {
     yylval.dval = strtod(yytext, NULL);
-    fprintf(stderr, "lex: NUMBER dval = %lf\n", yylval.dval);
-    return NUMBER;
+    fprintf(stderr, "lex: real_number dval = %lf\n", yylval.dval);
+    return REAL_NUMBER;
     }
 
 "quit" {
@@ -35,6 +43,13 @@ symbol {letter}+
     strcpy(yylval.sval, yytext);
     fprintf(stderr, "lex: FUNC sval = %s\n", yylval.sval);
     return FUNC;
+    }
+
+{type} {
+    yylval.sval = (char *) malloc(strlen(yytext)*sizeof(char));
+    strcpy(yylval.sval, yytext);
+    fprintf(stderr, "lex: TYPE sval = %s\n", yylval.sval);
+    return TYPE;
     }
 
 {symbol} {

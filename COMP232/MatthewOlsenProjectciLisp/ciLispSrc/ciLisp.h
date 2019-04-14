@@ -42,8 +42,18 @@ typedef enum {
     NUM_TYPE, FUNC_TYPE, SYMB_TYPE
 } AST_NODE_TYPE;
 
+typedef enum { NO_TYPE, INTEGER_TYPE, REAL_TYPE } DATA_TYPE;
+
+typedef struct return_type {
+    DATA_TYPE type;
+    union {
+        double real;
+        long integer;
+    } value;
+} RETURN_TYPE;
+
 typedef struct {
-    double value;
+    RETURN_TYPE value;
 } NUMBER_AST_NODE;
 
 typedef struct {
@@ -58,6 +68,7 @@ typedef struct symbol_ast_node {
 
 typedef struct symbol_table_node {
     char *ident;
+    DATA_TYPE data_type;
     struct ast_node *val;
     struct symbol_table_node *next;
 } SYMBOL_TABLE_NODE;
@@ -73,21 +84,25 @@ typedef struct ast_node {
     } data;
 } AST_NODE;
 
-AST_NODE *number(double value);
+//AST_NODE *number(double value);
 
 AST_NODE *function(char *funcName, AST_NODE *op1, AST_NODE *op2);
 
 void freeNode(AST_NODE *p);
 
-double eval(AST_NODE *ast);
+RETURN_TYPE eval(AST_NODE *ast);
 
 AST_NODE *setSymbolTable(SYMBOL_TABLE_NODE *symbol_table_node, AST_NODE *s_expr);
 AST_NODE *symbol (char *name);
-SYMBOL_TABLE_NODE *createSymbol(char *name, AST_NODE *value);
+SYMBOL_TABLE_NODE *createSymbol(char *type, char *name, AST_NODE *value);
 SYMBOL_TABLE_NODE *addSymbolToList(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE *newSymbol);
 SYMBOL_TABLE_NODE *findSymbol(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE *symbol);
 SYMBOL_TABLE_NODE *resolveSymbol(char *name, AST_NODE *node);
 void setParent(AST_NODE *parent, AST_NODE *child);
+AST_NODE *real_number(double value);
+AST_NODE *integer_number(long value);
+DATA_TYPE resolveType(char *typeName);
+
 
 
 #endif

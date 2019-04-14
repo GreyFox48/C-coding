@@ -11,9 +11,9 @@
     struct symbol_table_node *symbolNode;
 }
 
-%token <sval> FUNC SYMBOL
-%token <dval> NUMBER
-%token LPAREN RPAREN LET EOL QUIT
+%token <sval> FUNC SYMBOL TYPE
+%token <dval> REAL_NUMBER INTEGER_NUMBER
+%token LPAREN RPAREN LET EOL QUIT INTEGER REAL
 
 %type <astNode> s_expr f_expr
 %type <symbolNode> let_elem let_section let_list
@@ -25,18 +25,30 @@ program:
     s_expr EOL {
         fprintf(stderr, "yacc: program ::= s_expr EOL\n");
         if ($1) {
-            printf("%lf", eval($1));
+            RETURN_TYPE result = eval($1);
+            if(result.type == INTEGER_TYPE) {
+                    printf("%ld", result.value.integer);
+                } else if(result.type == REAL_TYPE) {
+                    printf("%lf", result.value.real);
+                } else if (result.type == NO_TYPE) {
+                    printf("No Type\n");
+                }
             freeNode($1);
         }
     };
 
 s_expr:
-    NUMBER {
-        fprintf(stderr, "yacc: s_expr ::= NUMBER\n");
-        $$ = number($1);
-
+    REAL_NUMBER {
+	fprintf(stderr, "yacc: s_expr ::= REAL_NUMBER\n");
+	$$ = real_number($1);
     }
-    | f_expr {
+    |
+    INTEGER_NUMBER {
+    	fprintf(stderr, "yacc: s_expr ::= INTERGER_NUMBER\n");
+    	$$ = integer_number($1);
+    }
+    |
+    f_expr {
     	fprintf(stderr, "yacc: s_expr ::= f_expr\n");
         $$ = $1;
     }
@@ -58,22 +70,21 @@ s_expr:
     | LPAREN let_section s_expr RPAREN {
     	fprintf(stderr, "yacc: LPAREN let_section s_expr RPAREN\n");
     	$$ = setSymbolTable($2, $3);
-	//setParent($$, $3);  //this breaks things.  wants to set it to node above?
-
     };
 
 f_expr:
-    LPAREN FUNC s_expr RPAREN {
-        fprintf(stderr, "yacc: f_expr ::= LPAREN FUNC expr RPAREN\n");
-        $$ = function($2, $3, 0);
-        setParent($$, $3);
-    }
-    | LPAREN FUNC s_expr s_expr RPAREN {
+    LPAREN FUNC s_expr s_expr RPAREN {
         fprintf(stderr, "yacc: f_expr ::= LPAREN FUNC expr expr RPAREN\n");
         $$ = function($2, $3, $4);
 	setParent($$, $3);
 	setParent($$, $4);
 
+    }
+    |
+    LPAREN FUNC s_expr RPAREN {
+        fprintf(stderr, "yacc: f_expr ::= LPAREN FUNC expr RPAREN\n");
+        $$ = function($2, $3, 0);
+        setParent($$, $3);
     };
 
 let_section:
@@ -95,9 +106,13 @@ let_list:
 		$$ = $2;
 	};
 let_elem:
-	LPAREN SYMBOL s_expr RPAREN {
+	LPAREN TYPE SYMBOL s_expr RPAREN {
 		fprintf(stderr, "yacc: let_elem ::= LPAREN SYMBOL s_expr RPAREN\n");
-		$$ = createSymbol($2, $3);
+		$$ = createSymbol($2, $3, $4);
+	} |
+	LPAREN  SYMBOL s_expr RPAREN {
+        		fprintf(stderr, "yacc: let_elem ::= LPAREN SYMBOL s_expr RPAREN\n");
+        		$$ = createSymbol(NULL, $2, $3);
 	};
 %%
 

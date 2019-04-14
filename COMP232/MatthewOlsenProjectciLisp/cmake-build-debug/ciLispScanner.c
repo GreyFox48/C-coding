@@ -355,8 +355,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 11
-#define YY_END_OF_BUFFER 12
+#define YY_NUM_RULES 13
+#define YY_END_OF_BUFFER 14
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -364,14 +364,15 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[54] =
+static const flex_int16_t yy_accept[62] =
     {   0,
-        0,    0,   12,   10,    9,    8,    6,    7,   10,    1,
-        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
-        5,    1,    0,    5,    5,    5,    5,    5,    5,    5,
-        5,    5,    5,    5,    5,    5,    5,    5,    5,    1,
-        4,    3,    5,    5,    5,    5,    2,    5,    5,    5,
-        5,    5,    0
+        0,    0,   14,   12,   11,   10,    8,    9,   12,    1,
+        7,    7,    7,    7,    7,    7,    7,    7,    7,    7,
+        7,    7,    1,    0,    7,    7,    7,    7,    7,    7,
+        7,    7,    7,    7,    7,    7,    7,    7,    7,    7,
+        7,    2,    5,    7,    4,    7,    7,    7,    7,    7,
+        7,    3,    6,    7,    7,    7,    7,    7,    7,    7,
+        0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -389,7 +390,7 @@ static const YY_CHAR yy_ec[256] =
 
        13,    9,   14,    9,   15,    9,    9,   16,   17,   18,
        19,   20,   21,   22,   23,   24,   25,   26,   27,   28,
-        9,    9,    1,    1,    1,    1,    1,    1,    1,    1,
+        9,    9,    1,    6,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -413,56 +414,60 @@ static const YY_CHAR yy_meta[29] =
         2,    2,    2,    2,    2,    2,    2,    2
     } ;
 
-static const flex_int16_t yy_base[55] =
+static const flex_int16_t yy_base[63] =
     {   0,
-        0,    0,   76,   77,   77,   77,   77,   77,   67,   22,
-        0,   20,   59,   45,   20,   25,   59,   52,   45,   56,
-       13,   29,   60,    0,   44,   54,   39,   44,   39,   48,
-       33,   42,   43,   44,   30,   41,   38,   32,   42,   44,
-        0,    0,   27,   25,   38,   23,    0,   31,   27,   32,
-       30,   20,   77,   39
+        0,    0,   84,   85,   85,   85,   85,   85,   75,   22,
+        0,   20,   67,   53,   62,   20,   25,   66,   59,   52,
+       63,   13,   29,   67,    0,   51,   61,   46,   51,   46,
+       45,   54,   39,   48,   49,   50,   36,   47,   31,   39,
+       49,   51,    0,   45,    0,   33,   32,   39,   44,   29,
+       38,    0,    0,   36,   36,   29,   24,   33,   31,   21,
+       85,   40
     } ;
 
-static const flex_int16_t yy_def[55] =
+static const flex_int16_t yy_def[63] =
     {   0,
-       53,    1,   53,   53,   53,   53,   53,   53,   53,   53,
-       54,   54,   54,   54,   54,   54,   54,   54,   54,   54,
-       54,   53,   53,   54,   54,   54,   54,   54,   54,   54,
-       54,   54,   54,   54,   54,   54,   54,   54,   54,   53,
-       54,   54,   54,   54,   54,   54,   54,   54,   54,   54,
-       54,   54,    0,   53
+       61,    1,   61,   61,   61,   61,   61,   61,   61,   61,
+       62,   62,   62,   62,   62,   62,   62,   62,   62,   62,
+       62,   62,   61,   61,   62,   62,   62,   62,   62,   62,
+       62,   62,   62,   62,   62,   62,   62,   62,   62,   62,
+       62,   61,   62,   62,   62,   62,   62,   62,   62,   62,
+       62,   62,   62,   62,   62,   62,   62,   62,   62,   62,
+        0,   61
     } ;
 
-static const flex_int16_t yy_nxt[106] =
+static const flex_int16_t yy_nxt[114] =
     {   0,
         4,    5,    6,    7,    8,    9,    4,   10,   11,   12,
-       11,   13,   14,   11,   11,   15,   16,   17,   11,   18,
-       19,   20,   21,   11,   11,   11,   11,   11,   23,   22,
-       25,   26,   29,   38,   31,   23,   22,   39,   30,   32,
-       24,   41,   52,   51,   50,   49,   41,   48,   47,   33,
-       41,   40,   41,   46,   45,   44,   41,   41,   43,   41,
-       41,   41,   42,   41,   41,   41,   41,   40,   37,   36,
-       35,   34,   28,   27,   22,   53,    3,   53,   53,   53,
-       53,   53,   53,   53,   53,   53,   53,   53,   53,   53,
-       53,   53,   53,   53,   53,   53,   53,   53,   53,   53,
+       11,   13,   14,   11,   15,   16,   17,   18,   11,   19,
+       20,   21,   22,   11,   11,   11,   11,   11,   24,   23,
+       26,   27,   31,   40,   33,   24,   23,   41,   32,   34,
+       48,   25,   43,   60,   59,   53,   58,   49,   57,   35,
+       56,   55,   43,   54,   53,   52,   43,   51,   42,   43,
+       50,   47,   43,   43,   46,   43,   43,   43,   45,   44,
+       43,   43,   43,   43,   42,   39,   38,   37,   36,   30,
+       29,   28,   23,   61,    3,   61,   61,   61,   61,   61,
+       61,   61,   61,   61,   61,   61,   61,   61,   61,   61,
 
-       53,   53,   53,   53,   53
+       61,   61,   61,   61,   61,   61,   61,   61,   61,   61,
+       61,   61,   61
     } ;
 
-static const flex_int16_t yy_chk[106] =
+static const flex_int16_t yy_chk[114] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,   10,   10,
-       12,   12,   15,   21,   16,   22,   22,   21,   15,   16,
-       54,   52,   51,   50,   49,   48,   46,   45,   44,   16,
-       43,   40,   39,   38,   37,   36,   35,   34,   33,   32,
-       31,   30,   29,   28,   27,   26,   25,   23,   20,   19,
-       18,   17,   14,   13,    9,    3,   53,   53,   53,   53,
-       53,   53,   53,   53,   53,   53,   53,   53,   53,   53,
-       53,   53,   53,   53,   53,   53,   53,   53,   53,   53,
+       12,   12,   16,   22,   17,   23,   23,   22,   16,   17,
+       39,   62,   60,   59,   58,   57,   56,   39,   55,   17,
+       54,   51,   50,   49,   48,   47,   46,   44,   42,   41,
+       40,   38,   37,   36,   35,   34,   33,   32,   31,   30,
+       29,   28,   27,   26,   24,   21,   20,   19,   18,   15,
+       14,   13,    9,    3,   61,   61,   61,   61,   61,   61,
+       61,   61,   61,   61,   61,   61,   61,   61,   61,   61,
 
-       53,   53,   53,   53,   53
+       61,   61,   61,   61,   61,   61,   61,   61,   61,   61,
+       61,   61,   61
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -483,8 +488,8 @@ char *yytext;
 #define YY_NO_INPUT 1
 #line 6 "ciLispSrc/ciLisp.l"
     #include "ciLisp.h"
-#line 487 "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispScanner.c"
-#line 488 "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispScanner.c"
+#line 492 "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispScanner.c"
+#line 493 "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispScanner.c"
 
 #define INITIAL 0
 
@@ -699,10 +704,10 @@ YY_DECL
 		}
 
 	{
-#line 15 "ciLispSrc/ciLisp.l"
+#line 16 "ciLispSrc/ciLisp.l"
 
 
-#line 706 "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispScanner.c"
+#line 711 "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispScanner.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -729,13 +734,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 54 )
+				if ( yy_current_state >= 62 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 77 );
+		while ( yy_base[yy_current_state] != 85 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -761,32 +766,42 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 17 "ciLispSrc/ciLisp.l"
+#line 18 "ciLispSrc/ciLisp.l"
 {
-    yylval.dval = strtod(yytext, NULL);
-    fprintf(stderr, "lex: NUMBER dval = %lf\n", yylval.dval);
-    return NUMBER;
+    char **p = NULL;
+    yylval.dval = strtol(yytext, p, 10);
+    fprintf(stderr, "lex: integer_number dval = %lf\n", yylval.dval);
+    return INTEGER_NUMBER;
     }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 23 "ciLispSrc/ciLisp.l"
+#line 25 "ciLispSrc/ciLisp.l"
+{
+    yylval.dval = strtod(yytext, NULL);
+    fprintf(stderr, "lex: real_number dval = %lf\n", yylval.dval);
+    return REAL_NUMBER;
+    }
+	YY_BREAK
+case 3:
+YY_RULE_SETUP
+#line 31 "ciLispSrc/ciLisp.l"
 {
     fprintf(stderr, "lex: quit\n");
     return QUIT;
     }
 	YY_BREAK
-case 3:
+case 4:
 YY_RULE_SETUP
-#line 28 "ciLispSrc/ciLisp.l"
+#line 36 "ciLispSrc/ciLisp.l"
 {
     fprintf(stderr, "lex: let\n");
     return LET;
     }
 	YY_BREAK
-case 4:
+case 5:
 YY_RULE_SETUP
-#line 33 "ciLispSrc/ciLisp.l"
+#line 41 "ciLispSrc/ciLisp.l"
 {
     yylval.sval = (char *) malloc(strlen(yytext)*sizeof(char));
     strcpy(yylval.sval, yytext);
@@ -794,9 +809,19 @@ YY_RULE_SETUP
     return FUNC;
     }
 	YY_BREAK
-case 5:
+case 6:
 YY_RULE_SETUP
-#line 40 "ciLispSrc/ciLisp.l"
+#line 48 "ciLispSrc/ciLisp.l"
+{
+    yylval.sval = (char *) malloc(strlen(yytext)*sizeof(char));
+    strcpy(yylval.sval, yytext);
+    fprintf(stderr, "lex: TYPE sval = %s\n", yylval.sval);
+    return TYPE;
+    }
+	YY_BREAK
+case 7:
+YY_RULE_SETUP
+#line 55 "ciLispSrc/ciLisp.l"
 {
     yylval.sval = (char *) malloc(strlen(yytext)*sizeof(char));
     strcpy(yylval.sval, yytext);
@@ -804,50 +829,50 @@ YY_RULE_SETUP
     return SYMBOL;
     }
 	YY_BREAK
-case 6:
+case 8:
 YY_RULE_SETUP
-#line 47 "ciLispSrc/ciLisp.l"
+#line 62 "ciLispSrc/ciLisp.l"
 {
     fprintf(stderr, "lex: LPAREN\n");
     return LPAREN;
     }
 	YY_BREAK
-case 7:
+case 9:
 YY_RULE_SETUP
-#line 52 "ciLispSrc/ciLisp.l"
+#line 67 "ciLispSrc/ciLisp.l"
 {
     fprintf(stderr, "lex: RPAREN\n");
     return RPAREN;
     }
 	YY_BREAK
-case 8:
-/* rule 8 can match eol */
+case 10:
+/* rule 10 can match eol */
 YY_RULE_SETUP
-#line 57 "ciLispSrc/ciLisp.l"
+#line 72 "ciLispSrc/ciLisp.l"
 {
     fprintf(stderr, "lex: EOL\n");
     YY_FLUSH_BUFFER;
     return EOL;
     }
 	YY_BREAK
-case 9:
+case 11:
 YY_RULE_SETUP
-#line 63 "ciLispSrc/ciLisp.l"
+#line 78 "ciLispSrc/ciLisp.l"
 {}; /* skip whitespace */
 	YY_BREAK
-case 10:
+case 12:
 YY_RULE_SETUP
-#line 65 "ciLispSrc/ciLisp.l"
+#line 80 "ciLispSrc/ciLisp.l"
 { // anything else
     printf("ERROR: invalid character: >>%s<<\n", yytext);
     }
 	YY_BREAK
-case 11:
+case 13:
 YY_RULE_SETUP
-#line 69 "ciLispSrc/ciLisp.l"
+#line 84 "ciLispSrc/ciLisp.l"
 ECHO;
 	YY_BREAK
-#line 851 "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispScanner.c"
+#line 876 "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispScanner.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1144,7 +1169,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 54 )
+			if ( yy_current_state >= 62 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1172,11 +1197,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 54 )
+		if ( yy_current_state >= 62 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 53);
+	yy_is_jam = (yy_current_state == 61);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1815,7 +1840,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 69 "ciLispSrc/ciLisp.l"
+#line 84 "ciLispSrc/ciLisp.l"
 
 
 /*
