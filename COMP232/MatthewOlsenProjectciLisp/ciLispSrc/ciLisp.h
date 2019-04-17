@@ -33,6 +33,9 @@ typedef enum oper { // must be in sync with funcs in resolveFunc()
     EXP2_OPER, // 13
     CBRT_OPER, // 14
     HYPOT_OPER, // 15
+    READ_OPER,  // 16
+    RAND_OPER,  //17
+    PRINT_OPER, //18
     CUSTOM_FUNC=255
 } OPER_TYPE;
 
@@ -80,8 +83,10 @@ typedef struct ast_node {
     union {
         NUMBER_AST_NODE number;
         FUNCTION_AST_NODE function;
+        //COND_AST_NODE condition;
         SYMBOL_AST_NODE symbol;
     } data;
+    struct ast_node *next;
 } AST_NODE;
 
 //AST_NODE *number(double value);
@@ -102,7 +107,6 @@ void setParent(AST_NODE *parent, AST_NODE *child);
 AST_NODE *real_number(double value);
 AST_NODE *integer_number(long value);
 DATA_TYPE resolveType(char *typeName);
-
-
+void printFunc(RETURN_TYPE p);
 
 #endif

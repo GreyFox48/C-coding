@@ -61,7 +61,7 @@ AST_NODE *real_number(double value) {
     size_t nodeSize;
 
     // allocate space for the fixed sie and the variable part (union)
-    nodeSize = sizeof(AST_NODE) + sizeof(NUMBER_AST_NODE) + sizeof(double);
+    nodeSize = sizeof(AST_NODE);
     if ((p = malloc(nodeSize)) == NULL)
         yyerror("out of memory");
 
@@ -79,11 +79,12 @@ AST_NODE *integer_number(long value) {
     size_t nodeSize;
 
     // allocate space for the fixed sie and the variable part (union)
-    nodeSize = sizeof(AST_NODE) + sizeof(NUMBER_AST_NODE) + sizeof(long);
+    nodeSize = sizeof(AST_NODE);
     if ((p = malloc(nodeSize)) == NULL)
         yyerror("out of memory");
 
     p->type = NUM_TYPE;
+    p->symbolTable = NULL;
     p->data.number.value.type = INTEGER_TYPE;
     p->data.number.value.value.integer = value;
     p->parent = NULL;
@@ -100,12 +101,13 @@ AST_NODE *function(char *funcName, AST_NODE *op1, AST_NODE *op2) {
     size_t nodeSize;
 
     // allocate space for the fixed sie and the variable part (union)
-    nodeSize = sizeof(AST_NODE) + sizeof(FUNCTION_AST_NODE);
+    nodeSize = sizeof(AST_NODE);
     if ((p = malloc(nodeSize)) == NULL)
         yyerror("out of memory");
 
     p->type = FUNC_TYPE;
     p->parent = NULL;
+    p->symbolTable = NULL;
     p->data.function.name = funcName;
 
     p->data.function.op1 = op1;
@@ -139,6 +141,7 @@ void freeNode(AST_NODE *p) {
             freeNode(stn->val);
         }
     }
+
     free(p);
 }
 
@@ -258,7 +261,7 @@ RETURN_TYPE eval(AST_NODE *p) {
                             break;
                         }
                         result.type = REAL_TYPE;
-                        result.value.integer = ((double) op1.value.integer) / ((double)op2.value.integer);
+                        result.value.real = ((double) op1.value.integer) / ((double)op2.value.integer);
                     } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE){
                         result.type = REAL_TYPE;
                         result.value.real = (double) op1.value.integer / op2.value.real;
@@ -367,6 +370,9 @@ RETURN_TYPE eval(AST_NODE *p) {
                         result.value.real = hypot(op1.value.real, op2.value.real);
                     }
                     break;
+                case PRINT_OPER:
+                    printFunc(eval(p->data.function.op1));
+                    break;
                 default:
                     result.type = NO_TYPE;
             }
@@ -427,7 +433,7 @@ AST_NODE *setSymbolTable(SYMBOL_TABLE_NODE *symbol_table_node, AST_NODE *s_expr)
  */
 AST_NODE *symbol(char *name) {
     // allocate memory for an AST_NODE storing a SYMBOL_AST_NODE
-    AST_NODE *node = malloc(sizeof(AST_NODE) + sizeof(SYMBOL_AST_NODE));
+    AST_NODE *node = malloc(sizeof(AST_NODE));
     if (NULL == node) {
         //check if out of memory I guess
         yyerror("Out of memory.");
@@ -448,6 +454,7 @@ AST_NODE *symbol(char *name) {
     strncpy(node->data.symbol.name, name, sizeof(name) + 1);
     //malloc and strcpy
     // return the ast_node
+    free(name);
     return node;
 }
 
@@ -528,16 +535,17 @@ SYMBOL_TABLE_NODE *createSymbol(char *type, char *name, AST_NODE *value) {
         node->val->parent = NULL;
         node->val->symbolTable = NULL;
         node->val->data.number.value = eval(value);
-        node->val->data.number.value.type = REAL_TYPE;
         if(node->val->data.number.value.type == INTEGER_TYPE) {
             node->val->data.number.value.value.real = (double) node->val->data.number.value.value.integer;
         }
+        node->val->data.number.value.type = REAL_TYPE;
+
         // set the SYMBOL_TABLE_NODE*'s next pointer to NULL
         node->next = NULL;
         // return the SYMBOL_TABLE_NODE*
     }
 
-
+    free(name);
     return node;
 }
 
@@ -632,7 +640,26 @@ SYMBOL_TABLE_NODE *resolveSymbol(char *name, AST_NODE *node) {
     return NULL;
 }
 
-//how is parent resolved to previous AST!?
+/*
+ * Sets an given AST_NODE child's parent.
+ * @parem parent the parent of the child
+ * @parem child the child who's parent needs to be set
+ */
 void setParent(AST_NODE *parent, AST_NODE *child) {
     child->parent = parent;
+}
+
+/*
+ * Simple print function.  Prints based on return type.
+ * @parem p the RETURN_TYPE to print
+ */
+void printFunc(RETURN_TYPE p)
+{
+    if(p.type == INTEGER_TYPE) {
+        printf("%ld\n", p.value.integer);
+    } else if(p.type == REAL_TYPE) {
+        printf("%lf\n", p.value.real);
+    } else if (p.type == NO_TYPE) {
+        printf("No Type\n");
+    }
 }
