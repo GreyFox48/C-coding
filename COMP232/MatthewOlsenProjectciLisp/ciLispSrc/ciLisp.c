@@ -556,26 +556,83 @@ RETURN_TYPE eval(AST_NODE *p) {
                         result.value.integer = (op1.value.real > op2.value.real);
                     }
                     break;
+                case CUSTOM_FUNC:
+                    stn = resolveSymbol(p->data.symbol.name, p);
+
+                    if ( stn != LAMBDA_TYPE ) {
+                        printf("Error:  Custom function did not resolve to a lambda symbol"
+                               " in file %s in function %s at line %d.\n  Exiting.\n", __FILE__, __FUNCTION__, __LINE__);
+                    }
+
+                    /* push onto stack */
+
+                    AST_NODE *node = p->data.function.opList;
+                    SYMBOL_TABLE_NODE *param = stn->val->symbolTable;
+                    STACK_NODE *stack = NULL;
+                    for( ; node != NULL; node = node->next, param = param->next ) {
+                        stack = malloc(sizeof(STACK_NODE));
+                        stack->val = eval(node);
+                        stack->next = param->next;
+                        param->next = stack;
+                    }
+
+                    /* evaluate symbol's val to evaluate the custom function under the specified definition */
+                    result = eval(stn->val);
+
+                    break;
                 default:
                     result.type = NO_TYPE;
             }
             return result;
         case SYMB_TYPE:
+            if (p)
             stn = resolveSymbol(p->data.symbol.name, p);
             if (stn != NULL) {
-                /* actual result */
-                op1 = eval(stn->val);
-                /* copy over casted result, below ifs will assign as necessary to cast */
-                result.type = stn->data_type;
-                if (op1.type == INTEGER_TYPE && result.type == INTEGER_TYPE) {
-                    result.value.integer = op1.value.integer;
-                } else if (op1.type == INTEGER_TYPE && result.type == REAL_TYPE) {
-                    result.value.real = op1.value.integer;
-                } else if (op1.type == REAL_TYPE && result.type == INTEGER_TYPE) {
-                    printf("Warning, symbol %s has a loss of precision form integer cast.\n", stn->ident);
-                    result.value.integer = op1.value.real;
-                } else {
-                    result.value.real = op1.value.real;
+                if (stn->type == VARIABLE_TYPE) {
+                    /* actual result */
+                    op1 = eval(stn->val);
+                    /* copy over casted result, below ifs will assign as necessary to cast */
+                    result.type = stn->data_type;
+                    if (op1.type == INTEGER_TYPE && result.type == INTEGER_TYPE) {
+                        result.value.integer = op1.value.integer;
+                    } else if (op1.type == INTEGER_TYPE && result.type == REAL_TYPE) {
+                        result.value.real = op1.value.integer;
+                    } else if (op1.type == REAL_TYPE && result.type == INTEGER_TYPE) {
+                        printf("Warning, symbol %s has a loss of precision form integer cast.\n", stn->ident);
+                        result.value.integer = op1.value.real;
+                    } else {
+                        result.value.real = op1.value.real;
+                    }
+                } else if (stn->type == ARG_TYPE) {
+
+        // REDO THIS SO FIRST THING OUT OF STACK IS THE FIRST VAR
+                    STACK_NODE *prev_stack = stn->stack;
+                    STACK_NODE *next_stack = stn->stack->next;
+
+                    /* special case if stack is only one deep */
+                    if ( next_stack == NULL ) {
+                        op1 = eval(prev_stack->val);
+                        free(prev_stack);
+                        stn->stack = NULL;
+                    }
+
+                    for (; next_stack->next != NULL; prev_stack = next_stack, next_stack = next_stack->next);
+
+                    op1 = eval(next_stack->val);
+                    free(next_stack);
+                    prev_stack->next == NULL;
+
+                    result.type = stn->data_type;
+                    if (op1.type == INTEGER_TYPE && result.type == INTEGER_TYPE) {
+                        result.value.integer = op1.value.integer;
+                    } else if (op1.type == INTEGER_TYPE && result.type == REAL_TYPE) {
+                        result.value.real = op1.value.integer;
+                    } else if (op1.type == REAL_TYPE && result.type == INTEGER_TYPE) {
+                        printf("Warning, symbol %s has a loss of precision form integer cast.\n", stn->ident);
+                        result.value.integer = op1.value.real;
+                    } else {
+                        result.value.real = op1.value.real;
+                    }
                 }
             } else {
                 char error[256];
@@ -595,12 +652,17 @@ RETURN_TYPE eval(AST_NODE *p) {
             }
 
             return result;
+
         default:
             printf("WAT");
     }
 
     result.type = NO_TYPE;
     return result;
+
+}
+
+RETURN_TYPE customFunc(AST_NODE p) {
 
 }
 
@@ -612,18 +674,74 @@ RETURN_TYPE eval(AST_NODE *p) {
  */
 AST_NODE *setSymbolTable(SYMBOL_TABLE_NODE *symbol_table_node, AST_NODE *s_expr) {
     SYMBOL_TABLE_NODE *node = symbol_table_node;
-    // if s-expr is Null, return NULL (there is not parent node)
+    /* if s-expr is Null, return NULL (there is not parent node) */
     if (NULL == s_expr) {
         return NULL;
     }
     // set s_expr's sybmbolTalbe to one input
     s_expr->symbolTable = symbol_table_node;
-    // go through SymbolTable, assigning each symbol's value's parent to the input s_expr
+    /* go through SymbolTable, assigning each symbol's value's parent to the input s_expr */
     for (; NULL != node; node = node->next) {
         node->val->parent = s_expr;
     }
-    // return the input s-expr
+
+
+
+
+
+    /* need to create variable stack.  This point *should* be safe. */
+    /*
+    for(node = s_expr->symbolTable; node != NULL; node = node->next) {
+        if (node == LAMBDA_TYPE) {
+            searchLambdaStacks(s_expr, s_expr->symbolTable->val->symbolTable, s_expr->symbolTable->ident);
+        }
+    }
+     */
+
+
+
     return s_expr;
+}
+
+void searchLambdaStacks(AST_NODE *s_expr, SYMBOL_TABLE_NODE *start, char *funcName)
+{
+    AST_NODE* node = NULL;
+
+    for(node = s_expr; node != NULL; node = node->next ) {
+        if(node->type == FUNC_TYPE) {
+            searchLambdaStacks(node->data.function.opList, start, funcName);
+        } else if(node->type == COND_TYPE) {
+            searchLambdaStacks(node->data.condition.cond, start, funcName);
+            searchLambdaStacks(node->data.condition.nonzero, start, funcName);
+            searchLambdaStacks(node->data.condition.zero, start, funcName);
+
+        }
+        if(!strcmp(funcName, node->data.function.name)) {
+            createLamdaStacks(node->data.function.opList, start);
+        }
+    }
+}
+
+/* try to link stack_nodes with their correct AST_nodes */
+void createLamdaStacks(AST_NODE *s_expr, SYMBOL_TABLE_NODE *start)
+{
+    AST_NODE *node = NULL;
+    SYMBOL_TABLE_NODE *param = NULL;
+    STACK_NODE *stack = NULL;
+    for(node = s_expr, param = start; node != NULL; node = node->next, param = param->next ) {
+        if (param->stack == NULL) {
+            param->stack = malloc(sizeof(STACK_NODE));
+            param->stack->next = NULL;
+            param->stack->val = node;
+            continue;
+        }
+        for(stack = param->stack; stack->next != NULL; stack = stack->next) {
+            stack->next = malloc(sizeof(STACK_NODE));
+            stack->next->next = NULL;
+            stack->next->val = node;
+        }
+    }
+
 }
 
 /*use to reference the value of the ast node.  This reference will then later be used to
@@ -796,7 +914,8 @@ SYMBOL_TABLE_NODE *findSymbol(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE 
             return node;
         }
     }
-    //return NULL
+
+
     return NULL;
 }
 
@@ -981,12 +1100,6 @@ SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argLi
         yyerror("Out of memory.");
     }
 
-    /* the lambda function associated with the SYMBOL_TABLE_NODE */
-    AST_NODE *func = malloc(sizeof(AST_NODE));
-    if (NULL == s_node) {
-        //check if out of memory I guess
-        yyerror("Out of memory.");
-    }
 
     s_node->ident = malloc(sizeof(char) * (strlen(name) + 1));
     if (NULL == s_node->ident) {
@@ -995,19 +1108,15 @@ SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argLi
     }
     strncpy(s_node->ident, name, sizeof(name) + 1);
 
-    s_node->val = func;
+    s_node->val = symbolList;
     s_node->stack = NULL;
     s_node->next = NULL;
     s_node->type = LAMBDA_TYPE;
-    if ( (type = NULL) || (resolveType(type) == REAL_TYPE)) {
+    if ( (type == NULL) || (resolveType(type) == REAL_TYPE)) {
         s_node->data_type = REAL_TYPE;
     } else {
         s_node->data_type = INTEGER_TYPE;
     }
 
-    func->type = FUNC_TYPE;
-    func->symbolTable = argList;
-    func->data.function.opList = symbolList;
-    func->next = NULL;
-
+    symbolList->symbolTable = argList;
 }

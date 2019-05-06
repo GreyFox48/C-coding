@@ -75,7 +75,7 @@ typedef struct symbol_ast_node {
 typedef enum { VARIABLE_TYPE, LAMBDA_TYPE, ARG_TYPE } SYMBOL_TYPE;
 
 typedef struct stack_node {
-    struct ast_node *val;
+    RETURN_TYPE val;
     struct stack_node *next;
 } STACK_NODE;
 
@@ -127,5 +127,8 @@ RETURN_TYPE multFunc(AST_NODE *p);
 RETURN_TYPE addFunc(AST_NODE *p);
 AST_NODE *conditional(AST_NODE *cond, AST_NODE *nonzero, AST_NODE *zero);
 SYMBOL_TABLE_NODE *createArg(char *name);
+void searchLambdaStacks(AST_NODE *s_expr, SYMBOL_TABLE_NODE *start, char *funcName);
+void createLamdaStacks(AST_NODE *s_expr, SYMBOL_TABLE_NODE *start);
+RETURN_TYPE customFunc(AST_NODE p);
 
 #endif
