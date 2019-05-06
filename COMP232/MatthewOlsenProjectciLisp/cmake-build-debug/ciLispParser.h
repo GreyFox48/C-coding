@@ -56,7 +56,9 @@ extern int yydebug;
     EOL = 266,
     QUIT = 267,
     INTEGER = 268,
-    REAL = 269
+    REAL = 269,
+    COND = 270,
+    LAMBDA = 271
   };
 #endif
 
@@ -72,7 +74,7 @@ union YYSTYPE
     struct ast_node *astNode;
     struct symbol_table_node *symbolNode;
 
-#line 76 "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispParser.h" /* yacc.c:1909  */
+#line 78 "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispParser.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

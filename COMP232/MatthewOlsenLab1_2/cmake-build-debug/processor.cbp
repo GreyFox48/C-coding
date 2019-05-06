@@ -8,33 +8,33 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug"/>
+				<Option working_dir="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug"/>
+				<Option working_dir="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="processor">
-				<Option output="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/processor" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug"/>
+				<Option output="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/processor" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src"/>
+					<Add directory="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -45,20 +45,20 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 processor"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 processor"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="processor/fast">
-				<Option output="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/processor" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug"/>
+				<Option output="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/processor" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src"/>
+					<Add directory="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -69,33 +69,33 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 processor/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 processor/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug"/>
+				<Option working_dir="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src/processor.c">
+		<Unit filename="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src/processor.c">
 			<Option target="processor"/>
 		</Unit>
-		<Unit filename="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src/processor.h">
+		<Unit filename="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src/processor.h">
 			<Option target="processor"/>
 		</Unit>
-		<Unit filename="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src/processor_test.c">
+		<Unit filename="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src/processor_test.c">
 			<Option target="processor"/>
 		</Unit>
-		<Unit filename="/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/CMakeLists.txt">
+		<Unit filename="/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

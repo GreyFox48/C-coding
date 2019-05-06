@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MatthewOlsenProjectciLisp"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MatthewOlsenProjectciLisp">
+				<Option output="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/MatthewOlsenProjectciLisp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/."/>
+					<Add directory="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/ciLispSrc"/>
+					<Add directory="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 MatthewOlsenProjectciLisp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MatthewOlsenProjectciLisp/fast">
+				<Option output="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/MatthewOlsenProjectciLisp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/."/>
+					<Add directory="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/ciLispSrc"/>
+					<Add directory="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 MatthewOlsenProjectciLisp/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/CMakeLists.txt">
+			<Option target="MatthewOlsenProjectciLisp"/>
+		</Unit>
+		<Unit filename="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.c">
+			<Option target="MatthewOlsenProjectciLisp"/>
+		</Unit>
+		<Unit filename="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.h">
+			<Option target="MatthewOlsenProjectciLisp"/>
+		</Unit>
+		<Unit filename="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.l">
+			<Option target="MatthewOlsenProjectciLisp"/>
+		</Unit>
+		<Unit filename="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.y">
+			<Option target="MatthewOlsenProjectciLisp"/>
+		</Unit>
+		<Unit filename="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/CMakeCache.txt">
+			<Option target="MatthewOlsenProjectciLisp"/>
+		</Unit>
+		<Unit filename="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/Makefile">
+			<Option target="MatthewOlsenProjectciLisp"/>
+		</Unit>
+		<Unit filename="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispParser.output">
+			<Option target="MatthewOlsenProjectciLisp"/>
+		</Unit>
+		<Unit filename="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/cilisp">
+			<Option target="MatthewOlsenProjectciLisp"/>
+		</Unit>
+		<Unit filename="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/cilisp.cbp">
+			<Option target="MatthewOlsenProjectciLisp"/>
+		</Unit>
+		<Unit filename="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/cmake-build-debug/cmake_install.cmake">
+			<Option target="MatthewOlsenProjectciLisp"/>
+		</Unit>
+		<Unit filename="/Users/matthew.olsen645/Desktop/MatthewOlsenProjectciLisp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

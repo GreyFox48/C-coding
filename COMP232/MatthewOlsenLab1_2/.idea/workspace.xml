@@ -11,7 +11,45 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3874c0a7-29c0-43a2-9f08-914e6bfd1efd" name="Default" comment="" />
+    <list default="true" id="3874c0a7-29c0-43a2-9f08-914e6bfd1efd" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/processor.dir/C.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/processor.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/processor.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/processor.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/processor.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/processor.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/processor.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/processor.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/processor.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/processor.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/processor.dir/src/processor.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/processor.dir/src/processor_test.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/processor.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/processor.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.h" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.l" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.l" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.y" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.y" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/cilisp.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/cilisp.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/cilisp.dir/ciLispParser.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/cilisp.dir/ciLispParser.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/cilisp.dir/ciLispScanner.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/cilisp.dir/ciLispScanner.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/cilisp.dir/ciLispSrc/ciLisp.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/cilisp.dir/ciLispSrc/ciLisp.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/ciLispParser.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/ciLispParser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/ciLispParser.h" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/ciLispParser.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/ciLispParser.output" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/ciLispParser.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/ciLispScanner.c" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/ciLispScanner.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/cilisp" beforeDir="false" afterPath="$PROJECT_DIR$/../MatthewOlsenProjectciLisp/cmake-build-debug/cilisp" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +62,7 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/processor.c">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="60">
@@ -33,20 +71,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cmake-build-debug/CopiedConsoleOutput">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="930">
-                  <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/processor_test.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="22" selection-start-line="22" selection-end-line="22" />
+                <state relative-caret-position="210">
+                  <caret line="14" column="22" selection-start-line="14" selection-end-line="15" />
                 </state>
               </provider>
             </entry>
@@ -58,8 +87,11 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/processor.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
+                <state relative-caret-position="99">
                   <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+                  <folding>
+                    <element signature="e#120#139#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -72,6 +104,9 @@
     <findStrings>
       <find>batchesP</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -87,18 +122,18 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="67" />
-    <option name="y" value="27" />
-    <option name="width" value="1853" />
-    <option name="height" value="923" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="627" />
+    <option name="y" value="103" />
+    <option name="width" value="1283" />
+    <option name="height" value="692" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -120,11 +155,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MatthewOlsen4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MatthewOlsenProjectciLisp" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="options.lastSelected" value="appearance" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -192,11 +228,12 @@
       <workItem from="1550513558084" duration="2033000" />
       <workItem from="1550712344372" duration="997000" />
       <workItem from="1551052017518" duration="39000" />
+      <workItem from="1556740652711" duration="999000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40172000" />
+    <option name="totallyTimeSpent" value="41171000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -208,10 +245,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="27" width="1853" height="923" extended-state="0" />
+    <frame x="67" y="25" width="1853" height="925" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26840067" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18539014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -224,7 +261,7 @@
       <window_info anchor="bottom" id="CMake" order="7" weight="0.275502" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.503327" side_tool="true" weight="0.32851407" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49857414" weight="0.32788944" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -268,6 +305,23 @@
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/processor.cbp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/processor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding>
+            <element signature="e#120#139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CopiedConsoleOutput">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="739">
+          <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/processor.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -275,24 +329,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CopiedConsoleOutput">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/processor_test.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/processor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        <state relative-caret-position="210">
+          <caret line="14" column="22" selection-start-line="14" selection-end-line="15" />
         </state>
       </provider>
     </entry>

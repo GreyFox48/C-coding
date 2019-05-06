@@ -7,7 +7,7 @@
 %}
 
 digit [0-9]
-func "neg"|"abs"|"exp"|"sqrt"|"add"|"sub"|"mult"|"div"|"remainder"|"log"|"pow"|"max"|"min"|"print"
+func "neg"|"abs"|"exp"|"sqrt"|"add"|"sub"|"mult"|"div"|"remainder"|"log"|"pow"|"max"|"min"|"print"|"rand"|"read"|"equal"|"smaller"|"larger"
 letter [a-zA-Z]
 symbol {letter}+
 integer_number [+|-]?{digit}+
@@ -36,6 +36,16 @@ type "integer"|"real"
 "let" {
     fprintf(stderr, "lex: let\n");
     return LET;
+    }
+
+"cond" {
+    fprintf(stderr, "lex: cond\n");
+    return COND;
+    }
+
+"lambda" {
+    fprintf(stderr, "lex: lambda\n");
+    return LAMBDA;
     }
 
 {func} {

@@ -43,10 +43,10 @@ RM = /home/suspiciousfox/CLion/bin/clion-2018.3.3/bin/cmake/linux/bin/cmake -E r
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2
+CMAKE_SOURCE_DIR = /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug
+CMAKE_BINARY_DIR = /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/processor.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/processor.dir/flags.make
 
 CMakeFiles/processor.dir/src/processor.c.o: CMakeFiles/processor.dir/flags.make
 CMakeFiles/processor.dir/src/processor.c.o: ../src/processor.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/processor.dir/src/processor.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/processor.dir/src/processor.c.o   -c /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src/processor.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/processor.dir/src/processor.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/processor.dir/src/processor.c.o   -c /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src/processor.c
 
 CMakeFiles/processor.dir/src/processor.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/processor.dir/src/processor.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src/processor.c > CMakeFiles/processor.dir/src/processor.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src/processor.c > CMakeFiles/processor.dir/src/processor.c.i
 
 CMakeFiles/processor.dir/src/processor.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/processor.dir/src/processor.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src/processor.c -o CMakeFiles/processor.dir/src/processor.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src/processor.c -o CMakeFiles/processor.dir/src/processor.c.s
 
 CMakeFiles/processor.dir/src/processor_test.c.o: CMakeFiles/processor.dir/flags.make
 CMakeFiles/processor.dir/src/processor_test.c.o: ../src/processor_test.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/processor.dir/src/processor_test.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/processor.dir/src/processor_test.c.o   -c /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src/processor_test.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/processor.dir/src/processor_test.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/processor.dir/src/processor_test.c.o   -c /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src/processor_test.c
 
 CMakeFiles/processor.dir/src/processor_test.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/processor.dir/src/processor_test.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src/processor_test.c > CMakeFiles/processor.dir/src/processor_test.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src/processor_test.c > CMakeFiles/processor.dir/src/processor_test.c.i
 
 CMakeFiles/processor.dir/src/processor_test.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/processor.dir/src/processor_test.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src/processor_test.c -o CMakeFiles/processor.dir/src/processor_test.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src/processor_test.c -o CMakeFiles/processor.dir/src/processor_test.c.s
 
 # Object files for target processor
 processor_OBJECTS = \
@@ -95,7 +95,7 @@ processor: CMakeFiles/processor.dir/src/processor.c.o
 processor: CMakeFiles/processor.dir/src/processor_test.c.o
 processor: CMakeFiles/processor.dir/build.make
 processor: CMakeFiles/processor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable processor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable processor"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/processor.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/processor.dir/clean:
 .PHONY : CMakeFiles/processor.dir/clean
 
 CMakeFiles/processor.dir/depend:
-	cd /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2 /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2 /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug /home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/CMakeFiles/processor.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2 /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2 /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/CMakeFiles/processor.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/processor.dir/depend
 

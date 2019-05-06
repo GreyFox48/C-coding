@@ -1,18 +1,18 @@
 #include "ciLisp.h"
 
+#define UNDEFINED_SYMBOL 2000 /* symbol was not defined */
+#define RAND_RANGE 1000 /* range of "rand" function */
+
 void yyerror(char *s) {
     fprintf(stderr, "\nERROR: %s\n", s);
     // note stderr that normally defaults to stdout, but can be redirected: ./src 2> src.log
     // CLion will display stderr in a different color from stdin and stdout
 }
 
-//
-// find out which function it is
-//
-
 char *func[] = {"neg", "abs", "exp", "sqrt", "add", "sub", "mult", "div", "remainder", "log", "pow", "max", "min",
                 "exp2", "cbrt", "hypot", "read", "rand", "print", "equal", "smaller", "larger", ""};
 char *type[] = {"no_type", "integer", "real", ""};
+
 OPER_TYPE resolveFunc(char *funcName) {
     int i = 0;
     while (func[i][0] != '\0') {
@@ -35,27 +35,6 @@ DATA_TYPE resolveType(char *typeName) {
     return NO_TYPE;
 }
 
-//
-// create a node for a number
-//
-/*
-AST_NODE *number(double value) {
-    AST_NODE *p;
-    size_t nodeSize;
-
-    // allocate space for the fixed sie and the variable part (union)
-    nodeSize = sizeof(AST_NODE) + sizeof(NUMBER_AST_NODE);
-    if ((p = malloc(nodeSize)) == NULL)
-        yyerror("out of memory");
-
-    p->type = NUM_TYPE;
-    p->data.number.value = value;
-    p->parent = NULL;
-
-
-    return p;
-}
-*/
 AST_NODE *real_number(double value) {
     AST_NODE *p;
     size_t nodeSize;
@@ -96,8 +75,9 @@ AST_NODE *integer_number(long value) {
 //
 // create a node for a function
 //
-AST_NODE *function(char *funcName, AST_NODE *op1, AST_NODE *op2) {
-    AST_NODE *p;
+AST_NODE *function(char *funcName, AST_NODE *s_list) {
+    AST_NODE *p = NULL;
+    AST_NODE *child = NULL;
     size_t nodeSize;
 
     // allocate space for the fixed sie and the variable part (union)
@@ -109,9 +89,15 @@ AST_NODE *function(char *funcName, AST_NODE *op1, AST_NODE *op2) {
     p->parent = NULL;
     p->symbolTable = NULL;
     p->data.function.name = funcName;
+    p->data.function.opNum = 0;
 
-    p->data.function.op1 = op1;
-    p->data.function.op2 = op2;
+    p->data.function.opList = s_list;
+
+    for (child = s_list; child != NULL; child = child->next) {
+        child->parent = p;
+        p->data.function.opNum++;
+    }
+
 
     return p;
 }
@@ -121,13 +107,16 @@ AST_NODE *function(char *funcName, AST_NODE *op1, AST_NODE *op2) {
 //
 void freeNode(AST_NODE *p) {
     SYMBOL_TABLE_NODE *stn = NULL;
+    AST_NODE *temp = NULL;
     if (!p)
         return;
 
+    // probably needs debugging
     if (p->type == FUNC_TYPE) {
         free(p->data.function.name);
-        freeNode(p->data.function.op1);
-        freeNode(p->data.function.op2);
+        for (temp = p->data.function.opList; temp != NULL; temp = temp->next) {
+            freeNode(temp);
+        }
     }
 
     if (p->type == SYMB_TYPE) {
@@ -163,70 +152,102 @@ RETURN_TYPE eval(AST_NODE *p) {
         case FUNC_TYPE:
             switch (resolveFunc(p->data.function.name)) {
                 case NEG_OPER:
-                    puts("");
-                    op1 = eval(p->data.function.op1);
+                    if (p->data.function.opNum < 1) {
+                        printf("Warning:  Too few operators for function \"neg\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 1) {
+                        printf("Warning:  Too many operators for function \"neg\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
                     result.type = op1.type;
-                    if(op1.type == INTEGER_TYPE ) {
+                    if (op1.type == INTEGER_TYPE) {
                         result.value.integer = -op1.value.integer;
                     } else {
                         result.value.real = -op1.value.real;
                     }
                     break;
                 case ABS_OPER:
-                    op1 = eval(p->data.function.op1);
+                    if (p->data.function.opNum < 1) {
+                        printf("Warning:  Too few operators for function \"abs\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 1) {
+                        printf("Warning:  Too many operators for function \"abs\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
                     result.type = op1.type;
-                    if(op1.type == INTEGER_TYPE ) {
+                    if (op1.type == INTEGER_TYPE) {
                         result.value.integer = labs(op1.value.integer);
                     } else {
                         result.value.real = fabs(op1.value.real);
                     }
                     break;
                 case EXP_OPER:
-                    op1 = eval(p->data.function.op1);
+                    if (p->data.function.opNum < 1) {
+                        printf("Warning:  Too few operators for function \"exp\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 1) {
+                        printf("Warning:  Too many operators for function \"exp\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
                     result.type = REAL_TYPE;
-                    if(op1.type == INTEGER_TYPE) {
+                    if (op1.type == INTEGER_TYPE) {
                         result.value.real = exp(op1.value.integer);
                     } else {
                         result.value.real = exp(op1.value.real);
                     }
                     break;
                 case SQRT_OPER:
+                    if (p->data.function.opNum < 1) {
+                        printf("Warning:  Too few operators for function \"sqrt\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 1) {
+                        printf("Warning:  Too many operators for function \"sqrt\"\n");
+                    }
                     // 5 points for taylor series
-                    op1 = eval(p->data.function.op1);
+                    op1 = eval(p->data.function.opList);
                     result.type = REAL_TYPE;
-                    if(op1.type == INTEGER_TYPE) {
+                    if (op1.type == INTEGER_TYPE) {
                         result.value.real = sqrt(op1.value.integer);
                     } else {
                         result.value.real = sqrt(op1.value.real);
                     }
                     break;
                 case ADD_OPER:
-                    op1 = eval(p->data.function.op1);
-                    op2 = eval(p->data.function.op2);
-                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE ) {
-                        result.type = INTEGER_TYPE;
-                        result.value.integer = op1.value.integer + op2.value.integer;
-                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE){
+                    if (p->data.function.opNum < 2) {
+                        printf("Warning:  Too few operators for function \"add\"\n");
                         result.type = REAL_TYPE;
-                        result.value.real = (double) op1.value.integer + op2.value.real;
-                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE){
-                        result.type = REAL_TYPE;
-                        result.value.real = op1.value.real + (double) op2.value.integer;
-                    } else {
-                        result.type = REAL_TYPE;
-                        result.value.real = op1.value.real + op2.value.real;
+                        result.value.real = 0;
+                        break;
                     }
+
+                    result = addFunc(p);
                     break;
                 case SUB_OPER:
-                    op1 = eval(p->data.function.op1);
-                    op2 = eval(p->data.function.op2);
-                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE ) {
+                    if (p->data.function.opNum < 2) {
+                        printf("Warning:  Too few operators for function \"sub\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 2) {
+                        printf("Warning:  Too many operators for function \"sub\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
+                    op2 = eval(p->data.function.opList->next);
+                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE) {
                         result.type = INTEGER_TYPE;
                         result.value.integer = op1.value.integer - op2.value.integer;
-                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE){
+                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE) {
                         result.type = REAL_TYPE;
                         result.value.real = (double) op1.value.integer - op2.value.real;
-                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE){
+                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE) {
                         result.type = REAL_TYPE;
                         result.value.real = op1.value.real - (double) op2.value.integer;
                     } else {
@@ -235,37 +256,38 @@ RETURN_TYPE eval(AST_NODE *p) {
                     }
                     break;
                 case MULT_OPER:
-                    op1 = eval(p->data.function.op1);
-                    op2 = eval(p->data.function.op2);
-                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE ) {
-                        result.type = INTEGER_TYPE;
-                        result.value.integer = op1.value.integer * op2.value.integer;
-                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE){
+                    if (p->data.function.opNum < 2) {
+                        printf("Warning:  Too few operators for function \"mult\"\n");
                         result.type = REAL_TYPE;
-                        result.value.real = (double) op1.value.integer * op2.value.real;
-                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE){
-                        result.type = REAL_TYPE;
-                        result.value.real = op1.value.real * (double) op2.value.integer;
-                    } else {
-                        result.type = REAL_TYPE;
-                        result.value.real = op1.value.real * op2.value.real;
+                        result.value.real = 0;
+                        break;
                     }
+
+                    result = multFunc(p);
                     break;
                 case DIV_OPER:
-                    op1 = eval(p->data.function.op1);
-                    op2 = eval(p->data.function.op2);
-                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE ) {
-                        if ( 0 == op1.value.integer % op2.value.integer ) {
+                    if (p->data.function.opNum < 2) {
+                        printf("Warning:  Too few operators for function \"div\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 2) {
+                        printf("Warning:  Too many operators for function \"div\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
+                    op2 = eval(p->data.function.opList->next);
+                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE) {
+                        if (0 == op1.value.integer % op2.value.integer) {
                             result.type = INTEGER_TYPE;
                             result.value.integer = op1.value.integer / op2.value.integer;
                             break;
                         }
                         result.type = REAL_TYPE;
-                        result.value.real = ((double) op1.value.integer) / ((double)op2.value.integer);
-                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE){
+                        result.value.real = ((double) op1.value.integer) / ((double) op2.value.integer);
+                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE) {
                         result.type = REAL_TYPE;
                         result.value.real = (double) op1.value.integer / op2.value.real;
-                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE){
+                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE) {
                         result.type = REAL_TYPE;
                         result.value.real = op1.value.real / (double) op2.value.integer;
                     } else {
@@ -274,104 +296,265 @@ RETURN_TYPE eval(AST_NODE *p) {
                     }
                     break;
                 case REMAINDER_OPER:
-                    op1 = eval(p->data.function.op1);
-                    op2 = eval(p->data.function.op2);
+                    if (p->data.function.opNum < 2) {
+                        printf("Warning:  Too few operators for function \"remainder\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 2) {
+                        printf("Warning:  Too many operators for function \"remainder\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
+                    op2 = eval(p->data.function.opList->next);
                     result.type = REAL_TYPE;
-                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE ) {
+                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE) {
                         result.value.real = remainder(op1.value.integer, op2.value.integer);
-                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE){
+                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE) {
                         result.value.real = remainder(op1.value.integer, op2.value.real);
-                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE){
+                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE) {
                         result.value.real = remainder(op1.value.real, op2.value.integer);
                     } else {
                         result.value.real = remainder(op1.value.real, op2.value.real);
                     }
                     break;
                 case LOG_OPER:
-                    op1 = eval(p->data.function.op1);
+                    if (p->data.function.opNum < 1) {
+                        printf("Warning:  Too few operators for function \"log\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 1) {
+                        printf("Warning:  Too many operators for function \"log\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
                     result.type = REAL_TYPE;
-                    if(op1.type == INTEGER_TYPE) {
+                    if (op1.type == INTEGER_TYPE) {
                         result.value.real = log(op1.value.integer);
                     } else {
                         result.value.real = log(op1.value.real);
                     }
                     break;
                 case POW_OPER:
-                    op1 = eval(p->data.function.op1);
-                    op2 = eval(p->data.function.op2);
+                    if (p->data.function.opNum < 2) {
+                        printf("Warning:  Too few operators for function \"pow\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 2) {
+                        printf("Warning:  Too many operators for function \"pow\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
+                    op2 = eval(p->data.function.opList->next);
                     result.type = REAL_TYPE;
-                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE ) {
+                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE) {
                         result.value.real = pow(op1.value.integer, op2.value.integer);
-                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE){
+                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE) {
                         result.value.real = pow(op1.value.integer, op2.value.real);
-                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE){
+                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE) {
                         result.value.real = pow(op1.value.real, op2.value.integer);
                     } else {
                         result.value.real = pow(op1.value.real, op2.value.real);
                     }
                     break;
                 case MAX_OPER:
-                    op1 = eval(p->data.function.op1);
-                    op2 = eval(p->data.function.op2);
+                    if (p->data.function.opNum < 2) {
+                        printf("Warning:  Too few operators for function \"max\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 2) {
+                        printf("Warning:  Too many operators for function \"max\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
+                    op2 = eval(p->data.function.opList->next);
                     result.type = REAL_TYPE;
-                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE ) {
+                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE) {
                         result.value.real = fmax(op1.value.integer, op2.value.integer);
-                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE){
+                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE) {
                         result.value.real = fmax(op1.value.integer, op2.value.real);
-                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE){
+                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE) {
                         result.value.real = fmax(op1.value.real, op2.value.integer);
                     } else {
                         result.value.real = fmax(op1.value.real, op2.value.real);
                     }
                     break;
                 case MIN_OPER:
-                    op1 = eval(p->data.function.op1);
-                    op2 = eval(p->data.function.op2);
+                    if (p->data.function.opNum < 2) {
+                        printf("Warning:  Too few operators for function \"min\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 2) {
+                        printf("Warning:  Too many operators for function \"min\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
+                    op2 = eval(p->data.function.opList->next);
                     result.type = REAL_TYPE;
-                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE ) {
+                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE) {
                         result.value.real = fmin(op1.value.integer, op2.value.integer);
-                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE){
+                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE) {
                         result.value.real = fmin(op1.value.integer, op2.value.real);
-                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE){
+                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE) {
                         result.value.real = fmin(op1.value.real, op2.value.integer);
                     } else {
                         result.value.real = fmin(op1.value.real, op2.value.real);
                     }
                     break;
                 case EXP2_OPER:
-                    op1 = eval(p->data.function.op1);
+                    if (p->data.function.opNum < 1) {
+                        printf("Warning:  Too few operators for function \"exp2\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 1) {
+                        printf("Warning:  Too many operators for function \"exp2\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
                     result.type = REAL_TYPE;
-                    if(op1.type == INTEGER_TYPE) {
+                    if (op1.type == INTEGER_TYPE) {
                         result.value.real = exp2(op1.value.integer);
                     } else {
                         result.value.real = exp2(op1.value.real);
                     }
                     break;
                 case CBRT_OPER:
-                    op1 = eval(p->data.function.op1);
+                    if (p->data.function.opNum < 1) {
+                        printf("Warning:  Too few operators for function \"cbrt\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 1) {
+                        printf("Warning:  Too many operators for function \"cbrt\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
                     result.type = REAL_TYPE;
-                    if(op1.type == INTEGER_TYPE) {
+                    if (op1.type == INTEGER_TYPE) {
                         result.value.real = cbrt(op1.value.integer);
                     } else {
                         result.value.real = cbrt(op1.value.real);
                     }
                     break;
                 case HYPOT_OPER:
-                    op1 = eval(p->data.function.op1);
-                    op2 = eval(p->data.function.op2);
+                    if (p->data.function.opNum < 2) {
+                        printf("Warning:  Too few operators for function \"hypot\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 2) {
+                        printf("Warning:  Too many operators for function \"hypot\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
+                    op2 = eval(p->data.function.opList->next);
                     result.type = REAL_TYPE;
-                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE ) {
+                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE) {
                         result.value.real = hypot(op1.value.integer, op2.value.integer);
-                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE){
+                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE) {
                         result.value.real = hypot(op1.value.integer, op2.value.real);
-                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE){
+                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE) {
                         result.value.real = hypot(op1.value.real, op2.value.integer);
                     } else {
                         result.value.real = hypot(op1.value.real, op2.value.real);
                     }
                     break;
                 case PRINT_OPER:
-                    printFunc(eval(p->data.function.op1));
+                    printFunc(p);
+                    break;
+                case READ_OPER:
+                    if (p->data.function.opNum != 0) {
+                        printf("function \"read\" does not take parameters.\n");
+                    }
+                    char input[255];
+                    printf("%s := ", p->parent->data.symbol.name);
+                    scanf(" %[^\n]", input);
+                    if (strchr(input, '.')) {
+                        /*found a dot */
+                        result.type = REAL_TYPE;
+                        result.value.real = strtod(input, NULL);
+                    } else {
+                        /* no dot will be integer */
+                        char **temp = NULL;
+                        result.type = INTEGER_TYPE;
+                        result.value.integer = strtol(input, temp, 10);
+                    }
+                    break;
+                case RAND_OPER:
+                    if (p->data.function.opNum != 0) {
+                        printf("function \"rand\" does not take parameters.\n");
+                    }
+                    result.type = REAL_TYPE;
+                    result.value.real = (double) rand() / (double) (RAND_MAX / RAND_RANGE);
+                    break;
+                case EQUAL_OPER:
+                    if (p->data.function.opNum < 2) {
+                        printf("Warning:  Too few operators for function \"equal\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 2) {
+                        printf("Warning:  Too many operators for function \"equal\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
+                    op2 = eval(p->data.function.opList->next);
+
+                    result.type = INTEGER_TYPE;
+
+                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE) {
+                        result.value.integer = (op1.value.integer == op2.value.integer);
+                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE) {
+                        result.value.integer = (((double) op1.value.integer) == op2.value.real);
+                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE) {
+                        result.value.integer = (op1.value.real == ((double) op2.value.integer));
+                    } else {
+                        result.value.integer = (op1.value.real == op2.value.real);
+                    }
+                    break;
+                case SMALLER_OPER:
+                    if (p->data.function.opNum < 2) {
+                        printf("Warning:  Too few operators for function \"smaller\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 2) {
+                        printf("Warning:  Too many operators for function \"smaller\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
+                    op2 = eval(p->data.function.opList->next);
+
+                    result.type = INTEGER_TYPE;
+
+                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE) {
+                        result.value.integer = (op1.value.integer < op2.value.integer);
+                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE) {
+                        result.value.integer = (((double) op1.value.integer) < op2.value.real);
+                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE) {
+                        result.value.integer = (op1.value.real < ((double) op2.value.integer));
+                    } else {
+                        result.value.integer = (op1.value.real < op2.value.real);
+                    }
+                    break;
+                case LARGER_OPER:
+                    if (p->data.function.opNum < 2) {
+                        printf("Warning:  Too few operators for function \"larger\"\n");
+                        result.type = REAL_TYPE;
+                        result.value.real = 0;
+                        break;
+                    } else if (p->data.function.opNum > 2) {
+                        printf("Warning:  Too many operators for function \"larger\"\n");
+                    }
+                    op1 = eval(p->data.function.opList);
+                    op2 = eval(p->data.function.opList->next);
+
+                    result.type = INTEGER_TYPE;
+
+                    if (op1.type == INTEGER_TYPE && op2.type == INTEGER_TYPE) {
+                        result.value.integer = (op1.value.integer > op2.value.integer);
+                    } else if (op1.type == INTEGER_TYPE && op2.type == REAL_TYPE) {
+                        result.value.integer = (((double) op1.value.integer) > op2.value.real);
+                    } else if (op1.type == REAL_TYPE && op2.type == INTEGER_TYPE) {
+                        result.value.integer = (op1.value.real > ((double) op2.value.integer));
+                    } else {
+                        result.value.integer = (op1.value.real > op2.value.real);
+                    }
                     break;
                 default:
                     result.type = NO_TYPE;
@@ -380,10 +563,17 @@ RETURN_TYPE eval(AST_NODE *p) {
         case SYMB_TYPE:
             stn = resolveSymbol(p->data.symbol.name, p);
             if (stn != NULL) {
+                /* actual result */
                 op1 = eval(stn->val);
-                result.type = op1.type;
-                if(op1.type == INTEGER_TYPE ) {
+                /* copy over casted result, below ifs will assign as necessary to cast */
+                result.type = stn->data_type;
+                if (op1.type == INTEGER_TYPE && result.type == INTEGER_TYPE) {
                     result.value.integer = op1.value.integer;
+                } else if (op1.type == INTEGER_TYPE && result.type == REAL_TYPE) {
+                    result.value.real = op1.value.integer;
+                } else if (op1.type == REAL_TYPE && result.type == INTEGER_TYPE) {
+                    printf("Warning, symbol %s has a loss of precision form integer cast.\n", stn->ident);
+                    result.value.integer = op1.value.real;
                 } else {
                     result.value.real = op1.value.real;
                 }
@@ -391,8 +581,19 @@ RETURN_TYPE eval(AST_NODE *p) {
                 char error[256];
                 sprintf(error, "Symbol \"%s\" does not exist.\n", p->data.symbol.name);
                 yyerror(error);
-                exit(2000);
+                exit(UNDEFINED_SYMBOL);
             }
+            return result;
+        case COND_TYPE:
+            /* evaluate and then determine success or failure */
+            result = eval(p->data.condition.cond);
+            /* on success */
+            if (result.value.integer != 0) {
+                result = eval(p->data.condition.nonzero);
+            } else /* failure */ {
+                result = eval(p->data.condition.zero);
+            }
+
             return result;
         default:
             printf("WAT");
@@ -404,7 +605,7 @@ RETURN_TYPE eval(AST_NODE *p) {
 }
 
 /*
- * Sets the given SYMBOL_TABLE_NODE node/chain's parent to the given s_expr
+ * Sets the given SYMBOL_TABLE_NODE node/chain's parent to the given AST_NODE
  * @parem symbol_table_node the symbol_table_nodes who's parent(s) will be set
  * @parem s_expr the s_expr that is associated with the scope of symbol_table_node
  * @return the s_expr given
@@ -425,7 +626,6 @@ AST_NODE *setSymbolTable(SYMBOL_TABLE_NODE *symbol_table_node, AST_NODE *s_expr)
     return s_expr;
 }
 
-//TODO
 /*use to reference the value of the ast node.  This reference will then later be used to
  *find the symbol that is storing the value.
  * @parem name the name of the symbol encountered to later be subsituted
@@ -479,6 +679,10 @@ SYMBOL_TABLE_NODE *createSymbol(char *type, char *name, AST_NODE *value) {
         yyerror("Out of memory.");
         return NULL;
     }
+    node->next = NULL;
+    node->data_type = REAL_TYPE;
+    node->type = VARIABLE_TYPE;
+
     // set the SYMBOL_TABLE_NODE*'s ident string to input name
     //malloc and strcpy...
     node->ident = malloc(sizeof(char) * (strlen(name) + 1));
@@ -487,69 +691,55 @@ SYMBOL_TABLE_NODE *createSymbol(char *type, char *name, AST_NODE *value) {
         yyerror("Out of memory.");
     }
     strncpy(node->ident, name, sizeof(name) + 1);
-    // set the SYMBOL_TABLE_NODE's val to the input value
-    /* node->val = value; */
-    node->val = malloc(sizeof(AST_NODE));
-    if (!node->val) {
-        printf("Symbol %s with no value.\n", name);
-        return NULL;
+
+    node->val = value;
+
+    /* resolve read functions now */
+    if (value->type == FUNC_TYPE) {
+        if (resolveFunc(value->data.function.name) == READ_OPER) {
+            if (value->data.function.opNum != 0) {
+                printf("function \"read\" does not take parameters.\n");
+            }
+            char input[255];
+            printf("%s := ", name);
+            scanf(" %[^\n]", input);
+            if (strchr(input, '.')) {
+                value->data.number.value.type = REAL_TYPE;
+                value->type = NUM_TYPE;
+                value->data.number.value.value.real = strtod(input, NULL);
+
+            } else {
+                char **temp = NULL;
+                value->type = NUM_TYPE;
+                value->data.number.value.type = INTEGER_TYPE;
+                value->data.number.value.value.integer = strtol(input, temp, 10);
+                if (type == NULL) {
+                    /* only here do we dynamically figure it out, else defaults to real */
+                    node->data_type = INTEGER_TYPE;
+                }
+            }
+        }
     }
 
-    //node->val = value;
-    /* evaluate node now instead of later. */
 
-    if(type == NULL) {
+    /* if(type == NULL) {
         node->data_type = REAL_TYPE;
-        node->val->type = NUM_TYPE;
-        node->val->parent = NULL;
-        node->val->symbolTable = NULL;
-        node->val->data.number.value = eval(value);
-        /*
-        value->data.number.value = eval(value);
-        value->type = NUM_TYPE;
-         */
-        if(node->val->data.number.value.type == INTEGER_TYPE) {
-            node->val->data.number.value.value.real = (double) node->val->data.number.value.value.integer;
-        }
-        node->val->data.number.value.type = REAL_TYPE;
-        // set the SYMBOL_TABLE_NODE*'s next pointer to NULL
+
         node->next = NULL;
-        // return the SYMBOL_TABLE_NODE*
-    } else if (resolveType(type) == INTEGER_TYPE){
+    } else */ if ((type != NULL) && (resolveType(type) == INTEGER_TYPE)) {
         node->data_type = INTEGER_TYPE;
-        node->val->type = NUM_TYPE;
-        node->val->parent = NULL;
-        node->val->symbolTable = NULL;
-        node->val->data.number.value = eval(value);
-        if (node->val->data.number.value.type == REAL_TYPE) {
-            printf("WARNING: precision loss in the assignment for variable \"%s\"\n", name);
-            node->val->data.number.value.value.integer = node->val->data.number.value.value.real;
-        }
-        node->val->data.number.value.type = INTEGER_TYPE;
-        // set the SYMBOL_TABLE_NODE*'s next pointer to NULL
-        node->next = NULL;
-        // return the SYMBOL_TABLE_NODE*
-    } else if (resolveType(type) == REAL_TYPE){
-        node->data_type = REAL_TYPE;
-        node->val->type = NUM_TYPE;
-        node->val->parent = NULL;
-        node->val->symbolTable = NULL;
-        node->val->data.number.value = eval(value);
-        if(node->val->data.number.value.type == INTEGER_TYPE) {
-            node->val->data.number.value.value.real = (double) node->val->data.number.value.value.integer;
-        }
-        node->val->data.number.value.type = REAL_TYPE;
 
-        // set the SYMBOL_TABLE_NODE*'s next pointer to NULL
         node->next = NULL;
-        // return the SYMBOL_TABLE_NODE*
-    }
+    } /*else if (resolveType(type) == REAL_TYPE){
+        node->data_type = REAL_TYPE;
+
+        node->next = NULL;
+    } */
 
     free(name);
     return node;
 }
 
-//TODO
 /*
  * Adds newSymbol to symbolTable, which is the local scope of symbol tables
  * ( the same chain of SYMBOL_TABLE_NODES ). If newSymbol has a redunant ident,
@@ -610,7 +800,6 @@ SYMBOL_TABLE_NODE *findSymbol(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE 
     return NULL;
 }
 
-// TODO
 /*
  * Looks to find the value of the symbol associated with *name.  If it cannot
  * find it in the current scope, climbs until it reaches the top of the parse
@@ -640,26 +829,185 @@ SYMBOL_TABLE_NODE *resolveSymbol(char *name, AST_NODE *node) {
     return NULL;
 }
 
-/*
- * Sets an given AST_NODE child's parent.
- * @parem parent the parent of the child
- * @parem child the child who's parent needs to be set
- */
-void setParent(AST_NODE *parent, AST_NODE *child) {
-    child->parent = parent;
+
+AST_NODE *addOpToList(AST_NODE *newOp, AST_NODE *opTable) {
+    // if newSymbol is NULL, return the symbolTable
+
+    if (!newOp) {
+        return opTable;
+    }
+
+    newOp->next = opTable;
+    return newOp;
+
+}
+
+RETURN_TYPE addFunc(AST_NODE *p) {
+    RETURN_TYPE answer, temp;
+    AST_NODE *node = NULL;
+    answer.type = INTEGER_TYPE;
+    answer.value.real = 0;
+    answer.value.integer = 0;
+
+    for (node = p->data.function.opList; node != NULL; node = node->next) {
+        temp = eval(node);
+        if (temp.type == INTEGER_TYPE && answer.type == INTEGER_TYPE) {
+            answer.value.integer += temp.value.integer;
+        } else if (temp.type == REAL_TYPE && answer.type == INTEGER_TYPE) {
+            answer.value.real = (double) answer.value.integer;
+            answer.type = REAL_TYPE;
+
+            answer.value.real += temp.value.real;
+        } else if (temp.type == REAL_TYPE && answer.type == REAL_TYPE) {
+            answer.value.real += answer.value.real;
+        } else {
+            printf("Error in %s in %s at line %d: Conditional loop failure.\n", __FILE__, __FUNCTION__, __LINE__);
+        }
+    }
+
+    return answer;
+
+
+}
+
+RETURN_TYPE multFunc(AST_NODE *p) {
+    RETURN_TYPE answer, temp;
+    AST_NODE *node = NULL;
+    answer.type = INTEGER_TYPE;
+    answer.value.real = 1; /* cheating for mult algorithm later. */
+    answer.value.integer = 1.0; /* 1.0 safe to be stored as a float */
+
+    for (node = p->data.function.opList; node != NULL; node = node->next) {
+        temp = eval(node);
+        if (temp.type == INTEGER_TYPE && answer.type == INTEGER_TYPE) {
+            answer.value.integer *= temp.value.integer;
+        } else if (temp.type == REAL_TYPE && answer.type == INTEGER_TYPE) {
+            answer.value.real = (double) answer.value.integer;
+            answer.type = REAL_TYPE;
+
+            answer.value.real *= temp.value.real;
+        } else if (temp.type == REAL_TYPE && answer.type == REAL_TYPE) {
+            answer.value.real *= temp.value.real;
+        } else {
+            printf("Error in %s in %s at line %d: Conditional loop failure.\n", __FILE__, __FUNCTION__, __LINE__);
+        }
+    }
+
+    return answer;
+}
+
+void printFunc(AST_NODE *p) {
+    RETURN_TYPE temp;
+    AST_NODE *node = NULL;
+
+    for (node = p->data.function.opList; node != NULL; node = node->next) {
+        temp = eval(node);
+        if (temp.type == INTEGER_TYPE) {
+            printf("%ld ", temp.value.integer);
+        } else if (temp.type == REAL_TYPE) {
+            printf("%.2lf ", temp.value.real);
+        }
+    }
+    puts("");
+
 }
 
 /*
- * Simple print function.  Prints based on return type.
- * @parem p the RETURN_TYPE to print
+ * Returns a conditional node, based upon the AST nodes.
+ * @param cond, the conditional of the statement
+ * @param nonzero, the s_expr to be evaluated if the conditional returns not zero, or true
+ * @param nonzero, the s_expr to be evaluated if the conditional returns zero, or false
+ * @return the AST_NODE of conditional type, the data populated with the above information
  */
-void printFunc(RETURN_TYPE p)
-{
-    if(p.type == INTEGER_TYPE) {
-        printf("%ld\n", p.value.integer);
-    } else if(p.type == REAL_TYPE) {
-        printf("%lf\n", p.value.real);
-    } else if (p.type == NO_TYPE) {
-        printf("No Type\n");
+AST_NODE *conditional(AST_NODE *cond, AST_NODE *nonzero, AST_NODE *zero) {
+    AST_NODE *node = malloc(sizeof(AST_NODE));
+    if (node == NULL) {
+        yyerror("Out of memory.");
     }
+
+    node->type = COND_TYPE;
+    node->symbolTable = NULL;
+    node->parent = NULL;
+    node->next = NULL;
+
+    node->data.condition.cond = cond;
+    node->data.condition.nonzero = nonzero;
+    node->data.condition.zero = zero;
+
+    node->data.condition.cond->parent = node;
+    node->data.condition.zero->parent = node;
+    node->data.condition.nonzero->parent = node;
+
+    return node;
+}
+
+SYMBOL_TABLE_NODE *createArg(char *name)
+{
+    SYMBOL_TABLE_NODE *node = NULL;
+
+    // allocate memory for a SYMBOL_TABLE_NODE
+    node = malloc(sizeof(SYMBOL_TABLE_NODE));
+    if (NULL == node) {
+        //out of memory?
+        yyerror("Out of memory.");
+        return NULL;
+    }
+    node->next = NULL;
+    node->data_type = REAL_TYPE;
+
+
+    // set the SYMBOL_TABLE_NODE*'s ident string to input name
+    //malloc and strcpy...
+    node->ident = malloc(sizeof(char) * (strlen(name) + 1));
+    if (NULL == node->ident) {
+        //check if out of memory I guess
+        yyerror("Out of memory.");
+    }
+    strncpy(node->ident, name, sizeof(name) + 1);
+
+    node->val = NULL;
+    node->stack = NULL;
+    node->next = NULL;
+
+}
+
+SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argList, AST_NODE *symbolList)
+{
+    SYMBOL_TABLE_NODE *s_node = NULL;
+    s_node = malloc(sizeof(SYMBOL_TABLE_NODE));
+
+    if (NULL == s_node) {
+        //check if out of memory I guess
+        yyerror("Out of memory.");
+    }
+
+    /* the lambda function associated with the SYMBOL_TABLE_NODE */
+    AST_NODE *func = malloc(sizeof(AST_NODE));
+    if (NULL == s_node) {
+        //check if out of memory I guess
+        yyerror("Out of memory.");
+    }
+
+    s_node->ident = malloc(sizeof(char) * (strlen(name) + 1));
+    if (NULL == s_node->ident) {
+        //check if out of memory I guess
+        yyerror("Out of memory.");
+    }
+    strncpy(s_node->ident, name, sizeof(name) + 1);
+
+    s_node->val = func;
+    s_node->stack = NULL;
+    s_node->next = NULL;
+    s_node->type = LAMBDA_TYPE;
+    if ( (type = NULL) || (resolveType(type) == REAL_TYPE)) {
+        s_node->data_type = REAL_TYPE;
+    } else {
+        s_node->data_type = INTEGER_TYPE;
+    }
+
+    func->type = FUNC_TYPE;
+    func->symbolTable = argList;
+    func->data.function.opList = symbolList;
+    func->next = NULL;
+
 }

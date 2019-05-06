@@ -36,13 +36,16 @@ typedef enum oper { // must be in sync with funcs in resolveFunc()
     READ_OPER,  // 16
     RAND_OPER,  //17
     PRINT_OPER, //18
+    EQUAL_OPER, //19
+    SMALLER_OPER, //20
+    LARGER_OPER, //21
     CUSTOM_FUNC=255
 } OPER_TYPE;
 
 OPER_TYPE resolveFunc(char *);
 
 typedef enum {
-    NUM_TYPE, FUNC_TYPE, SYMB_TYPE
+    NUM_TYPE, FUNC_TYPE, SYMB_TYPE, COND_TYPE
 } AST_NODE_TYPE;
 
 typedef enum { NO_TYPE, INTEGER_TYPE, REAL_TYPE } DATA_TYPE;
@@ -61,20 +64,35 @@ typedef struct {
 
 typedef struct {
     char *name;
-    struct ast_node *op1;
-    struct ast_node *op2;
+    struct ast_node *opList;
+    short opNum; /* number of operators */
 } FUNCTION_AST_NODE;
 
 typedef struct symbol_ast_node {
     char *name;
 } SYMBOL_AST_NODE;
 
-typedef struct symbol_table_node {
-    char *ident;
-    DATA_TYPE data_type;
+typedef enum { VARIABLE_TYPE, LAMBDA_TYPE, ARG_TYPE } SYMBOL_TYPE;
+
+typedef struct stack_node {
     struct ast_node *val;
+    struct stack_node *next;
+} STACK_NODE;
+
+typedef struct symbol_table_node {
+    SYMBOL_TYPE type;
+    DATA_TYPE data_type;
+    char *ident;
+    struct ast_node *val;
+    STACK_NODE *stack;
     struct symbol_table_node *next;
 } SYMBOL_TABLE_NODE;
+
+typedef struct {
+    struct ast_node *cond;
+    struct ast_node *nonzero;
+    struct ast_node *zero;
+} COND_AST_NODE;
 
 typedef struct ast_node {
     AST_NODE_TYPE type;
@@ -83,16 +101,13 @@ typedef struct ast_node {
     union {
         NUMBER_AST_NODE number;
         FUNCTION_AST_NODE function;
-        //COND_AST_NODE condition;
+        COND_AST_NODE condition;
         SYMBOL_AST_NODE symbol;
     } data;
     struct ast_node *next;
 } AST_NODE;
 
-//AST_NODE *number(double value);
-
-AST_NODE *function(char *funcName, AST_NODE *op1, AST_NODE *op2);
-
+AST_NODE *function(char *funcName, AST_NODE *s_list);
 void freeNode(AST_NODE *p);
 
 RETURN_TYPE eval(AST_NODE *ast);
@@ -103,10 +118,14 @@ SYMBOL_TABLE_NODE *createSymbol(char *type, char *name, AST_NODE *value);
 SYMBOL_TABLE_NODE *addSymbolToList(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE *newSymbol);
 SYMBOL_TABLE_NODE *findSymbol(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE *symbol);
 SYMBOL_TABLE_NODE *resolveSymbol(char *name, AST_NODE *node);
-void setParent(AST_NODE *parent, AST_NODE *child);
 AST_NODE *real_number(double value);
 AST_NODE *integer_number(long value);
 DATA_TYPE resolveType(char *typeName);
-void printFunc(RETURN_TYPE p);
+void printFunc(AST_NODE *p);
+AST_NODE *addOpToList(AST_NODE *newOp, AST_NODE *opTable);
+RETURN_TYPE multFunc(AST_NODE *p);
+RETURN_TYPE addFunc(AST_NODE *p);
+AST_NODE *conditional(AST_NODE *cond, AST_NODE *nonzero, AST_NODE *zero);
+SYMBOL_TABLE_NODE *createArg(char *name);
 
 #endif

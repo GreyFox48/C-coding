@@ -6,5 +6,5 @@ C_FLAGS = -m64 -g -O0 -D_DEBUG -Wall -g   -std=gnu99
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src 
+C_INCLUDES = -I/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src 
 

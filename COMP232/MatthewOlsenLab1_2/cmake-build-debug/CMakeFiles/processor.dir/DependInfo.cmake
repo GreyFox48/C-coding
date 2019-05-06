@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src/processor.c" "/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/CMakeFiles/processor.dir/src/processor.c.o"
-  "/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/src/processor_test.c" "/home/suspiciousfox/Desktop/COMP232/MatthewOlsenLab1_2/cmake-build-debug/CMakeFiles/processor.dir/src/processor_test.c.o"
+  "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src/processor.c" "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/CMakeFiles/processor.dir/src/processor.c.o"
+  "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/src/processor_test.c" "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenLab1_2/cmake-build-debug/CMakeFiles/processor.dir/src/processor_test.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
