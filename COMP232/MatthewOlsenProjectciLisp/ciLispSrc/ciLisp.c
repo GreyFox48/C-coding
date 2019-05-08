@@ -2,6 +2,8 @@
 
 #define UNDEFINED_SYMBOL 2000 /* symbol was not defined */
 #define UNDEFINED_LAMBDA 2001 /* lambda fucntion was either not defined or variable of wrong type */
+#define NULL_EVAL 2002
+
 #define RAND_RANGE 1000 /* range of "rand" function */
 
 void yyerror(char *s) {
@@ -143,8 +145,17 @@ void freeNode(AST_NODE *p) {
 RETURN_TYPE eval(AST_NODE *p) {
     SYMBOL_TABLE_NODE *stn = NULL;
     RETURN_TYPE result, op1, op2;
+    result.type = NO_TYPE;
+    result.value.integer = 0;
+
     if (!p) {
         result.type = NO_TYPE;
+    }
+
+    if (!p) {
+        printf("Error:  Eval function received a null value.\n"
+        "file %s if function %s at line %d", __FILE__, __FUNCTION__, __LINE__);
+        exit(NULL_EVAL);
     }
 
     switch (p->type) {
@@ -581,13 +592,21 @@ RETURN_TYPE eval(AST_NODE *p) {
                     /* evaluate symbol's val to evaluate the custom function under the specified definition */
                     result = eval(stn->val);
 
+                    /* now enforce typing.  Functions always assume floats so only one check is needed. */
+                    if (stn->data_type == INTEGER_TYPE && result.type == REAL_TYPE) {
+                        /* no type warning as assuming user knows integer functions will always
+                         * be less accurate.
+                         */
+                        result.value.integer = result.value.real;
+                        result.type = INTEGER_TYPE;
+                    }
+
                     break;
                 default:
                     result.type = NO_TYPE;
             }
             return result;
         case SYMB_TYPE:
-            if (p)
             stn = resolveSymbol(p->data.symbol.name, p);
             if (stn != NULL) {
                 if (stn->type == VARIABLE_TYPE) {
@@ -600,7 +619,7 @@ RETURN_TYPE eval(AST_NODE *p) {
                     } else if (op1.type == INTEGER_TYPE && result.type == REAL_TYPE) {
                         result.value.real = op1.value.integer;
                     } else if (op1.type == REAL_TYPE && result.type == INTEGER_TYPE) {
-                        printf("Warning, symbol %s has a loss of precision form integer cast.\n", stn->ident);
+                        printf("Warning, symbol %s has a loss of precision from integer cast.\n", stn->ident);
                         result.value.integer = op1.value.real;
                     } else {
                         result.value.real = op1.value.real;
@@ -895,7 +914,6 @@ RETURN_TYPE addFunc(AST_NODE *p) {
     RETURN_TYPE answer, temp;
     AST_NODE *node = NULL;
     answer.type = INTEGER_TYPE;
-    answer.value.real = 0;
     answer.value.integer = 0;
 
     for (node = p->data.function.opList; node != NULL; node = node->next) {
@@ -925,8 +943,7 @@ RETURN_TYPE multFunc(AST_NODE *p) {
     RETURN_TYPE answer, temp;
     AST_NODE *node = NULL;
     answer.type = INTEGER_TYPE;
-    answer.value.real = 1; /* cheating for mult algorithm later. */
-    answer.value.integer = 1.0; /* 1.0 safe to be stored as a float */
+    answer.value.integer = 1; /* cheating for mult algorithm that follows. */
 
     for (node = p->data.function.opList; node != NULL; node = node->next) {
         temp = eval(node);
@@ -940,7 +957,7 @@ RETURN_TYPE multFunc(AST_NODE *p) {
         } else if (temp.type == REAL_TYPE && answer.type == REAL_TYPE) {
             answer.value.real *= temp.value.real;
         } else if (temp.type == INTEGER_TYPE && answer.type == REAL_TYPE) {
-            answer.value.real += temp.value.integer;
+            answer.value.real *= temp.value.integer;
         } else {
             printf("Error in %s in %s at line %d: Conditional loop failure.\n", __FILE__, __FUNCTION__, __LINE__);
         }
@@ -1031,7 +1048,7 @@ SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argLi
     SYMBOL_TABLE_NODE *s_node = NULL;
 
     s_node = malloc(sizeof(SYMBOL_TABLE_NODE));
-    if (NULL == s_node) {
+    if (s_node == NULL) {
         //check if out of memory I guess
         yyerror("Out of memory.");
     }
@@ -1057,3 +1074,5 @@ SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argLi
 
     return s_node;
 }
+
+// ((let (integer f lambda (x y) (add x y)))(f (sub 5 2) (mult 2 3)))
