@@ -1,6 +1,7 @@
 #include "ciLisp.h"
 
 #define UNDEFINED_SYMBOL 2000 /* symbol was not defined */
+#define UNDEFINED_LAMBDA 2001 /* lambda fucntion was either not defined or variable of wrong type */
 #define RAND_RANGE 1000 /* range of "rand" function */
 
 void yyerror(char *s) {
@@ -559,9 +560,10 @@ RETURN_TYPE eval(AST_NODE *p) {
                 case CUSTOM_FUNC:
                     stn = resolveSymbol(p->data.symbol.name, p);
 
-                    if ( stn != LAMBDA_TYPE ) {
+                    if ( stn->type != LAMBDA_TYPE ) {
                         printf("Error:  Custom function did not resolve to a lambda symbol"
                                " in file %s in function %s at line %d.\n  Exiting.\n", __FILE__, __FUNCTION__, __LINE__);
+                        exit(UNDEFINED_LAMBDA);
                     }
 
                     /* push onto stack */
@@ -572,8 +574,8 @@ RETURN_TYPE eval(AST_NODE *p) {
                     for( ; node != NULL; node = node->next, param = param->next ) {
                         stack = malloc(sizeof(STACK_NODE));
                         stack->val = eval(node);
-                        stack->next = param->next;
-                        param->next = stack;
+                        stack->next = param->stack;
+                        param->stack = stack;
                     }
 
                     /* evaluate symbol's val to evaluate the custom function under the specified definition */
@@ -604,23 +606,11 @@ RETURN_TYPE eval(AST_NODE *p) {
                         result.value.real = op1.value.real;
                     }
                 } else if (stn->type == ARG_TYPE) {
-
-        // REDO THIS SO FIRST THING OUT OF STACK IS THE FIRST VAR
-                    STACK_NODE *prev_stack = stn->stack;
-                    STACK_NODE *next_stack = stn->stack->next;
-
-                    /* special case if stack is only one deep */
-                    if ( next_stack == NULL ) {
-                        op1 = eval(prev_stack->val);
-                        free(prev_stack);
-                        stn->stack = NULL;
-                    }
-
-                    for (; next_stack->next != NULL; prev_stack = next_stack, next_stack = next_stack->next);
-
-                    op1 = eval(next_stack->val);
-                    free(next_stack);
-                    prev_stack->next == NULL;
+                    /* retrieve and pop from stack */
+                    STACK_NODE *stack = stn->stack;
+                    op1 = stack->val;
+                    stn->stack = stack->next;
+                    free(stack);
 
                     result.type = stn->data_type;
                     if (op1.type == INTEGER_TYPE && result.type == INTEGER_TYPE) {
@@ -662,10 +652,6 @@ RETURN_TYPE eval(AST_NODE *p) {
 
 }
 
-RETURN_TYPE customFunc(AST_NODE p) {
-
-}
-
 /*
  * Sets the given SYMBOL_TABLE_NODE node/chain's parent to the given AST_NODE
  * @parem symbol_table_node the symbol_table_nodes who's parent(s) will be set
@@ -685,63 +671,7 @@ AST_NODE *setSymbolTable(SYMBOL_TABLE_NODE *symbol_table_node, AST_NODE *s_expr)
         node->val->parent = s_expr;
     }
 
-
-
-
-
-    /* need to create variable stack.  This point *should* be safe. */
-    /*
-    for(node = s_expr->symbolTable; node != NULL; node = node->next) {
-        if (node == LAMBDA_TYPE) {
-            searchLambdaStacks(s_expr, s_expr->symbolTable->val->symbolTable, s_expr->symbolTable->ident);
-        }
-    }
-     */
-
-
-
     return s_expr;
-}
-
-void searchLambdaStacks(AST_NODE *s_expr, SYMBOL_TABLE_NODE *start, char *funcName)
-{
-    AST_NODE* node = NULL;
-
-    for(node = s_expr; node != NULL; node = node->next ) {
-        if(node->type == FUNC_TYPE) {
-            searchLambdaStacks(node->data.function.opList, start, funcName);
-        } else if(node->type == COND_TYPE) {
-            searchLambdaStacks(node->data.condition.cond, start, funcName);
-            searchLambdaStacks(node->data.condition.nonzero, start, funcName);
-            searchLambdaStacks(node->data.condition.zero, start, funcName);
-
-        }
-        if(!strcmp(funcName, node->data.function.name)) {
-            createLamdaStacks(node->data.function.opList, start);
-        }
-    }
-}
-
-/* try to link stack_nodes with their correct AST_nodes */
-void createLamdaStacks(AST_NODE *s_expr, SYMBOL_TABLE_NODE *start)
-{
-    AST_NODE *node = NULL;
-    SYMBOL_TABLE_NODE *param = NULL;
-    STACK_NODE *stack = NULL;
-    for(node = s_expr, param = start; node != NULL; node = node->next, param = param->next ) {
-        if (param->stack == NULL) {
-            param->stack = malloc(sizeof(STACK_NODE));
-            param->stack->next = NULL;
-            param->stack->val = node;
-            continue;
-        }
-        for(stack = param->stack; stack->next != NULL; stack = stack->next) {
-            stack->next = malloc(sizeof(STACK_NODE));
-            stack->next->next = NULL;
-            stack->next->val = node;
-        }
-    }
-
 }
 
 /*use to reference the value of the ast node.  This reference will then later be used to
@@ -978,7 +908,9 @@ RETURN_TYPE addFunc(AST_NODE *p) {
 
             answer.value.real += temp.value.real;
         } else if (temp.type == REAL_TYPE && answer.type == REAL_TYPE) {
-            answer.value.real += answer.value.real;
+            answer.value.real += temp.value.real;
+        } else if (temp.type == INTEGER_TYPE && answer.type == REAL_TYPE) {
+            answer.value.real += temp.value.integer;
         } else {
             printf("Error in %s in %s at line %d: Conditional loop failure.\n", __FILE__, __FUNCTION__, __LINE__);
         }
@@ -1007,6 +939,8 @@ RETURN_TYPE multFunc(AST_NODE *p) {
             answer.value.real *= temp.value.real;
         } else if (temp.type == REAL_TYPE && answer.type == REAL_TYPE) {
             answer.value.real *= temp.value.real;
+        } else if (temp.type == INTEGER_TYPE && answer.type == REAL_TYPE) {
+            answer.value.real += temp.value.integer;
         } else {
             printf("Error in %s in %s at line %d: Conditional loop failure.\n", __FILE__, __FUNCTION__, __LINE__);
         }
@@ -1087,19 +1021,20 @@ SYMBOL_TABLE_NODE *createArg(char *name)
     node->val = NULL;
     node->stack = NULL;
     node->next = NULL;
+    node->type = ARG_TYPE;
 
+    return node;
 }
 
 SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argList, AST_NODE *symbolList)
 {
     SYMBOL_TABLE_NODE *s_node = NULL;
-    s_node = malloc(sizeof(SYMBOL_TABLE_NODE));
 
+    s_node = malloc(sizeof(SYMBOL_TABLE_NODE));
     if (NULL == s_node) {
         //check if out of memory I guess
         yyerror("Out of memory.");
     }
-
 
     s_node->ident = malloc(sizeof(char) * (strlen(name) + 1));
     if (NULL == s_node->ident) {
@@ -1119,4 +1054,6 @@ SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argLi
     }
 
     symbolList->symbolTable = argList;
+
+    return s_node;
 }

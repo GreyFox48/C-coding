@@ -127,8 +127,5 @@ RETURN_TYPE multFunc(AST_NODE *p);
 RETURN_TYPE addFunc(AST_NODE *p);
 AST_NODE *conditional(AST_NODE *cond, AST_NODE *nonzero, AST_NODE *zero);
 SYMBOL_TABLE_NODE *createArg(char *name);
-void searchLambdaStacks(AST_NODE *s_expr, SYMBOL_TABLE_NODE *start, char *funcName);
-void createLamdaStacks(AST_NODE *s_expr, SYMBOL_TABLE_NODE *start);
-RETURN_TYPE customFunc(AST_NODE p);
-
+SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argList, AST_NODE *symbolList);
 #endif

@@ -27,7 +27,7 @@ program:
 
         if ($1) {
             RETURN_TYPE result = eval($1);
-            /*
+
             if(result.type == INTEGER_TYPE) {
                     printf("%ld", result.value.integer);
                 } else if(result.type == REAL_TYPE) {
@@ -35,7 +35,7 @@ program:
                 } else if (result.type == NO_TYPE) {
                     printf("No Type\n");
                 }
-                */
+
             freeNode($1);
 
         }
@@ -85,6 +85,10 @@ f_expr:
 	LPAREN FUNC s_expr_list RPAREN {
 		fprintf(stderr, "yacc: f_expr ::= LPAREN FUNC s_expr_list RPAREN\n");
 		$$ = function($2, $3);
+	} |
+	LPAREN SYMBOL s_expr_list RPAREN {
+		fprintf(stderr, "yacc: f_expr ::= LPAREN SYMBOL s_expr_list RPAREN\n");
+		$$ = function($2, $3);
 	};
 
 s_expr_list:
@@ -95,6 +99,7 @@ s_expr_list:
 	| {
 		$$ = NULL;
 	}
+	//useless?
 	| s_expr {
 		$$ = $1;
 	};

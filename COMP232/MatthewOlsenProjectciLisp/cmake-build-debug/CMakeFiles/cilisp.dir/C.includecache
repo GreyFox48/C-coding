@@ -6,22 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../ciLispSrc/ciLisp.h
-stdio.h
--
-stdlib.h
--
-stdarg.h
--
-string.h
--
-math.h
--
-stdbool.h
--
-ciLispParser.h
-../ciLispSrc/ciLispParser.h
-
 /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.c
 ciLisp.h
 /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/ciLispSrc/ciLisp.h
@@ -41,40 +25,6 @@ stdbool.h
 -
 ciLispParser.h
 /home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/ciLispSrc/ciLispParser.h
-
-/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispParser.c
-ciLisp.h
-/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLisp.h
-stddef.h
--
-libintl.h
--
-alloca.h
--
-malloc.h
--
-stdlib.h
--
-stdlib.h
--
-stdio.h
--
-
-/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispScanner.c
-stdio.h
--
-string.h
--
-errno.h
--
-stdlib.h
--
-inttypes.h
--
-ciLisp.h
-/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLisp.h
-unistd.h
--
 
 ciLispParser.h
 
