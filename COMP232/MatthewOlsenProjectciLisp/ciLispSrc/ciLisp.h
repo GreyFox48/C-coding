@@ -39,7 +39,7 @@ typedef enum oper { // must be in sync with funcs in resolveFunc()
     EQUAL_OPER, //19
     SMALLER_OPER, //20
     LARGER_OPER, //21
-    CUSTOM_FUNC=255
+    CUSTOM_FUNC = 255
 } OPER_TYPE;
 
 OPER_TYPE resolveFunc(char *);
@@ -48,7 +48,9 @@ typedef enum {
     NUM_TYPE, FUNC_TYPE, SYMB_TYPE, COND_TYPE
 } AST_NODE_TYPE;
 
-typedef enum { NO_TYPE, INTEGER_TYPE, REAL_TYPE } DATA_TYPE;
+typedef enum {
+    NO_TYPE, INTEGER_TYPE, REAL_TYPE
+} DATA_TYPE;
 
 typedef struct return_type {
     DATA_TYPE type;
@@ -72,7 +74,9 @@ typedef struct symbol_ast_node {
     char *name;
 } SYMBOL_AST_NODE;
 
-typedef enum { VARIABLE_TYPE, LAMBDA_TYPE, ARG_TYPE } SYMBOL_TYPE;
+typedef enum {
+    VARIABLE_TYPE, LAMBDA_TYPE, ARG_TYPE
+} SYMBOL_TYPE;
 
 typedef struct stack_node {
     RETURN_TYPE val;
@@ -108,24 +112,45 @@ typedef struct ast_node {
 } AST_NODE;
 
 AST_NODE *function(char *funcName, AST_NODE *s_list);
-void freeNode(AST_NODE *p);
 
 RETURN_TYPE eval(AST_NODE *ast);
 
 AST_NODE *setSymbolTable(SYMBOL_TABLE_NODE *symbol_table_node, AST_NODE *s_expr);
-AST_NODE *symbol (char *name);
+
+AST_NODE *symbol(char *name);
+
 SYMBOL_TABLE_NODE *createSymbol(char *type, char *name, AST_NODE *value);
+
 SYMBOL_TABLE_NODE *addSymbolToList(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE *newSymbol);
+
 SYMBOL_TABLE_NODE *findSymbol(SYMBOL_TABLE_NODE *symbolTable, SYMBOL_TABLE_NODE *symbol);
+
 SYMBOL_TABLE_NODE *resolveSymbol(char *name, AST_NODE *node);
+
 AST_NODE *real_number(double value);
+
 AST_NODE *integer_number(long value);
+
 DATA_TYPE resolveType(char *typeName);
+
 void printFunc(AST_NODE *p);
+
 AST_NODE *addOpToList(AST_NODE *newOp, AST_NODE *opTable);
+
 RETURN_TYPE multFunc(AST_NODE *p);
+
 RETURN_TYPE addFunc(AST_NODE *p);
+
 AST_NODE *conditional(AST_NODE *cond, AST_NODE *nonzero, AST_NODE *zero);
+
 SYMBOL_TABLE_NODE *createArg(char *name);
+
 SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argList, AST_NODE *symbolList);
+
+void freeAstNode(AST_NODE *p);
+
+void freeSymbolNode(SYMBOL_TABLE_NODE *p);
+
+void freeStack(STACK_NODE *stack);
+
 #endif

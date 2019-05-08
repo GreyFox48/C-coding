@@ -1264,7 +1264,7 @@ yyreduce:
                     printf("No Type\n");
                 }
 
-            freeNode((yyvsp[-1].astNode));
+            freeAstNode((yyvsp[-1].astNode));
 
         }
 

@@ -70,6 +70,7 @@ AST_NODE *integer_number(long value) {
     p->data.number.value.type = INTEGER_TYPE;
     p->data.number.value.value.integer = value;
     p->parent = NULL;
+    p->next = NULL;
 
 
     return p;
@@ -81,16 +82,19 @@ AST_NODE *integer_number(long value) {
 AST_NODE *function(char *funcName, AST_NODE *s_list) {
     AST_NODE *p = NULL;
     AST_NODE *child = NULL;
-    size_t nodeSize;
+    size_t nodeSize = 0;
 
     // allocate space for the fixed sie and the variable part (union)
     nodeSize = sizeof(AST_NODE);
-    if ((p = malloc(nodeSize)) == NULL)
+    p = malloc((nodeSize));
+    if (p == NULL) {
         yyerror("out of memory");
+    }
 
     p->type = FUNC_TYPE;
     p->parent = NULL;
     p->symbolTable = NULL;
+    p->next = NULL;
     p->data.function.name = funcName;
     p->data.function.opNum = 0;
 
@@ -105,37 +109,49 @@ AST_NODE *function(char *funcName, AST_NODE *s_list) {
     return p;
 }
 
-//
-// free a node
-//
-void freeNode(AST_NODE *p) {
-    SYMBOL_TABLE_NODE *stn = NULL;
-    AST_NODE *temp = NULL;
+void freeAstNode(AST_NODE *p) {
     if (!p)
         return;
 
-    // probably needs debugging
+    if (p->symbolTable != NULL) freeSymbolNode(p->symbolTable);
+    if (p->next != NULL) freeAstNode(p->next);
+
+    /* NUM_TYPES need no special case */
     if (p->type == FUNC_TYPE) {
         free(p->data.function.name);
-        for (temp = p->data.function.opList; temp != NULL; temp = temp->next) {
-            freeNode(temp);
-        }
+        if (p->data.function.opList != NULL) freeAstNode(p->data.function.opList);
     }
-
+    if (p->type == COND_TYPE) {
+        freeAstNode(p->data.condition.cond);
+        freeAstNode(p->data.condition.zero);
+        freeAstNode(p->data.condition.nonzero);
+    }
     if (p->type == SYMB_TYPE) {
         free(p->data.symbol.name);
     }
 
-    if (p->symbolTable != NULL) {
-        stn = p->symbolTable;
-        for (; stn != NULL; stn = stn->next) {
-            free(stn->ident);
-            freeNode(stn->val);
-        }
-    }
-
     free(p);
+
 }
+
+void freeSymbolNode(SYMBOL_TABLE_NODE *p) {
+
+    if (p->next != NULL) freeSymbolNode(p->next);
+    if (p->stack != NULL) freeStack(p->stack);
+
+    free(p->ident);
+    freeAstNode(p->val);
+    free(p);
+
+}
+
+void freeStack(STACK_NODE *stack) {
+    STACK_NODE *current = stack;
+    STACK_NODE *next = current->next;
+
+    for (; next != NULL; current = next, next = next->next) free(current);
+}
+
 
 //
 // evaluate an abstract syntax tree
@@ -154,7 +170,7 @@ RETURN_TYPE eval(AST_NODE *p) {
 
     if (!p) {
         printf("Error:  Eval function received a null value.\n"
-        "file %s if function %s at line %d", __FILE__, __FUNCTION__, __LINE__);
+               "file %s if function %s at line %d", __FILE__, __FUNCTION__, __LINE__);
         exit(NULL_EVAL);
     }
 
@@ -571,9 +587,10 @@ RETURN_TYPE eval(AST_NODE *p) {
                 case CUSTOM_FUNC:
                     stn = resolveSymbol(p->data.symbol.name, p);
 
-                    if ( stn->type != LAMBDA_TYPE ) {
+                    if (stn->type != LAMBDA_TYPE) {
                         printf("Error:  Custom function did not resolve to a lambda symbol"
-                               " in file %s in function %s at line %d.\n  Exiting.\n", __FILE__, __FUNCTION__, __LINE__);
+                               " in file %s in function %s at line %d.\n  Exiting.\n", __FILE__, __FUNCTION__,
+                               __LINE__);
                         exit(UNDEFINED_LAMBDA);
                     }
 
@@ -582,7 +599,7 @@ RETURN_TYPE eval(AST_NODE *p) {
                     AST_NODE *node = p->data.function.opList;
                     SYMBOL_TABLE_NODE *param = stn->val->symbolTable;
                     STACK_NODE *stack = NULL;
-                    for( ; node != NULL; node = node->next, param = param->next ) {
+                    for (; node != NULL; node = node->next, param = param->next) {
                         stack = malloc(sizeof(STACK_NODE));
                         stack->val = eval(node);
                         stack->next = param->stack;
@@ -747,6 +764,7 @@ SYMBOL_TABLE_NODE *createSymbol(char *type, char *name, AST_NODE *value) {
         return NULL;
     }
     node->next = NULL;
+    node->stack = NULL;
     node->data_type = REAL_TYPE;
     node->type = VARIABLE_TYPE;
 
@@ -1011,8 +1029,7 @@ AST_NODE *conditional(AST_NODE *cond, AST_NODE *nonzero, AST_NODE *zero) {
     return node;
 }
 
-SYMBOL_TABLE_NODE *createArg(char *name)
-{
+SYMBOL_TABLE_NODE *createArg(char *name) {
     SYMBOL_TABLE_NODE *node = NULL;
 
     // allocate memory for a SYMBOL_TABLE_NODE
@@ -1040,11 +1057,12 @@ SYMBOL_TABLE_NODE *createArg(char *name)
     node->next = NULL;
     node->type = ARG_TYPE;
 
+    free(name);
+
     return node;
 }
 
-SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argList, AST_NODE *symbolList)
-{
+SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argList, AST_NODE *symbolList) {
     SYMBOL_TABLE_NODE *s_node = NULL;
 
     s_node = malloc(sizeof(SYMBOL_TABLE_NODE));
@@ -1064,7 +1082,7 @@ SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argLi
     s_node->stack = NULL;
     s_node->next = NULL;
     s_node->type = LAMBDA_TYPE;
-    if ( (type == NULL) || (resolveType(type) == REAL_TYPE)) {
+    if ((type == NULL) || (resolveType(type) == REAL_TYPE)) {
         s_node->data_type = REAL_TYPE;
     } else {
         s_node->data_type = INTEGER_TYPE;
@@ -1072,7 +1090,12 @@ SYMBOL_TABLE_NODE *createLambda(char *type, char *name, SYMBOL_TABLE_NODE *argLi
 
     symbolList->symbolTable = argList;
 
+    free(name);
+    free(type);
+
     return s_node;
+
+
 }
 
-// ((let (integer f lambda (x y) (add x y)))(f (sub 5 2) (mult 2 3)))
+// ((let (a 1) (f lambda (x y) (add x y)))(f 2 (f a 3)))

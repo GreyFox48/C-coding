@@ -36,7 +36,7 @@ program:
                     printf("No Type\n");
                 }
 
-            freeNode($1);
+            freeAstNode($1);
 
         }
 
