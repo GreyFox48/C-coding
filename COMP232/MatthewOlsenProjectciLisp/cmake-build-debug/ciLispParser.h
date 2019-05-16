@@ -48,17 +48,18 @@ extern int yydebug;
     FUNC = 258,
     SYMBOL = 259,
     TYPE = 260,
-    REAL_NUMBER = 261,
-    INTEGER_NUMBER = 262,
-    LPAREN = 263,
-    RPAREN = 264,
-    LET = 265,
-    EOL = 266,
-    QUIT = 267,
-    INTEGER = 268,
-    REAL = 269,
-    COND = 270,
-    LAMBDA = 271
+    STRING = 261,
+    REAL_NUMBER = 262,
+    INTEGER_NUMBER = 263,
+    LPAREN = 264,
+    RPAREN = 265,
+    LET = 266,
+    EOL = 267,
+    QUIT = 268,
+    INTEGER = 269,
+    REAL = 270,
+    COND = 271,
+    LAMBDA = 272
   };
 #endif
 
@@ -74,7 +75,7 @@ union YYSTYPE
     struct ast_node *astNode;
     struct symbol_table_node *symbolNode;
 
-#line 78 "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispParser.h" /* yacc.c:1909  */
+#line 79 "/home/suspiciousfox/git_repo/C-coding/COMP232/MatthewOlsenProjectciLisp/cmake-build-debug/ciLispParser.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

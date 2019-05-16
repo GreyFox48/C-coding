@@ -49,7 +49,7 @@ typedef enum {
 } AST_NODE_TYPE;
 
 typedef enum {
-    NO_TYPE, INTEGER_TYPE, REAL_TYPE
+    NO_TYPE, INTEGER_TYPE, REAL_TYPE, STRING_TYPE
 } DATA_TYPE;
 
 typedef struct return_type {
@@ -57,6 +57,7 @@ typedef struct return_type {
     union {
         double real;
         long integer;
+        char *string;
     } value;
 } RETURN_TYPE;
 
@@ -152,5 +153,7 @@ void freeAstNode(AST_NODE *p);
 void freeSymbolNode(SYMBOL_TABLE_NODE *p);
 
 void freeStack(STACK_NODE *stack);
+
+AST_NODE *string(char *s);
 
 #endif
